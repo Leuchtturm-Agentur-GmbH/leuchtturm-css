@@ -1,0 +1,58 @@
+/*
+	Preset «freudig»: grosse und kräftige Schrift, satte Farben, grosse Radien, weiche Schatten, grosszügige Abstände.
+	Vollständiger Satz von Grundwerten. Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+*/
+
+@layer grundwerte {
+	:root {
+		--vw-min: 360;
+		--vw-max: 1440;
+
+		--type-min: 17;
+		--type-max: 20;
+		--type-ratio-min: 1.25;
+		--type-ratio-max: 1.333;
+		--heading-weight: 800;
+		--heading-tracking: -0.02;
+		--heading-leading: 1.05;
+		--text-leading: 1.65;
+		--heading-font-family: 'Nunito', 'Arial Rounded MT Bold', 'Trebuchet MS', system-ui, sans-serif;
+		--text-font-family: 'Nunito', 'Trebuchet MS', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+		--space-min: 20;
+		--space-max: 32;
+		--space-ratio: 1.6;
+		--section-min: 80;
+		--section-max: 176;
+
+		--radius-base: 20;
+		--line-width: 2;
+		--line-width-strong: 3;
+
+		--shadow-y: 8;
+		--shadow-blur: 24;
+		--shadow-opacity: 0.18;
+
+		--shade-ultra-light: 0.88;
+		--shade-light: 0.62;
+		--shade-dark: 0.3;
+		--shade-ultra-dark: 0.62;
+		--color-saturation: 1;
+
+		--content-max: 1240;
+		--gutter-min: 20;
+		--gutter-max: 72;
+
+		--primary: #f2542d;
+		--secondary: #ffb627;
+		--tertiary: #17a398;
+		--accent: #7b4dff;
+		--action: #e0401c;
+		--base: #2a1b3d;
+		--neutral: #7a6f80;
+		--bg-light: #fff1e2;
+		--bg-dark: #2a1b3d;
+		--text-light: #fffaf3;
+		--text-dark: #2a1b3d;
+	}
+}

@@ -2,6 +2,10 @@
 	leuchtturm-css
 	Konzept: frischknecht-brain/agentur/leuchtturm-css.md
 	Reihenfolge der Layer: Die Site überschreibt im letzten Layer, ohne !important.
+	Eine Site setzt danach nur Grundwerte, z. B. mit einem Preset aus src/presets/ oder dem Block aus dem Hub.
 */
 
 @layer reset, grundwerte, tokens, base, layout, components, utilities, site;
+
+@import url('grundwerte.css');
+@import url('tokens.css');

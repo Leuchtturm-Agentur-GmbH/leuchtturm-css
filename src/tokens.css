@@ -1,0 +1,325 @@
+/*
+	Tokens: aus den Grundwerten gerechnet. Nie direkt setzen, immer die Grundwerte ändern.
+	Namen wie in ACSS (etch-studio/agent-docs/acss/). Wo ACSS keinen Namen hat, steht es dabei.
+	Zwischenwerte mit «_» am Anfang sind intern und können sich ohne neue Hauptversion ändern.
+*/
+
+@layer tokens {
+	:root {
+		/* Umrechnung: 1px als rem, und wie weit die Ansicht zwischen --vw-min und --vw-max steht (als Länge von 0 bis 1px) */
+		--_rem: 0.0625rem;
+		--_fluid: calc((100vw - var(--vw-min) * 1px) / (var(--vw-max) - var(--vw-min)));
+
+		/* Schrift: Stufe n ist Grundgrösse × Verhältnis hoch n, klein mit --type-*-min, gross mit --type-*-max */
+		--text-xs-min: calc(var(--type-min) * pow(var(--type-ratio-min), -1));
+		--text-xs-max: calc(var(--type-max) * pow(var(--type-ratio-max), -1));
+		--text-xs: clamp(
+			calc(var(--text-xs-min) * var(--_rem)),
+			calc(var(--text-xs-min) * var(--_rem) + (var(--text-xs-max) - var(--text-xs-min)) * var(--_fluid)),
+			calc(var(--text-xs-max) * var(--_rem))
+		);
+		--text-s-min: calc(var(--type-min) * pow(var(--type-ratio-min), -0.5));
+		--text-s-max: calc(var(--type-max) * pow(var(--type-ratio-max), -0.5));
+		--text-s: clamp(
+			calc(var(--text-s-min) * var(--_rem)),
+			calc(var(--text-s-min) * var(--_rem) + (var(--text-s-max) - var(--text-s-min)) * var(--_fluid)),
+			calc(var(--text-s-max) * var(--_rem))
+		);
+		--text-m-min: calc(var(--type-min) * pow(var(--type-ratio-min), 0));
+		--text-m-max: calc(var(--type-max) * pow(var(--type-ratio-max), 0));
+		--text-m: clamp(
+			calc(var(--text-m-min) * var(--_rem)),
+			calc(var(--text-m-min) * var(--_rem) + (var(--text-m-max) - var(--text-m-min)) * var(--_fluid)),
+			calc(var(--text-m-max) * var(--_rem))
+		);
+		--text-l-min: calc(var(--type-min) * pow(var(--type-ratio-min), 1));
+		--text-l-max: calc(var(--type-max) * pow(var(--type-ratio-max), 1));
+		--text-l: clamp(
+			calc(var(--text-l-min) * var(--_rem)),
+			calc(var(--text-l-min) * var(--_rem) + (var(--text-l-max) - var(--text-l-min)) * var(--_fluid)),
+			calc(var(--text-l-max) * var(--_rem))
+		);
+		--text-xl-min: calc(var(--type-min) * pow(var(--type-ratio-min), 2));
+		--text-xl-max: calc(var(--type-max) * pow(var(--type-ratio-max), 2));
+		--text-xl: clamp(
+			calc(var(--text-xl-min) * var(--_rem)),
+			calc(var(--text-xl-min) * var(--_rem) + (var(--text-xl-max) - var(--text-xl-min)) * var(--_fluid)),
+			calc(var(--text-xl-max) * var(--_rem))
+		);
+		--text-xxl-min: calc(var(--type-min) * pow(var(--type-ratio-min), 3));
+		--text-xxl-max: calc(var(--type-max) * pow(var(--type-ratio-max), 3));
+		--text-xxl: clamp(
+			calc(var(--text-xxl-min) * var(--_rem)),
+			calc(var(--text-xxl-min) * var(--_rem) + (var(--text-xxl-max) - var(--text-xxl-min)) * var(--_fluid)),
+			calc(var(--text-xxl-max) * var(--_rem))
+		);
+
+		--h1-min: calc(var(--type-min) * pow(var(--type-ratio-min), 5));
+		--h1-max: calc(var(--type-max) * pow(var(--type-ratio-max), 5));
+		--h1: clamp(
+			calc(var(--h1-min) * var(--_rem)),
+			calc(var(--h1-min) * var(--_rem) + (var(--h1-max) - var(--h1-min)) * var(--_fluid)),
+			calc(var(--h1-max) * var(--_rem))
+		);
+		--h2-min: calc(var(--type-min) * pow(var(--type-ratio-min), 4));
+		--h2-max: calc(var(--type-max) * pow(var(--type-ratio-max), 4));
+		--h2: clamp(
+			calc(var(--h2-min) * var(--_rem)),
+			calc(var(--h2-min) * var(--_rem) + (var(--h2-max) - var(--h2-min)) * var(--_fluid)),
+			calc(var(--h2-max) * var(--_rem))
+		);
+		--h3-min: calc(var(--type-min) * pow(var(--type-ratio-min), 3));
+		--h3-max: calc(var(--type-max) * pow(var(--type-ratio-max), 3));
+		--h3: clamp(
+			calc(var(--h3-min) * var(--_rem)),
+			calc(var(--h3-min) * var(--_rem) + (var(--h3-max) - var(--h3-min)) * var(--_fluid)),
+			calc(var(--h3-max) * var(--_rem))
+		);
+		--h4-min: calc(var(--type-min) * pow(var(--type-ratio-min), 2));
+		--h4-max: calc(var(--type-max) * pow(var(--type-ratio-max), 2));
+		--h4: clamp(
+			calc(var(--h4-min) * var(--_rem)),
+			calc(var(--h4-min) * var(--_rem) + (var(--h4-max) - var(--h4-min)) * var(--_fluid)),
+			calc(var(--h4-max) * var(--_rem))
+		);
+		--h5-min: calc(var(--type-min) * pow(var(--type-ratio-min), 1));
+		--h5-max: calc(var(--type-max) * pow(var(--type-ratio-max), 1));
+		--h5: clamp(
+			calc(var(--h5-min) * var(--_rem)),
+			calc(var(--h5-min) * var(--_rem) + (var(--h5-max) - var(--h5-min)) * var(--_fluid)),
+			calc(var(--h5-max) * var(--_rem))
+		);
+		--h6-min: calc(var(--type-min) * pow(var(--type-ratio-min), 0));
+		--h6-max: calc(var(--type-max) * pow(var(--type-ratio-max), 0));
+		--h6: clamp(
+			calc(var(--h6-min) * var(--_rem)),
+			calc(var(--h6-min) * var(--_rem) + (var(--h6-max) - var(--h6-min)) * var(--_fluid)),
+			calc(var(--h6-max) * var(--_rem))
+		);
+
+		--heading-font-weight: var(--heading-weight);
+		--heading-letter-spacing: calc(var(--heading-tracking) * 1em);
+		--heading-line-height: var(--heading-leading);
+		--text-line-height: var(--text-leading);
+
+		/* Abstände: Stufe n ist Grundschritt × --space-ratio hoch n */
+		--space-xs-min: calc(var(--space-min) * pow(var(--space-ratio), -2));
+		--space-xs-max: calc(var(--space-max) * pow(var(--space-ratio), -2));
+		--space-xs: clamp(
+			calc(var(--space-xs-min) * var(--_rem)),
+			calc(var(--space-xs-min) * var(--_rem) + (var(--space-xs-max) - var(--space-xs-min)) * var(--_fluid)),
+			calc(var(--space-xs-max) * var(--_rem))
+		);
+		--space-s-min: calc(var(--space-min) * pow(var(--space-ratio), -1));
+		--space-s-max: calc(var(--space-max) * pow(var(--space-ratio), -1));
+		--space-s: clamp(
+			calc(var(--space-s-min) * var(--_rem)),
+			calc(var(--space-s-min) * var(--_rem) + (var(--space-s-max) - var(--space-s-min)) * var(--_fluid)),
+			calc(var(--space-s-max) * var(--_rem))
+		);
+		--space-m-min: calc(var(--space-min) * pow(var(--space-ratio), 0));
+		--space-m-max: calc(var(--space-max) * pow(var(--space-ratio), 0));
+		--space-m: clamp(
+			calc(var(--space-m-min) * var(--_rem)),
+			calc(var(--space-m-min) * var(--_rem) + (var(--space-m-max) - var(--space-m-min)) * var(--_fluid)),
+			calc(var(--space-m-max) * var(--_rem))
+		);
+		--space-l-min: calc(var(--space-min) * pow(var(--space-ratio), 1));
+		--space-l-max: calc(var(--space-max) * pow(var(--space-ratio), 1));
+		--space-l: clamp(
+			calc(var(--space-l-min) * var(--_rem)),
+			calc(var(--space-l-min) * var(--_rem) + (var(--space-l-max) - var(--space-l-min)) * var(--_fluid)),
+			calc(var(--space-l-max) * var(--_rem))
+		);
+		--space-xl-min: calc(var(--space-min) * pow(var(--space-ratio), 2));
+		--space-xl-max: calc(var(--space-max) * pow(var(--space-ratio), 2));
+		--space-xl: clamp(
+			calc(var(--space-xl-min) * var(--_rem)),
+			calc(var(--space-xl-min) * var(--_rem) + (var(--space-xl-max) - var(--space-xl-min)) * var(--_fluid)),
+			calc(var(--space-xl-max) * var(--_rem))
+		);
+		--space-xxl-min: calc(var(--space-min) * pow(var(--space-ratio), 3));
+		--space-xxl-max: calc(var(--space-max) * pow(var(--space-ratio), 3));
+		--space-xxl: clamp(
+			calc(var(--space-xxl-min) * var(--_rem)),
+			calc(var(--space-xxl-min) * var(--_rem) + (var(--space-xxl-max) - var(--space-xxl-min)) * var(--_fluid)),
+			calc(var(--space-xxl-max) * var(--_rem))
+		);
+
+		/* Sections: halbe Schritte von --space-ratio, damit xxl nicht ausufert */
+		--section-space-xs-min: calc(var(--section-min) * pow(var(--space-ratio), -1));
+		--section-space-xs-max: calc(var(--section-max) * pow(var(--space-ratio), -1));
+		--section-space-xs: clamp(
+			calc(var(--section-space-xs-min) * var(--_rem)),
+			calc(
+				var(--section-space-xs-min) * var(--_rem) + (var(--section-space-xs-max) - var(--section-space-xs-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-xs-max) * var(--_rem))
+		);
+		--section-space-s-min: calc(var(--section-min) * pow(var(--space-ratio), -0.5));
+		--section-space-s-max: calc(var(--section-max) * pow(var(--space-ratio), -0.5));
+		--section-space-s: clamp(
+			calc(var(--section-space-s-min) * var(--_rem)),
+			calc(
+				var(--section-space-s-min) * var(--_rem) + (var(--section-space-s-max) - var(--section-space-s-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-s-max) * var(--_rem))
+		);
+		--section-space-m-min: calc(var(--section-min) * pow(var(--space-ratio), 0));
+		--section-space-m-max: calc(var(--section-max) * pow(var(--space-ratio), 0));
+		--section-space-m: clamp(
+			calc(var(--section-space-m-min) * var(--_rem)),
+			calc(
+				var(--section-space-m-min) * var(--_rem) + (var(--section-space-m-max) - var(--section-space-m-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-m-max) * var(--_rem))
+		);
+		--section-space-l-min: calc(var(--section-min) * pow(var(--space-ratio), 0.5));
+		--section-space-l-max: calc(var(--section-max) * pow(var(--space-ratio), 0.5));
+		--section-space-l: clamp(
+			calc(var(--section-space-l-min) * var(--_rem)),
+			calc(
+				var(--section-space-l-min) * var(--_rem) + (var(--section-space-l-max) - var(--section-space-l-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-l-max) * var(--_rem))
+		);
+		--section-space-xl-min: calc(var(--section-min) * pow(var(--space-ratio), 1));
+		--section-space-xl-max: calc(var(--section-max) * pow(var(--space-ratio), 1));
+		--section-space-xl: clamp(
+			calc(var(--section-space-xl-min) * var(--_rem)),
+			calc(
+				var(--section-space-xl-min) * var(--_rem) + (var(--section-space-xl-max) - var(--section-space-xl-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-xl-max) * var(--_rem))
+		);
+		--section-space-xxl-min: calc(var(--section-min) * pow(var(--space-ratio), 1.5));
+		--section-space-xxl-max: calc(var(--section-max) * pow(var(--space-ratio), 1.5));
+		--section-space-xxl: clamp(
+			calc(var(--section-space-xxl-min) * var(--_rem)),
+			calc(
+				var(--section-space-xxl-min) * var(--_rem) + (var(--section-space-xxl-max) - var(--section-space-xxl-min)) *
+					var(--_fluid)
+			),
+			calc(var(--section-space-xxl-max) * var(--_rem))
+		);
+
+		/* Breiten und Abstände mit Bedeutung */
+		--content-width: calc(var(--content-max) * var(--_rem));
+		--gutter: clamp(
+			calc(var(--gutter-min) * var(--_rem)),
+			calc(var(--gutter-min) * var(--_rem) + (var(--gutter-max) - var(--gutter-min)) * var(--_fluid)),
+			calc(var(--gutter-max) * var(--_rem))
+		);
+		--content-gap: var(--space-m);
+		--container-gap: var(--space-xl);
+		--grid-gap: var(--space-m);
+
+		/* Radien: --radius ist der Grundradius, die Stufen sind Vielfache davon */
+		--radius: calc(var(--radius-base) * var(--_rem));
+		--radius-s: calc(var(--radius) * 0.5);
+		--radius-m: var(--radius);
+		--radius-l: calc(var(--radius) * 2);
+		--radius-xl: calc(var(--radius) * 3);
+
+		/* Rahmen */
+		--border-size: calc(var(--line-width) * 1px);
+		--border-style: solid;
+		--border-color-dark: color-mix(in oklab, var(--text-dark) 20%, transparent);
+		--border-color-light: color-mix(in oklab, var(--text-light) 25%, transparent);
+		--border: var(--border-size) var(--border-style) var(--border-color-dark);
+		/* nicht in ACSS: kräftige Linie, z. B. für Trenner und Fokus */
+		--border-size-strong: calc(var(--line-width-strong) * 1px);
+		--border-strong: var(--border-size-strong) var(--border-style) var(--text-dark);
+
+		/* Schatten: 1 knapp, 2 normal, 3 weit. Farbe aus der dunkelsten Stufe von --base */
+		--_shadow-color: color-mix(in oklab, var(--base-ultra-dark) calc(var(--shadow-opacity) * 100%), transparent);
+		--box-shadow-1: 0 calc(var(--shadow-y) * 0.5px) calc(var(--shadow-blur) * 0.5px) var(--_shadow-color);
+		--box-shadow-2: 0 calc(var(--shadow-y) * 1px) calc(var(--shadow-blur) * 1px) var(--_shadow-color);
+		--box-shadow-3: 0 calc(var(--shadow-y) * 2px) calc(var(--shadow-blur) * 2px) var(--_shadow-color);
+
+		/* Feste Farben */
+		--white: #fff;
+		--black: #000;
+
+		/*
+			Farbstufen pro Rolle. Die Rolle selbst bleibt genau der Wert aus der Marke.
+			Die Stufen gehen von der Rolle mit --color-saturation aus (in oklch zum Grau gleicher Helligkeit gemischt,
+			«none» übernimmt Helligkeit und Ton der Rolle) und mischen dann Weiss bzw. Schwarz dazu.
+			Hover: 15% Schwarz. Später, wenn «oklch(from …)» Baseline Widely available ist, feste Helligkeiten wie ACSS.
+		*/
+		--_primary: color-mix(in oklch, var(--primary) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--primary-ultra-light: color-mix(in oklab, var(--_primary), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--primary-light: color-mix(in oklab, var(--_primary), var(--white) calc(var(--shade-light) * 100%));
+		--primary-semi-light: color-mix(in oklab, var(--_primary), var(--white) calc(var(--shade-light) * 50%));
+		--primary-semi-dark: color-mix(in oklab, var(--_primary), var(--black) calc(var(--shade-dark) * 50%));
+		--primary-dark: color-mix(in oklab, var(--_primary), var(--black) calc(var(--shade-dark) * 100%));
+		--primary-ultra-dark: color-mix(in oklab, var(--_primary), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--primary-hover: color-mix(in oklab, var(--primary), var(--black) 15%);
+
+		--_secondary: color-mix(in oklch, var(--secondary) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--secondary-ultra-light: color-mix(in oklab, var(--_secondary), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--secondary-light: color-mix(in oklab, var(--_secondary), var(--white) calc(var(--shade-light) * 100%));
+		--secondary-semi-light: color-mix(in oklab, var(--_secondary), var(--white) calc(var(--shade-light) * 50%));
+		--secondary-semi-dark: color-mix(in oklab, var(--_secondary), var(--black) calc(var(--shade-dark) * 50%));
+		--secondary-dark: color-mix(in oklab, var(--_secondary), var(--black) calc(var(--shade-dark) * 100%));
+		--secondary-ultra-dark: color-mix(in oklab, var(--_secondary), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--secondary-hover: color-mix(in oklab, var(--secondary), var(--black) 15%);
+
+		--_tertiary: color-mix(in oklch, var(--tertiary) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--tertiary-ultra-light: color-mix(in oklab, var(--_tertiary), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--tertiary-light: color-mix(in oklab, var(--_tertiary), var(--white) calc(var(--shade-light) * 100%));
+		--tertiary-semi-light: color-mix(in oklab, var(--_tertiary), var(--white) calc(var(--shade-light) * 50%));
+		--tertiary-semi-dark: color-mix(in oklab, var(--_tertiary), var(--black) calc(var(--shade-dark) * 50%));
+		--tertiary-dark: color-mix(in oklab, var(--_tertiary), var(--black) calc(var(--shade-dark) * 100%));
+		--tertiary-ultra-dark: color-mix(in oklab, var(--_tertiary), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--tertiary-hover: color-mix(in oklab, var(--tertiary), var(--black) 15%);
+
+		--_accent: color-mix(in oklch, var(--accent) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--accent-ultra-light: color-mix(in oklab, var(--_accent), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--accent-light: color-mix(in oklab, var(--_accent), var(--white) calc(var(--shade-light) * 100%));
+		--accent-semi-light: color-mix(in oklab, var(--_accent), var(--white) calc(var(--shade-light) * 50%));
+		--accent-semi-dark: color-mix(in oklab, var(--_accent), var(--black) calc(var(--shade-dark) * 50%));
+		--accent-dark: color-mix(in oklab, var(--_accent), var(--black) calc(var(--shade-dark) * 100%));
+		--accent-ultra-dark: color-mix(in oklab, var(--_accent), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--accent-hover: color-mix(in oklab, var(--accent), var(--black) 15%);
+
+		--_action: color-mix(in oklch, var(--action) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--action-ultra-light: color-mix(in oklab, var(--_action), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--action-light: color-mix(in oklab, var(--_action), var(--white) calc(var(--shade-light) * 100%));
+		--action-semi-light: color-mix(in oklab, var(--_action), var(--white) calc(var(--shade-light) * 50%));
+		--action-semi-dark: color-mix(in oklab, var(--_action), var(--black) calc(var(--shade-dark) * 50%));
+		--action-dark: color-mix(in oklab, var(--_action), var(--black) calc(var(--shade-dark) * 100%));
+		--action-ultra-dark: color-mix(in oklab, var(--_action), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--action-hover: color-mix(in oklab, var(--action), var(--black) 15%);
+
+		--_base: color-mix(in oklch, var(--base) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--base-ultra-light: color-mix(in oklab, var(--_base), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--base-light: color-mix(in oklab, var(--_base), var(--white) calc(var(--shade-light) * 100%));
+		--base-semi-light: color-mix(in oklab, var(--_base), var(--white) calc(var(--shade-light) * 50%));
+		--base-semi-dark: color-mix(in oklab, var(--_base), var(--black) calc(var(--shade-dark) * 50%));
+		--base-dark: color-mix(in oklab, var(--_base), var(--black) calc(var(--shade-dark) * 100%));
+		--base-ultra-dark: color-mix(in oklab, var(--_base), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--base-hover: color-mix(in oklab, var(--base), var(--black) 15%);
+
+		--_neutral: color-mix(in oklch, var(--neutral) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--neutral-ultra-light: color-mix(in oklab, var(--_neutral), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--neutral-light: color-mix(in oklab, var(--_neutral), var(--white) calc(var(--shade-light) * 100%));
+		--neutral-semi-light: color-mix(in oklab, var(--_neutral), var(--white) calc(var(--shade-light) * 50%));
+		--neutral-semi-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-dark) * 50%));
+		--neutral-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-dark) * 100%));
+		--neutral-ultra-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--neutral-hover: color-mix(in oklab, var(--neutral), var(--black) 15%);
+
+		/* Kontext: --bg-light, --bg-dark, --text-light und --text-dark sind Grundwerte (Rollen im Hub) */
+		--bg-ultra-light: color-mix(in oklab, var(--bg-light), var(--white) 60%);
+		--bg-ultra-dark: color-mix(in oklab, var(--bg-dark), var(--black) 35%);
+		--body-bg-color: var(--bg-ultra-light);
+		--text-dark-muted: color-mix(in oklab, var(--text-dark) 75%, transparent);
+		--text-light-muted: color-mix(in oklab, var(--text-light) 75%, transparent);
+	}
+}

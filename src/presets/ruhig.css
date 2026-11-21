@@ -1,0 +1,58 @@
+/*
+	Preset «ruhig»: leichte Überschriften mit Serifen, viel Zeilenabstand, sehr grosse Sections, weiche Radien, kaum Schatten, gedeckte Farben.
+	Vollständiger Satz von Grundwerten. Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+*/
+
+@layer grundwerte {
+	:root {
+		--vw-min: 360;
+		--vw-max: 1440;
+
+		--type-min: 17;
+		--type-max: 19;
+		--type-ratio-min: 1.2;
+		--type-ratio-max: 1.25;
+		--heading-weight: 400;
+		--heading-tracking: 0;
+		--heading-leading: 1.2;
+		--text-leading: 1.75;
+		--heading-font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+		--text-font-family: 'Avenir Next', Avenir, 'Segoe UI', system-ui, sans-serif;
+
+		--space-min: 20;
+		--space-max: 28;
+		--space-ratio: 1.5;
+		--section-min: 96;
+		--section-max: 192;
+
+		--radius-base: 8;
+		--line-width: 1;
+		--line-width-strong: 1;
+
+		--shadow-y: 2;
+		--shadow-blur: 24;
+		--shadow-opacity: 0.06;
+
+		--shade-ultra-light: 0.93;
+		--shade-light: 0.75;
+		--shade-dark: 0.3;
+		--shade-ultra-dark: 0.65;
+		--color-saturation: 0.6;
+
+		--content-max: 1120;
+		--gutter-min: 24;
+		--gutter-max: 96;
+
+		--primary: #6b7f5e;
+		--secondary: #b08d6e;
+		--tertiary: #8a9bb0;
+		--accent: #c27c63;
+		--action: #55684a;
+		--base: #2f3a33;
+		--neutral: #8b8a84;
+		--bg-light: #f4f1ec;
+		--bg-dark: #2f3a33;
+		--text-light: #f7f5f0;
+		--text-dark: #2f3a33;
+	}
+}

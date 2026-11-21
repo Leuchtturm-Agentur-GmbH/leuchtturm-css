@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="de-CH">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>leuchtturm-css: Testseite</title>
+		<link rel="stylesheet" href="../src/leuchtturm.css" />
+		<link rel="stylesheet" id="preset" href="../src/presets/technisch.css" />
+		<style>
+			/* Nur für die Testseite, nur mit Tokens. Reset und Grundstile kommen später. */
+			@layer site {
+				*,
+				*::before,
+				*::after {
+					box-sizing: border-box;
+				}
+				body {
+					margin: 0;
+					background: var(--body-bg-color);
+					color: var(--text-dark);
+					font-family: var(--text-font-family);
+					font-size: var(--text-m);
+					line-height: var(--text-line-height);
+				}
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					margin: 0;
+					font-family: var(--heading-font-family);
+					font-weight: var(--heading-font-weight);
+					letter-spacing: var(--heading-letter-spacing);
+					line-height: var(--heading-line-height);
+					text-wrap: balance;
+					hyphens: auto;
+					overflow-wrap: break-word;
+				}
+				h1 {
+					font-size: var(--h1);
+				}
+				h2 {
+					font-size: var(--h2);
+				}
+				h3 {
+					font-size: var(--h3);
+				}
+				h4 {
+					font-size: var(--h4);
+				}
+				h5 {
+					font-size: var(--h5);
+				}
+				h6 {
+					font-size: var(--h6);
+				}
+				p {
+					margin: 0;
+					max-inline-size: 65ch;
+					text-wrap: pretty;
+				}
+				section {
+					padding-block: var(--section-space-m);
+					padding-inline: var(--gutter);
+				}
+				section > div {
+					display: grid;
+					gap: var(--container-gap);
+					max-inline-size: var(--content-width);
+					margin-inline: auto;
+				}
+				.stack {
+					display: grid;
+					gap: var(--content-gap);
+				}
+				.grid-3 {
+					display: grid;
+					gap: var(--grid-gap);
+					grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+				}
+
+				/* Leiste mit den Presets */
+				.leiste {
+					position: sticky;
+					inset-block-start: 0;
+					z-index: 1;
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--space-s);
+					align-items: center;
+					padding: var(--space-xs) var(--gutter);
+					background: var(--bg-dark);
+					color: var(--text-light);
+					font-size: var(--text-s);
+				}
+				.leiste button {
+					padding: var(--space-xs) var(--space-s);
+					border: var(--border-size) var(--border-style) var(--border-color-light);
+					border-radius: var(--radius);
+					background: transparent;
+					color: inherit;
+					font: inherit;
+					cursor: pointer;
+				}
+				.leiste button[aria-pressed='true'] {
+					background: var(--action);
+					border-color: var(--action);
+				}
+				.leiste output {
+					margin-inline-start: auto;
+					color: var(--text-light-muted);
+				}
+
+				/* Muster */
+				.hero {
+					background: var(--bg-light);
+				}
+				.eyebrow {
+					color: var(--primary);
+					font-size: var(--text-s);
+					font-weight: 600;
+					letter-spacing: 0.08em;
+					text-transform: uppercase;
+				}
+				.lead {
+					color: var(--text-dark-muted);
+					font-size: var(--text-l);
+				}
+				.knopf {
+					display: inline-block;
+					justify-self: start;
+					padding: var(--space-xs) var(--space-m);
+					border-radius: var(--radius);
+					background: var(--action);
+					color: var(--white);
+					font-weight: 600;
+					text-decoration: none;
+				}
+				.knopf:hover {
+					background: var(--action-hover);
+				}
+				.karte {
+					display: grid;
+					gap: var(--space-s);
+					align-content: start;
+					padding: var(--space-l);
+					border: var(--border);
+					border-radius: var(--radius-l);
+					background: var(--white);
+					box-shadow: var(--box-shadow-2);
+				}
+				.karte--primary {
+					border-color: transparent;
+					background: var(--primary-ultra-light);
+				}
+				.karte--dunkel {
+					border-color: var(--border-color-light);
+					background: var(--bg-dark);
+					color: var(--text-light);
+				}
+				.karte--dunkel p {
+					color: var(--text-light-muted);
+				}
+				.karte p {
+					color: var(--text-dark-muted);
+				}
+
+				/* Skalen */
+				.skala {
+					display: grid;
+					gap: var(--space-xs);
+				}
+				.skala > div {
+					display: grid;
+					grid-template-columns: minmax(0, 10rem) 3.5rem minmax(0, 1fr);
+					overflow: hidden;
+					white-space: nowrap;
+					gap: var(--space-s);
+					align-items: center;
+					padding-block-end: var(--space-xs);
+					border-block-end: var(--border);
+				}
+				.skala code,
+				.wert {
+					color: var(--text-dark-muted);
+					font-family: ui-monospace, Menlo, monospace;
+					font-size: var(--text-xs);
+				}
+				.balken {
+					block-size: 0.75rem;
+					background: var(--primary-semi-light);
+					border-radius: var(--radius-s);
+				}
+				.radien {
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--space-m);
+				}
+				.radien > div {
+					display: grid;
+					place-items: center;
+					inline-size: 7rem;
+					block-size: 5rem;
+					border: var(--border-strong);
+					background: var(--white);
+				}
+
+				/* Farben */
+				.farben {
+					display: grid;
+					gap: var(--space-xs);
+				}
+				.farbe {
+					display: grid;
+					grid-template-columns: 7rem repeat(8, 1fr);
+					gap: 2px;
+					align-items: stretch;
+				}
+				.farbe > span {
+					min-block-size: 2.5rem;
+					border-radius: var(--radius-s);
+				}
+				.farbe > code {
+					align-self: center;
+				}
+				.kontext {
+					display: grid;
+					gap: var(--grid-gap);
+					grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+				}
+				.kontext > div {
+					padding: var(--space-m);
+					border-radius: var(--radius);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="leiste" aria-label="Presets">
+			<strong>Preset</strong>
+			<button type="button" data-preset="">Standard</button>
+			<button type="button" data-preset="technisch">technisch</button>
+			<button type="button" data-preset="freudig">freudig</button>
+			<button type="button" data-preset="ruhig">ruhig</button>
+			<output id="ansicht"></output>
+		</nav>
+
+		<main>
+			<section class="hero">
+				<div>
+					<div class="stack">
+						<p class="eyebrow">Atelier für Yoga</p>
+						<h1>Bewegung, die Raum lässt</h1>
+						<p class="lead">
+							Ein Beispiel, wie Überschrift, Text, Abstände, Farben und Formen aus den Grundwerten zusammenspielen.
+						</p>
+						<a class="knopf" href="#skalen">Skalen ansehen</a>
+					</div>
+					<div class="grid-3">
+						<article class="karte">
+							<h3>Kurse</h3>
+							<p>Karte mit Rahmen, Radius l und Schatten 2. Der Text ist gedämpft (text-dark-muted).</p>
+						</article>
+						<article class="karte karte--primary">
+							<h3>Einzelstunden</h3>
+							<p>Fläche in primary-ultra-light, ohne Rahmen.</p>
+						</article>
+						<article class="karte karte--dunkel">
+							<h3>Retreats</h3>
+							<p>Dunkle Fläche bg-dark mit text-light und text-light-muted.</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="skalen">
+				<div>
+					<div class="stack">
+						<h2>Überschriften</h2>
+						<div class="skala" data-skala="h1 h2 h3 h4 h5 h6" data-art="text"></div>
+					</div>
+					<div class="stack">
+						<h2>Text</h2>
+						<div class="skala" data-skala="text-xxl text-xl text-l text-m text-s text-xs" data-art="text"></div>
+					</div>
+					<div class="stack">
+						<h2>Abstände</h2>
+						<div class="skala" data-skala="space-xs space-s space-m space-l space-xl space-xxl" data-art="balken"></div>
+					</div>
+					<div class="stack">
+						<h2>Sections</h2>
+						<div
+							class="skala"
+							data-skala="section-space-xs section-space-s section-space-m section-space-l section-space-xl section-space-xxl"
+							data-art="balken"
+						></div>
+					</div>
+					<div class="stack">
+						<h2>Breiten</h2>
+						<div class="skala" data-skala="gutter content-gap container-gap grid-gap" data-art="balken"></div>
+						<p class="wert" data-wert="content-width">content-width</p>
+					</div>
+					<div class="stack">
+						<h2>Radien, Linien, Schatten</h2>
+						<div class="radien">
+							<div style="border-radius: var(--radius-s)">radius-s</div>
+							<div style="border-radius: var(--radius)">radius</div>
+							<div style="border-radius: var(--radius-l)">radius-l</div>
+							<div style="border-radius: var(--radius-xl)">radius-xl</div>
+							<div style="border: var(--border); box-shadow: var(--box-shadow-1)">shadow-1</div>
+							<div style="border: var(--border); box-shadow: var(--box-shadow-2)">shadow-2</div>
+							<div style="border: var(--border); box-shadow: var(--box-shadow-3)">shadow-3</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div>
+					<div class="stack">
+						<h2>Farben</h2>
+						<p>Pro Rolle: Grundwert, dann ultra-light bis ultra-dark und hover.</p>
+						<div class="farben" id="farben"></div>
+					</div>
+					<div class="stack">
+						<h3>Kontext</h3>
+						<div class="kontext">
+							<div style="background: var(--bg-ultra-light); border: var(--border)">
+								bg-ultra-light <span style="color: var(--text-dark-muted)">text-dark-muted</span>
+							</div>
+							<div style="background: var(--bg-light)">
+								bg-light <span style="color: var(--text-dark-muted)">text-dark-muted</span>
+							</div>
+							<div style="background: var(--bg-dark); color: var(--text-light)">
+								bg-dark <span style="color: var(--text-light-muted)">text-light-muted</span>
+							</div>
+							<div style="background: var(--bg-ultra-dark); color: var(--text-light)">
+								bg-ultra-dark <span style="color: var(--text-light-muted)">text-light-muted</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			const rollen = ['primary', 'secondary', 'tertiary', 'accent', 'action', 'base', 'neutral'];
+			const stufen = ['', '-ultra-light', '-light', '-semi-light', '-semi-dark', '-dark', '-ultra-dark', '-hover'];
+
+			// Skalen aufbauen
+			for (const el of document.querySelectorAll('[data-skala]')) {
+				for (const name of el.dataset.skala.split(' ')) {
+					const zeile = document.createElement('div');
+					const muster =
+						el.dataset.art === 'text'
+							? `<span style="font-size: var(--${name}); line-height: 1.1">Aa ${name}</span>`
+							: `<span class="balken" style="inline-size: var(--${name})"></span>`;
+					zeile.innerHTML = `<code>--${name}</code><span class="wert" data-wert="${name}"></span>${muster}`;
+					el.append(zeile);
+				}
+			}
+			const farben = document.getElementById('farben');
+			for (const r of rollen) {
+				const zeile = document.createElement('div');
+				zeile.className = 'farbe';
+				zeile.innerHTML =
+					`<code>${r}</code>` +
+					stufen.map((s) => `<span title="--${r}${s}" style="background: var(--${r}${s})"></span>`).join('');
+				farben.append(zeile);
+			}
+
+			// Werte in px anzeigen: ein Messelement pro Token
+			const mess = document.createElement('div');
+			mess.style.cssText = 'position: absolute; visibility: hidden; block-size: 0';
+			document.body.append(mess);
+			function messen() {
+				for (const el of document.querySelectorAll('[data-wert]')) {
+					mess.style.inlineSize = `var(--${el.dataset.wert})`;
+					const px = parseFloat(getComputedStyle(mess).inlineSize);
+					el.textContent = (el.dataset.wert === 'content-width' ? 'content-width ' : '') + `${Math.round(px)}px`;
+				}
+				document.getElementById('ansicht').textContent = `Ansicht ${window.innerWidth}px`;
+			}
+
+			// Presets wechseln, Wahl in der Adresse (?preset=freudig)
+			const link = document.getElementById('preset');
+			function setzen(preset) {
+				if (preset) {
+					link.href = `../src/presets/${preset}.css`;
+					link.disabled = false;
+				} else link.disabled = true;
+				for (const b of document.querySelectorAll('[data-preset]'))
+					b.setAttribute('aria-pressed', String(b.dataset.preset === preset));
+				history.replaceState(null, '', `?preset=${preset}`);
+				link.addEventListener('load', messen, { once: true });
+				requestAnimationFrame(messen);
+			}
+			for (const b of document.querySelectorAll('[data-preset]'))
+				b.addEventListener('click', () => setzen(b.dataset.preset));
+			addEventListener('resize', messen);
+			setzen(new URLSearchParams(location.search).get('preset') ?? 'technisch');
+		</script>
+	</body>
+</html>

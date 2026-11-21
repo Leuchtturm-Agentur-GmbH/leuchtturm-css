@@ -1,0 +1,58 @@
+/*
+	Preset «technisch»: präzise Schrift, dünne Linien, kleine Radien, keine Schatten, viel Weissraum, gedämpfte Farbstufen.
+	Vollständiger Satz von Grundwerten. Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+*/
+
+@layer grundwerte {
+	:root {
+		--vw-min: 360;
+		--vw-max: 1440;
+
+		--type-min: 16;
+		--type-max: 18;
+		--type-ratio-min: 1.2;
+		--type-ratio-max: 1.25;
+		--heading-weight: 500;
+		--heading-tracking: -0.01;
+		--heading-leading: 1.15;
+		--text-leading: 1.6;
+		--heading-font-family: 'Helvetica Neue', 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+		--text-font-family: 'Helvetica Neue', 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+		--space-min: 16;
+		--space-max: 24;
+		--space-ratio: 1.5;
+		--section-min: 64;
+		--section-max: 160;
+
+		--radius-base: 2;
+		--line-width: 1;
+		--line-width-strong: 1.5;
+
+		--shadow-y: 0;
+		--shadow-blur: 0;
+		--shadow-opacity: 0;
+
+		--shade-ultra-light: 0.94;
+		--shade-light: 0.8;
+		--shade-dark: 0.4;
+		--shade-ultra-dark: 0.75;
+		--color-saturation: 0.8;
+
+		--content-max: 1200;
+		--gutter-min: 16;
+		--gutter-max: 64;
+
+		--primary: #1f56c3;
+		--secondary: #0f6f6a;
+		--tertiary: #5a6678;
+		--accent: #e0531f;
+		--action: #1f56c3;
+		--base: #0f1722;
+		--neutral: #6b7280;
+		--bg-light: #f3f5f8;
+		--bg-dark: #0f1722;
+		--text-light: #f8fafc;
+		--text-dark: #0f1722;
+	}
+}

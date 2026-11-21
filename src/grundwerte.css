@@ -1,0 +1,74 @@
+/*
+	Grundwerte: das Einzige, was eine Site setzt. Der Hub gibt sie bei der Marke aus.
+	Doku pro Wert (Wirkung, Bereich, Begriffe): docs/grundwerte.md
+
+	Einheiten, damit Hub und KI nur Zahlen prüfen müssen:
+	- Längen in px ohne Einheit (16 heisst 16px). Das CSS rechnet sie in rem bzw. px um.
+	- Laufweite in em ohne Einheit (-0.01 heisst -0.01em).
+	- Verhältnisse, Zeilenabstände und Anteile als Zahl (Anteile von 0 bis 1).
+	- Farben in Hex (#rrggbb), Schriften als Liste wie in font-family.
+
+	Die Standardwerte sind neutral. Ein Preset (src/presets/) setzt alle Werte auf einmal.
+*/
+
+@layer grundwerte {
+	:root {
+		/* Breiten der Ansicht: unterhalb gelten die Werte «min», oberhalb die Werte «max» */
+		--vw-min: 360;
+		--vw-max: 1440;
+
+		/* Schrift */
+		--type-min: 16;
+		--type-max: 18;
+		--type-ratio-min: 1.2;
+		--type-ratio-max: 1.25;
+		--heading-weight: 600;
+		--heading-tracking: -0.01;
+		--heading-leading: 1.15;
+		--text-leading: 1.6;
+		--heading-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		--text-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+		/* Abstände */
+		--space-min: 16;
+		--space-max: 24;
+		--space-ratio: 1.5;
+		--section-min: 64;
+		--section-max: 128;
+
+		/* Form */
+		--radius-base: 6;
+		--line-width: 1;
+		--line-width-strong: 2;
+
+		/* Tiefe */
+		--shadow-y: 4;
+		--shadow-blur: 16;
+		--shadow-opacity: 0.1;
+
+		/* Farbstufen: Anteil Weiss (hell) bzw. Schwarz (dunkel), dazu die Sättigung der Stufen */
+		--shade-ultra-light: 0.92;
+		--shade-light: 0.7;
+		--shade-dark: 0.35;
+		--shade-ultra-dark: 0.7;
+		--color-saturation: 1;
+
+		/* Breiten */
+		--content-max: 1280;
+		--gutter-min: 16;
+		--gutter-max: 64;
+
+		/* Farben nach den Rollen von ACSS (Hub: FARBROLLEN) */
+		--primary: #2f5aa8;
+		--secondary: #5b6b82;
+		--tertiary: #3f7f7a;
+		--accent: #c2553a;
+		--action: #2f5aa8;
+		--base: #1c2430;
+		--neutral: #767b84;
+		--bg-light: #f2f4f7;
+		--bg-dark: #1c2430;
+		--text-light: #f7f8fa;
+		--text-dark: #1c2430;
+	}
+}
