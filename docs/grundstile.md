@@ -22,7 +22,7 @@ Alle Regeln ohne Spezifität (`:where()`), in eigenen Layern. Komponenten (`comp
 | `h1` … `h6` | Farbe, Schrift, Gewicht, Laufweite, Zeilenabstand, Grösse, ausgeglichene Zeilen, Silbentrennung (braucht `lang` auf `<html>`) | `--heading-*`, `--h1` … `--h6` |
 | `p`, `li`, `figcaption`, `blockquote` | schöner Umbruch (`text-wrap: pretty`, wo der Browser es kann) | |
 | `a` | Farbe, Unterstreichung mit Abstand, Hover | `--link-*` |
-| `ul`, `ol` | Einzug, Abstand zwischen Punkten, Punkte gedämpft | `--list-indent-spacing`, `--list-item-spacing` |
+| `ul`, `ol` | Einzug, Abstand zwischen Punkten, Punkte gedämpft. Listen mit `role="list"` (Layout) ohne Einzug und ohne Abstand zwischen den Punkten | `--list-indent-spacing`, `--list-item-spacing` |
 | `blockquote` in `figure` | Linie links, Schrift der Überschriften, Fussnote gedämpft | `--blockquote-*` |
 | `figure` mit Bild | Bild volle Breite mit Radius, Legende klein und gedämpft | `--radius` |
 | `input`, `select`, `textarea` | volle Breite, Rahmen in `--neutral`, Radius, immer hell mit dunklem Text. Ungültig (`:user-invalid`, erst nach der Eingabe, oder `aria-invalid="true"`): Rahmen in `--danger` | `--danger` |

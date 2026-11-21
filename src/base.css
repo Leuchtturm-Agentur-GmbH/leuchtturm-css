@@ -99,7 +99,8 @@
 		padding-inline-start: var(--list-indent-spacing);
 	}
 
-	:where(li + li, li > ul, li > ol) {
+	/* Abstand zwischen Punkten nur in Aufzählungen. Listen mit role="list" sind Layout (Flex, Raster), dort stört er. */
+	:where(:is(ul, ol):not([role='list']) > li + li, li > ul, li > ol) {
 		margin-block-start: var(--list-item-spacing);
 	}
 
