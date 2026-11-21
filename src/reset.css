@@ -53,6 +53,14 @@
 		color: inherit;
 	}
 
+	/* Buttons ohne Klasse ohne Hintergrund, Rahmen und Abstand des Browsers. btn--* (Layer components) setzt alles neu. */
+	button {
+		padding: 0;
+		border: 0;
+		background: none;
+		cursor: pointer;
+	}
+
 	textarea:not([rows]) {
 		min-block-size: 8em;
 	}

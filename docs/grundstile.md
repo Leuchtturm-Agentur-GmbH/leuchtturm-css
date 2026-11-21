@@ -11,6 +11,7 @@ Alle Regeln ohne Spezifität (`:where()`), in eigenen Layern. Komponenten (`comp
 - Weiches Scrollen zu Ankern, ausser bei «Bewegung reduzieren».
 - Bilder, Videos und SVG sind Blöcke und nie breiter als ihr Platz.
 - Formularfelder erben die Schrift.
+- `button` ohne Klasse hat keinen Hintergrund, keinen Rahmen und keinen Abstand des Browsers, dafür die Hand als Zeiger: für Knöpfe, die nicht wie ein Button aussehen (Menü, Schliessen, Akkordeon). Wie ein Button aussehen: `btn--*`.
 - `ul` und `ol` mit `role="list"` haben keine Punkte und keinen Einzug: für Listen, die Layout sind (Navigation, Karten).
 - `[hidden]` bleibt versteckt.
 
