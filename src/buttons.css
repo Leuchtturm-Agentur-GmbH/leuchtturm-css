@@ -1,6 +1,7 @@
 /*
 	Buttons wie in ACSS: .btn--{farbe}, .btn--{farbe}-light, .btn--{farbe}-dark, dazu .btn--outline und die Grössen
-	.btn--xs, .btn--s, .btn--l, .btn--xl, .btn--xxl. Farben: primary, secondary, tertiary, accent, action, base, neutral.
+	.btn--xs, .btn--s, .btn--l, .btn--xl, .btn--xxl. Farben: primary, secondary, tertiary, accent, action, base, neutral,
+	dazu die semantischen success, danger, warning, info.
 	Doku: docs/buttons.md
 
 	Jede Farbklasse setzt nur die Variablen --btn-background, --btn-text-color, --btn-border-color (je mit -hover).
@@ -29,7 +30,19 @@
 		.btn--base-dark,
 		.btn--neutral,
 		.btn--neutral-light,
-		.btn--neutral-dark
+		.btn--neutral-dark,
+		.btn--success,
+		.btn--success-light,
+		.btn--success-dark,
+		.btn--danger,
+		.btn--danger-light,
+		.btn--danger-dark,
+		.btn--warning,
+		.btn--warning-light,
+		.btn--warning-dark,
+		.btn--info,
+		.btn--info-light,
+		.btn--info-dark
 	) {
 		display: inline-flex;
 		gap: 0.5em;
@@ -268,6 +281,114 @@
 		--btn-border-color: var(--neutral-dark);
 		--btn-border-color-hover: var(--neutral-ultra-dark);
 		--btn-outline-color: var(--neutral-dark);
+	}
+	.btn--success {
+		--btn-background: var(--success);
+		--btn-background-hover: var(--success-hover);
+		--btn-text-color: var(--success-text);
+		--btn-text-color-hover: var(--success-text);
+		--btn-border-color: var(--success);
+		--btn-border-color-hover: var(--success-hover);
+		--btn-outline-color: color-mix(in oklab, var(--success) calc(var(--success-text-light) * 100%), var(--text-dark));
+	}
+	.btn--success-light {
+		--btn-background: var(--success-light);
+		--btn-background-hover: var(--success-semi-light);
+		--btn-text-color: var(--success-ultra-dark);
+		--btn-text-color-hover: var(--success-ultra-dark);
+		--btn-border-color: var(--success-light);
+		--btn-border-color-hover: var(--success-semi-light);
+		--btn-outline-color: var(--success-light);
+	}
+	.btn--success-dark {
+		--btn-background: var(--success-dark);
+		--btn-background-hover: var(--success-ultra-dark);
+		--btn-text-color: var(--success-ultra-light);
+		--btn-text-color-hover: var(--success-ultra-light);
+		--btn-border-color: var(--success-dark);
+		--btn-border-color-hover: var(--success-ultra-dark);
+		--btn-outline-color: var(--success-dark);
+	}
+	.btn--danger {
+		--btn-background: var(--danger);
+		--btn-background-hover: var(--danger-hover);
+		--btn-text-color: var(--danger-text);
+		--btn-text-color-hover: var(--danger-text);
+		--btn-border-color: var(--danger);
+		--btn-border-color-hover: var(--danger-hover);
+		--btn-outline-color: color-mix(in oklab, var(--danger) calc(var(--danger-text-light) * 100%), var(--text-dark));
+	}
+	.btn--danger-light {
+		--btn-background: var(--danger-light);
+		--btn-background-hover: var(--danger-semi-light);
+		--btn-text-color: var(--danger-ultra-dark);
+		--btn-text-color-hover: var(--danger-ultra-dark);
+		--btn-border-color: var(--danger-light);
+		--btn-border-color-hover: var(--danger-semi-light);
+		--btn-outline-color: var(--danger-light);
+	}
+	.btn--danger-dark {
+		--btn-background: var(--danger-dark);
+		--btn-background-hover: var(--danger-ultra-dark);
+		--btn-text-color: var(--danger-ultra-light);
+		--btn-text-color-hover: var(--danger-ultra-light);
+		--btn-border-color: var(--danger-dark);
+		--btn-border-color-hover: var(--danger-ultra-dark);
+		--btn-outline-color: var(--danger-dark);
+	}
+	.btn--warning {
+		--btn-background: var(--warning);
+		--btn-background-hover: var(--warning-hover);
+		--btn-text-color: var(--warning-text);
+		--btn-text-color-hover: var(--warning-text);
+		--btn-border-color: var(--warning);
+		--btn-border-color-hover: var(--warning-hover);
+		--btn-outline-color: color-mix(in oklab, var(--warning) calc(var(--warning-text-light) * 100%), var(--text-dark));
+	}
+	.btn--warning-light {
+		--btn-background: var(--warning-light);
+		--btn-background-hover: var(--warning-semi-light);
+		--btn-text-color: var(--warning-ultra-dark);
+		--btn-text-color-hover: var(--warning-ultra-dark);
+		--btn-border-color: var(--warning-light);
+		--btn-border-color-hover: var(--warning-semi-light);
+		--btn-outline-color: var(--warning-light);
+	}
+	.btn--warning-dark {
+		--btn-background: var(--warning-dark);
+		--btn-background-hover: var(--warning-ultra-dark);
+		--btn-text-color: var(--warning-ultra-light);
+		--btn-text-color-hover: var(--warning-ultra-light);
+		--btn-border-color: var(--warning-dark);
+		--btn-border-color-hover: var(--warning-ultra-dark);
+		--btn-outline-color: var(--warning-dark);
+	}
+	.btn--info {
+		--btn-background: var(--info);
+		--btn-background-hover: var(--info-hover);
+		--btn-text-color: var(--info-text);
+		--btn-text-color-hover: var(--info-text);
+		--btn-border-color: var(--info);
+		--btn-border-color-hover: var(--info-hover);
+		--btn-outline-color: color-mix(in oklab, var(--info) calc(var(--info-text-light) * 100%), var(--text-dark));
+	}
+	.btn--info-light {
+		--btn-background: var(--info-light);
+		--btn-background-hover: var(--info-semi-light);
+		--btn-text-color: var(--info-ultra-dark);
+		--btn-text-color-hover: var(--info-ultra-dark);
+		--btn-border-color: var(--info-light);
+		--btn-border-color-hover: var(--info-semi-light);
+		--btn-outline-color: var(--info-light);
+	}
+	.btn--info-dark {
+		--btn-background: var(--info-dark);
+		--btn-background-hover: var(--info-ultra-dark);
+		--btn-text-color: var(--info-ultra-light);
+		--btn-text-color-hover: var(--info-ultra-light);
+		--btn-border-color: var(--info-dark);
+		--btn-border-color-hover: var(--info-ultra-dark);
+		--btn-outline-color: var(--info-dark);
 	}
 
 	/* Outline: durchsichtig mit Rahmen und Text in der Farbe, beim Hover gefüllt. Steht nach den Farben, damit es gewinnt.

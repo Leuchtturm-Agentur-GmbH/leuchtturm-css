@@ -158,6 +158,19 @@ Die KI wählt diesen Wert nicht nach Geschmack. Der Hub rechnet ihn für jede Ro
 
 Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz trüb (Gelb wird Oliv, z. B. `btn--primary-dark`). Bei solchen Marken die dunklen Stufen nicht verwenden.
 
+#### Semantische Farben
+
+Wie in ACSS: Zustände, nicht Marke. Der Hub gibt sie nicht aus, es gelten die Standardwerte. Eine Site überschreibt sie im Layer `site` nur, wenn sie mit der Marke kollidieren, etwa `--danger` bei einer roten Marke oder `--success` bei einer grünen.
+
+| Grundwert | Wirkung | Standard | Kontrast zu Weiss | `-text-light` |
+|---|---|---|---|---|
+| `--success` | Erfolg, bestätigt | `#1e7b3a` Grün | 5.3 | 1 |
+| `--danger` | Fehler, löschen; Rahmen ungültiger Felder | `#c62828` Rot | 5.6 | 1 |
+| `--warning` | Warnung | `#f5b800` Gelb | 1.8 | 0 (Text dunkel, 9.2) |
+| `--info` | Hinweis | `#1d6fb8` Blau | 5.2 | 1 |
+
+Stufen, `-hover`, `-text` und Buttons wie bei den Rollen. `--color-saturation` gilt auch für ihre Stufen: In «ruhig» sind sie gedämpft, die Farbe selbst bleibt.
+
 ## Was daraus gerechnet wird
 
 `src/tokens.css`, Namen wie in ACSS:
@@ -170,7 +183,7 @@ Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz tr
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
 - Grundstile: `--paragraph-spacing`, `--heading-spacing`, `--list-indent-spacing`, `--list-item-spacing`, `--section-padding-block`, `--section-padding-inline`, `--link-*`, `--focus-color`, `--focus-width`, `--blockquote-*`, siehe [grundstile.md](grundstile.md).
-- Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
+- Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` und für `success`, `danger`, `warning`, `info` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
 - Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 
 Nicht in ACSS, hier zusätzlich: `--grid-auto-min`, `--border-size-strong`, `--border-strong` und `--body-color-muted` und `--{rolle}-text` (Textfarbe auf der Rolle). Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
@@ -178,7 +191,6 @@ Nicht in ACSS, hier zusätzlich: `--grid-auto-min`, `--border-size-strong`, `--b
 ## Offen
 
 - [Offen] Welche Rolle aus dem Hub ist der Seitenhintergrund? Heute: `--body-bg-color` = `--bg-ultra-light`, das aus `--bg-light` mit 60% Weiss gerechnet wird. Soll die Seite genau `--bg-light` zeigen, `--body-bg-color: var(--bg-light)` setzen oder eine eigene Rolle im Hub einführen.
-- [Offen] Semantische Farben von ACSS (`success`, `danger`, `warning`, `info`) fehlen noch, nötig mit den Formularen.
 - [Offen] Sprünge wie `--h1-to-h4` und `--space-xxl-to-m` aus ACSS fehlen noch. Erst bauen, wenn eine Site sie braucht.
 - [Offen] Prüfskript: jeder Grundwert im Bereich dieser Tabellen, `min ≤ max` bei Paaren, Kontraste nach WCAG AA für `--text-dark` auf `--bg-light` und `--body-bg-color`, `--text-light` auf `--bg-dark`, Weiss auf `--action`. Die Bereiche in dieser Datei sind die Vorlage dafür.
 - [Offen] Preset «edel» aus dem Konzept.

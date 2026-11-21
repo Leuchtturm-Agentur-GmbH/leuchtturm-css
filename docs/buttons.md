@@ -18,7 +18,7 @@ Wie in ACSS: Ein Link oder `<button>` wird mit einer Klasse zum Button. Kein eig
 | `btn--outline` | zusammen mit einer Farbklasse: durchsichtig, Rahmen und Text in der Farbe, beim Hover gefüllt |
 | `btn--xs`, `btn--s`, `btn--l`, `btn--xl`, `btn--xxl` | Grösse über die Schrift (`--text-*`), die Abstände wachsen in em mit |
 
-Farben: `primary`, `secondary`, `tertiary`, `accent`, `base`, `neutral` wie in ACSS, dazu `action` (Rolle im Hub für Knöpfe und Links, in den ACSS-Docs nicht als Button aufgeführt).
+Farben: `primary`, `secondary`, `tertiary`, `accent`, `base`, `neutral` und die semantischen `success`, `danger`, `warning`, `info` wie in ACSS, dazu `action` (Rolle im Hub für Knöpfe und Links, in den ACSS-Docs nicht als Button aufgeführt).
 
 Ist die Farbe zu hell für Text (`--{farbe}-text-light` 0, z. B. Gelb), sind Rahmen und Text von `btn--{farbe} btn--outline` in `--text-dark`. Die dunklen Stufen heller Farben werden trüb (Gelb wird Oliv), `btn--{farbe}-dark` dann nicht verwenden.
 

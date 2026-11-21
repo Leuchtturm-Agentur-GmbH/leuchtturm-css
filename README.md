@@ -10,12 +10,12 @@ Konzept und Entscheid: `frischknecht-brain/agentur/leuchtturm-css.md`, Entscheid
 
 ## Stand
 
-Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Noch nicht: semantische Farben, Zusatzdatei für Tailwind, Prüfskript.
+Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu die semantischen Farben `success`, `danger`, `warning`, `info`. Noch nicht: Zusatzdatei für Tailwind, Prüfskript.
 
 ## Aufbau
 
 - `src/leuchtturm.css`: Einstieg, Reihenfolge der Layer, bindet die Teile ein.
-- `src/grundwerte.css`: Layer `grundwerte`, 31 Grundwerte, 11 Farben und pro Farbrolle die Textfarbe darauf, mit neutralen Standardwerten. Nur diese setzt eine Site.
+- `src/grundwerte.css`: Layer `grundwerte`, 31 Grundwerte, 11 Farben der Marke, 4 semantische Farben und pro Farbe die Textfarbe darauf, mit neutralen Standardwerten. Nur diese setzt eine Site.
 - `src/tokens.css`: Layer `tokens`, daraus gerechnet (Schrift, Abstände, Radien, Rahmen, Schatten, Farbstufen, Kontext-Farben, Breiten, Raster).
 - `src/reset.css`: Layer `reset`, kleiner Reset.
 - `src/base.css`: Layer `base`, Grundstile für Seite, Überschriften, Text, Links, Listen, Zitate, Bilder, Formulare und Fokus, nur mit Tokens. Doku: `docs/grundstile.md`.

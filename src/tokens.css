@@ -409,6 +409,42 @@
 		--neutral-ultra-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-ultra-dark) * 100%));
 		--neutral-hover: color-mix(in oklab, var(--neutral), var(--black) 15%);
 
+		--_success: color-mix(in oklch, var(--success) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--success-ultra-light: color-mix(in oklab, var(--_success), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--success-light: color-mix(in oklab, var(--_success), var(--white) calc(var(--shade-light) * 100%));
+		--success-semi-light: color-mix(in oklab, var(--_success), var(--white) calc(var(--shade-light) * 50%));
+		--success-semi-dark: color-mix(in oklab, var(--_success), var(--black) calc(var(--shade-dark) * 50%));
+		--success-dark: color-mix(in oklab, var(--_success), var(--black) calc(var(--shade-dark) * 100%));
+		--success-ultra-dark: color-mix(in oklab, var(--_success), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--success-hover: color-mix(in oklab, var(--success), var(--black) 15%);
+
+		--_danger: color-mix(in oklch, var(--danger) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--danger-ultra-light: color-mix(in oklab, var(--_danger), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--danger-light: color-mix(in oklab, var(--_danger), var(--white) calc(var(--shade-light) * 100%));
+		--danger-semi-light: color-mix(in oklab, var(--_danger), var(--white) calc(var(--shade-light) * 50%));
+		--danger-semi-dark: color-mix(in oklab, var(--_danger), var(--black) calc(var(--shade-dark) * 50%));
+		--danger-dark: color-mix(in oklab, var(--_danger), var(--black) calc(var(--shade-dark) * 100%));
+		--danger-ultra-dark: color-mix(in oklab, var(--_danger), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--danger-hover: color-mix(in oklab, var(--danger), var(--black) 15%);
+
+		--_warning: color-mix(in oklch, var(--warning) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--warning-ultra-light: color-mix(in oklab, var(--_warning), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--warning-light: color-mix(in oklab, var(--_warning), var(--white) calc(var(--shade-light) * 100%));
+		--warning-semi-light: color-mix(in oklab, var(--_warning), var(--white) calc(var(--shade-light) * 50%));
+		--warning-semi-dark: color-mix(in oklab, var(--_warning), var(--black) calc(var(--shade-dark) * 50%));
+		--warning-dark: color-mix(in oklab, var(--_warning), var(--black) calc(var(--shade-dark) * 100%));
+		--warning-ultra-dark: color-mix(in oklab, var(--_warning), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--warning-hover: color-mix(in oklab, var(--warning), var(--black) 15%);
+
+		--_info: color-mix(in oklch, var(--info) calc(var(--color-saturation) * 100%), oklch(none 0 none));
+		--info-ultra-light: color-mix(in oklab, var(--_info), var(--white) calc(var(--shade-ultra-light) * 100%));
+		--info-light: color-mix(in oklab, var(--_info), var(--white) calc(var(--shade-light) * 100%));
+		--info-semi-light: color-mix(in oklab, var(--_info), var(--white) calc(var(--shade-light) * 50%));
+		--info-semi-dark: color-mix(in oklab, var(--_info), var(--black) calc(var(--shade-dark) * 50%));
+		--info-dark: color-mix(in oklab, var(--_info), var(--black) calc(var(--shade-dark) * 100%));
+		--info-ultra-dark: color-mix(in oklab, var(--_info), var(--black) calc(var(--shade-ultra-dark) * 100%));
+		--info-hover: color-mix(in oklab, var(--info), var(--black) 15%);
+
 		/* Text auf der Rolle, aus --{rolle}-text-light (1 hell, 0 dunkel). Nicht in ACSS. */
 		--primary-text: color-mix(in oklab, var(--text-light) calc(var(--primary-text-light) * 100%), var(--text-dark));
 		--secondary-text: color-mix(in oklab, var(--text-light) calc(var(--secondary-text-light) * 100%), var(--text-dark));
@@ -417,6 +453,10 @@
 		--action-text: color-mix(in oklab, var(--text-light) calc(var(--action-text-light) * 100%), var(--text-dark));
 		--base-text: color-mix(in oklab, var(--text-light) calc(var(--base-text-light) * 100%), var(--text-dark));
 		--neutral-text: color-mix(in oklab, var(--text-light) calc(var(--neutral-text-light) * 100%), var(--text-dark));
+		--success-text: color-mix(in oklab, var(--text-light) calc(var(--success-text-light) * 100%), var(--text-dark));
+		--danger-text: color-mix(in oklab, var(--text-light) calc(var(--danger-text-light) * 100%), var(--text-dark));
+		--warning-text: color-mix(in oklab, var(--text-light) calc(var(--warning-text-light) * 100%), var(--text-dark));
+		--info-text: color-mix(in oklab, var(--text-light) calc(var(--info-text-light) * 100%), var(--text-dark));
 
 		/* Kontext: --bg-light, --bg-dark, --text-light und --text-dark sind Grundwerte (Rollen im Hub) */
 		--bg-ultra-light: color-mix(in oklab, var(--bg-light), var(--white) 60%);

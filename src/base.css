@@ -177,6 +177,11 @@
 		color-scheme: light;
 	}
 
+	/* Fehler erst nach der Eingabe (:user-invalid), nicht schon beim Laden. aria-invalid für Prüfungen im Skript. */
+	:where(:is(input, select, textarea):is(:user-invalid, [aria-invalid='true'])) {
+		border-color: var(--danger);
+	}
+
 	:where(input, textarea)::placeholder {
 		color: var(--text-dark-muted);
 		opacity: 1;

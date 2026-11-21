@@ -85,6 +85,10 @@ Die Schriftdateien lädt die Site (Fontsource, eigene Datei), nicht `marke.css`.
 
 Rollen, die `leuchtturm-css` nicht kennt (eine neue Rolle im Hub), lässt der Hub weg, bis sie hier eingetragen sind.
 
+Die semantischen Farben `--success`, `--danger`, `--warning`, `--info` sind keine Rollen der Marke. Der Hub gibt sie nicht aus, es gelten die Standardwerte von `leuchtturm-css` ([grundwerte.md](grundwerte.md)). Kollidiert eine mit der Marke, überschreibt die Site sie im Layer `site`.
+
+- [Offen] Ob der Hub warnen soll, wenn `--primary` nahe an `--danger` oder `--success` liegt.
+
 ### Textfarbe auf jeder Rolle: `--{rolle}-text-light`
 
 Für jede gesetzte Rolle aus `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` rechnet der Hub `--{rolle}-text-light` und gibt es direkt nach den Farben aus. Die KI wählt es nicht.
