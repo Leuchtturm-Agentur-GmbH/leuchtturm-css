@@ -1,0 +1,21 @@
+{
+	"name": "leuchtturm-css",
+	"version": "0.0.1",
+	"description": "CSS-Framework der Leuchtturm Agentur für die Astro-Sites, angelehnt an ACSS",
+	"type": "module",
+	"private": true,
+	"license": "UNLICENSED",
+	"exports": {
+		".": "./src/leuchtturm.css"
+	},
+	"files": [
+		"src"
+	],
+	"scripts": {
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"devDependencies": {
+		"prettier": "3.10.1"
+	}
+}
