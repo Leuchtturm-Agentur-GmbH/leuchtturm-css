@@ -266,6 +266,9 @@
 		--radius-m: var(--radius);
 		--radius-l: calc(var(--radius) * 2);
 		--radius-xl: calc(var(--radius) * 3);
+		/* Unabhängig von --radius-base, Namen wie in ACSS: Pille (Abzeichen, Schlagworte) und Kreis (Punkte, Avatare) */
+		--radius-circle: 50vw;
+		--radius-50: 50%;
 
 		/* Rahmen */
 		--border-size: calc(var(--line-width) * 1px);

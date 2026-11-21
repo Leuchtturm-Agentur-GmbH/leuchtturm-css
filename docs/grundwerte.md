@@ -186,7 +186,7 @@ Stufen, `-hover`, `-text` und Buttons wie bei den Rollen. `--color-saturation` g
 - Abstände: `--space-xs … --space-xxl`, `--section-space-xs … --section-space-xxl`.
 - Breiten: `--content-width`, `--gutter`, `--content-gap` (`--space-m`), `--container-gap` (`--space-xl`), `--grid-gap` (`--space-m`), `--width-10 … --width-90`.
 - Raster: `--grid-1 … --grid-12`, `--grid-1-2`, `--grid-1-3`, `--grid-2-1`, `--grid-2-3`, `--grid-3-1`, `--grid-3-2`, `--grid-auto-min`, siehe [raster.md](raster.md).
-- Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
+- Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--radius-circle` (Pille, 50vw), `--radius-50` (Kreis, 50%), `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
 - Grundstile: `--paragraph-spacing`, `--heading-spacing`, `--list-indent-spacing`, `--list-item-spacing`, `--section-padding-block`, `--section-padding-inline`, `--link-*`, `--focus-color`, `--focus-width`, `--blockquote-*`, siehe [grundstile.md](grundstile.md).
