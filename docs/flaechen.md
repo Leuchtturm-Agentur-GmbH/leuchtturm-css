@@ -43,4 +43,4 @@ Die Grundstile (`src/base.css`, Layer `base`, ohne Spezifität) nehmen für Text
 
 - [Offen] Buttons pro Fläche (ACSS: `bg-dark-button`), sobald die Buttons gebaut werden.
 - [Offen] Fokusfarbe pro Fläche.
-- [Offen] Prüfskript: Kontrast von `--action-light` auf `--bg-dark` und `--action` auf `--bg-light` nach WCAG AA (Links).
+- Kontrast der Links auf `bg--light` und `bg--dark` prüft `npm run pruefen`.

@@ -70,5 +70,5 @@ Darin keine eigenen Abstände setzen.
 
 - [Offen] Sections als Container (`container-type`), siehe [grundwerte.md](grundwerte.md), «Fluide Werte».
 - [Offen] Radius für Bilder ausserhalb von `figure` (ACSS: «auto radius»).
-- [Offen] Fehler und Hinweise in Formularen braucht die Farben `danger` und `success` (noch nicht gebaut). Formulare von cform bringen ihr eigenes CSS mit, prüfen, ob sie sich mit diesen Grundstilen vertragen.
+- [Offen] Formulare von cform bringen ihr eigenes CSS mit, prüfen, ob sie sich mit diesen Grundstilen vertragen.
 - [Offen] `--paragraph-spacing` und `--heading-spacing` hängen an den Abständen. Ob es eigene Grundwerte braucht, zeigt die erste Site.

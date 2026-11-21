@@ -192,10 +192,41 @@ Nicht in ACSS, hier zusätzlich: `--grid-auto-min`, `--border-size-strong`, `--b
 
 - [Offen] Welche Rolle aus dem Hub ist der Seitenhintergrund? Heute: `--body-bg-color` = `--bg-ultra-light`, das aus `--bg-light` mit 60% Weiss gerechnet wird. Soll die Seite genau `--bg-light` zeigen, `--body-bg-color: var(--bg-light)` setzen oder eine eigene Rolle im Hub einführen.
 - [Offen] Sprünge wie `--h1-to-h4` und `--space-xxl-to-m` aus ACSS fehlen noch. Erst bauen, wenn eine Site sie braucht.
-- [Offen] Prüfskript: jeder Grundwert im Bereich dieser Tabellen, `min ≤ max` bei Paaren, Kontraste nach WCAG AA für `--text-dark` auf `--bg-light` und `--body-bg-color`, `--text-light` auf `--bg-dark`, Weiss auf `--action`. Die Bereiche in dieser Datei sind die Vorlage dafür.
 - [Offen] Preset «edel» aus dem Konzept.
 
 ## Prüfen
+
+### Prüfskript
+
+```bash
+npm run pruefen
+```
+
+Die Bereiche stehen maschinenlesbar in `src/grundwerte.json`. Das Skript prüft zuerst, ob `grundwerte.json`, `src/grundwerte.css` und die Tabellen oben dasselbe sagen (Standard und Bereich). Wer einen Bereich ändert, ändert alle drei. Dann prüft es den Standard, jedes Preset und jede Marke in `test/marken/`, allein und mit jedem Preset.
+
+Eine Site oder eine Marke aus dem Hub prüfen, Dateien in der Reihenfolge der Site:
+
+```bash
+npm run pruefen -- src/presets/ruhig.css pfad/zu/marke.css
+```
+
+`--hinweise` zeigt auch die Hinweise ausführlich. `npm run check` ist `format:check` und `pruefen` zusammen, vor jedem Commit.
+
+**Fehler** (Code 1):
+
+- Unbekannter Name (Tippfehler) oder ein Token statt eines Grundwerts gesetzt.
+- Zahl ausserhalb des Bereichs, bei Paaren `-min` grösser als `-max`.
+- Schrift ohne allgemeine Schrift am Ende (`sans-serif`, `serif` …).
+- `--{rolle}-text-light` nicht die Seite mit dem höheren Kontrast. Bei einer abgeleiteten Rolle steht der Fehler bei der Quelle.
+- Kontrast unter 4.5 (WCAG AA): `--text-dark` auf Seite, `bg--light` und `bg--ultra-light`, `--text-light` auf `bg--dark` und `bg--ultra-dark`, Links auf Seite, `bg--light` und `bg--dark`, Text auf `btn--action`.
+
+**Hinweise** (Varianten, die eine Site wählt): Text auf `btn--{farbe}`, `-light` und `-dark` für jede Farbe unter 4.5, gedämpfter Text unter 4.5, Rahmen ungültiger Felder (`--danger` auf Weiss) unter 3.
+
+Die Farben rechnet das Skript wie der Browser aus den Formeln in `src/tokens.css` (`var()`, `calc()`, `color-mix()` in oklab und oklch), auch die abgeleiteten Rollen. Geprüft am Browser: dieselben Hex-Werte.
+
+Der Hub kann dieselbe Prüfung verwenden: `import { pruefen, variablenAusCss } from 'leuchtturm-css/pruefen'` und die Bereiche aus `leuchtturm-css/grundwerte.json`. Ohne Abhängigkeiten.
+
+### Testseite
 
 ```bash
 python3 -m http.server 4340

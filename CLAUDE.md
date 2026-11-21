@@ -20,5 +20,5 @@ CSS-Framework für die Astro-Sites der Agentur, angelehnt an ACSS. Konzept: `fri
 
 - Dieses Repo deployt nichts. Gearbeitet wird direkt auf `main`, Push nur auf Wunsch von Ralf.
 - Sites binden eine Version mit Tag ein. Änderungen am Aussehen bekommen eine neue Version, damit keine Site sich unbemerkt ändert.
-- Vor jedem Commit `npm run format:check`.
+- Vor jedem Commit `npm run check` (Formatierung und Prüfskript).
 - Kommentare und Doku auf Deutsch, Schweizer Schreibweise.

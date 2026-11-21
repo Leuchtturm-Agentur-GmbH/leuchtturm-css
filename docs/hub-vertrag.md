@@ -171,7 +171,7 @@ Aus denselben Grundwerten erzeugt der Hub die Import-Datei für ACSS (Hub-Plan 1
 Nicht Teil dieses Repos, als Liste für die Sitzung im Hub:
 
 1. `brand_versions` um die Grundwerte erweitern (JSON, Schlüssel ohne `--`), dazu Preset und Begründungen. `radius` (heute Text wie `0.5rem`) geht in `radius-base` auf: einmal umrechnen, dann entfernen.
-2. Prüfung der Bereiche aus `grundwerte.md`. Am besten liest der Hub sie aus einer Datei dieses Repos statt sie abzuschreiben. [Offen] Dafür eine maschinenlesbare Liste hier ablegen (z. B. `src/grundwerte.json`), die auch das Prüfskript nutzt.
+2. Prüfung der Bereiche. Der Hub liest sie aus `leuchtturm-css/grundwerte.json` statt sie abzuschreiben, oder verwendet gleich die Prüfung `leuchtturm-css/pruefen` (Bereiche, Paare, Schriften, `--{rolle}-text-light`, Kontraste), siehe [grundwerte.md](grundwerte.md), Abschnitt Prüfen.
 3. Kontrast nach WCAG und `--{rolle}-text-light` (oben).
 4. `marke.css` in `uebergabe.ts` als reine Funktion neben `brandJson`, Vorschau in der Karte «Übergabe».
 5. Optional `kind` bei den Schriften.

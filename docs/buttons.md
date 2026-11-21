@@ -56,6 +56,6 @@ Die gemeinsame Regel gilt nur für die Klassen in `src/buttons.css`. Eine neue F
 
 ## Offen
 
-- [Offen] Prüfskript: Kontrast von Text zu Fläche für jede Variante, AA verlangt 4.5 (oder 3 für fetten Text ab 18.66px). Heute knapp darunter: neutral im Standard (4.0), primary in «ruhig» (4.0, weder hell noch dunkel erreicht 4.5), accent und action in «freudig». In «ruhig» ist `action` (5.6) der Hauptknopf.
+- Kontrast jeder Variante: `npm run pruefen -- --hinweise`. `btn--action` unter 4.5 ist ein Fehler, alle anderen Varianten ein Hinweis. AA verlangt 4.5, für fetten Text ab 18.66px 3. Heute darunter z. B. `-dark` heller Farben (Gelb, `warning`) und mehrere Rollen der Testmarke «Salbei».
 - [Offen] Sobald `oklch(from …)` Baseline Widely available ist, kann das CSS `--{farbe}-text-light` selbst aus der Helligkeit rechnen.
 - [Offen] Weitere Tokens aus ACSS (`--btn-width`, `--btn-justify-content` …) erst, wenn eine Site sie braucht.

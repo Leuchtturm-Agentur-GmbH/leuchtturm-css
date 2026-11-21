@@ -6,14 +6,18 @@
 	"private": true,
 	"license": "UNLICENSED",
 	"exports": {
-		".": "./src/leuchtturm.css"
+		".": "./src/leuchtturm.css",
+		"./grundwerte.json": "./src/grundwerte.json",
+		"./pruefen": "./src/pruefen.js"
 	},
 	"files": [
 		"src"
 	],
 	"scripts": {
 		"format": "prettier --write .",
-		"format:check": "prettier --check ."
+		"format:check": "prettier --check .",
+		"pruefen": "node scripts/pruefen.mjs",
+		"check": "npm run format:check && npm run pruefen"
 	},
 	"devDependencies": {
 		"prettier": "3.10.1"
