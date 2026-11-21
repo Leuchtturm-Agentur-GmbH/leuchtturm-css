@@ -21,12 +21,20 @@ Erste Fassung der Grundwerte und Tokens (21.11.2026). Gebaut wird zuerst, was di
 - `src/buttons.css`: Layer `components`, Buttons `btn--{farbe}`, `-light`, `-dark`, `btn--outline`, Grössen. Doku: `docs/buttons.md`.
 - `src/utilities.css`: Layer `utilities`, Flächen `bg--ultra-light`, `bg--light`, `bg--dark`, `bg--ultra-dark`. Doku: `docs/flaechen.md`.
 - `src/presets/`: vollständige Sätze von Grundwerten ohne Farben, `technisch`, `freudig`, `ruhig`. Nach `leuchtturm.css` einbinden. Die Farben kommen aus der Marke, Pflicht ist nur `--primary`, fehlende Rollen leitet das CSS ab.
+- `docs/hub-vertrag.md`: Vertrag mit dem Hub. Wie die Marke als `marke.css` in die Site kommt, welche Werte der Hub rechnet und prüft.
 - `docs/grundwerte.md`: pro Grundwert Wirkung, Bereich und Begriffe. Grundlage für die KI und das spätere Prüfskript.
 - `test/index.html`: Testseite mit allen Skalen und Farben, Preset und Marke umschaltbar. Beispielmarken in `test/marken/`, auch solche mit nur Gelb.
 
 ## Einbinden
 
-Noch nicht festgelegt. Vorgesehen: als Abhängigkeit über Git, z. B. `"leuchtturm-css": "github:Leuchtturm-Agentur-GmbH/leuchtturm-css#v0.1.0"`, dann in der Site `@import 'leuchtturm-css';`.
+Als Abhängigkeit über Git mit Tag, z. B. `"leuchtturm-css": "github:Leuchtturm-Agentur-GmbH/leuchtturm-css#v0.1.0"`, dann in der Site:
+
+```css
+@import 'leuchtturm-css';
+@import './marke.css';
+```
+
+`marke.css` erzeugt der Hub ([docs/hub-vertrag.md](docs/hub-vertrag.md)). Ohne Hub setzt die Site stattdessen ein Preset und ihre Farben im Layer `grundwerte`.
 
 ## Befehle
 

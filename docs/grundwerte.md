@@ -4,6 +4,8 @@ Eine Site setzt nur diese Werte (Layer `grundwerte`). Alles andere rechnet `src/
 
 ## So bestimmt die KI die Werte
 
+Wie die Werte gespeichert, geprüft und an die Site gegeben werden: [hub-vertrag.md](hub-vertrag.md).
+
 1. Quelle lesen: Ralfs Anweisung oder Marke, Brand Voice und Briefing im Hub (MCP `agenturhub`).
 2. Das nächste Preset wählen (`technisch`, `freudig`, `ruhig`) und alle Werte davon übernehmen. Farben nur aus der Marke, fehlende Rollen leer lassen.
 3. Nur abweichen, wo die Quelle es verlangt. Jede Abweichung in einem Satz begründen.
