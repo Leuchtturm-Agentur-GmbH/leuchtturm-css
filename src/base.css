@@ -34,6 +34,8 @@
 		letter-spacing: var(--heading-letter-spacing);
 		line-height: var(--heading-line-height);
 		text-wrap: balance;
+		/* Lange Wörter (Umzugsunternehmen) trennen statt aus dem Platz laufen. Braucht lang auf <html>. */
+		hyphens: auto;
 	}
 
 	:where(h1) {

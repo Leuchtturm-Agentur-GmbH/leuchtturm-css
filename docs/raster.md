@@ -45,6 +45,10 @@ Eigenes CSS mobile first, wie die ACSS-Doku es verlangt:
 
 Grenzen wie in ACSS: `m` bis 992px, `s` bis 768px, `xs` bis 478px. Sie stehen in `em` fest im CSS, weil Media Queries keine Variablen lesen. Die Klassen sind desktop first wie in ACSS: `grid--4 grid--s-2 grid--xs-1` heisst vier Spalten, ab 768px abwärts zwei, ab 478px abwärts eine.
 
+## Spalten nie zu schmal
+
+Eine Spalte wird nie schmaler als `--grid-auto-min` (288px). Wird sie es, stapeln die Spalten: `grid--auto-*` macht das selbst, bei festen Rastern gehört eine Stufe dazu (`grid--1-3 grid--s-1`). Die Überschriften werden in schmalen Spalten nicht kleiner gerechnet, `--h2` bleibt auch in 100px 42px gross. Läuft eine Überschrift aus der Spalte, ist das Layout zu eng, nicht die Schrift zu gross. Für Karten und Seitenleisten eine kleinere Stufe wählen (`h3`, `h4`).
+
 ## Fest oder automatisch
 
 - **`grid--auto-*`** richtet sich nach dem eigenen Platz, nicht nach dem Fenster. Für Karten, Teams und Logos meist die bessere Wahl: dieselbe Klasse passt in die volle Breite und in eine Seitenspalte. Mit `style="--grid-auto-min: 12rem"` schmalere Zellen erlauben.

@@ -26,14 +26,6 @@
 			/* Nur für die Testseite, nur mit Tokens. Alles Übrige kommt aus leuchtturm-css. */
 			@layer site {
 				/* Reset, Grundstile und Sections kommen aus leuchtturm-css, hier nur, was die Testseite braucht */
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6 {
-					hyphens: auto;
-				}
 				p {
 					max-inline-size: 65ch;
 				}
@@ -200,14 +192,10 @@
 				}
 
 				/* Container */
-				.container-demo {
-					display: grid;
-					gap: var(--grid-gap);
-					grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
-				}
 				.container-demo > div {
 					container-type: inline-size;
 					display: grid;
+					grid-template-columns: minmax(0, 1fr);
 					gap: var(--space-s);
 					align-content: start;
 					justify-items: start;
@@ -556,10 +544,11 @@
 						<h2>Container</h2>
 						<p>
 							Beide Spalten haben container-type: inline-size. Überschriften, Abstände und Buttons richten sich nach der
-							Breite der Spalte, nicht des Fensters. Der Fliesstext erbt seine Grösse vom body und bleibt gleich.
+							Breite der Spalte, nicht des Fensters. Der Fliesstext erbt seine Grösse vom body und bleibt gleich. Unter
+							768px stapeln die Spalten (grid--1-3 grid--s-1), sonst würde die linke zu schmal.
 						</p>
 					</div>
-					<div class="container-demo">
+					<div class="container-demo grid--1-3 grid--s-1">
 						<div>
 							<h2>Schmal</h2>
 							<p class="wert" data-container="h2">h2</p>
