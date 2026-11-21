@@ -1,0 +1,29 @@
+/*
+	Beispielmarke für die Testseite: Salbei, Holz, Taubenblau (früher im Preset «ruhig»).
+	So sieht der Block aus, den der Hub für eine Marke mit allen Rollen ausgibt.
+*/
+
+@layer grundwerte {
+	:root {
+		--primary: #6b7f5e;
+		--secondary: #b08d6e;
+		--tertiary: #8a9bb0;
+		--accent: #c27c63;
+		--action: #55684a;
+		--base: #2f3a33;
+		--neutral: #8b8a84;
+		--bg-light: #f4f1ec;
+		--bg-dark: #2f3a33;
+		--text-light: #f7f5f0;
+		--text-dark: #2f3a33;
+
+		/* Text auf der Farbe, aus dem Kontrast gerechnet */
+		--primary-text-light: 1;
+		--secondary-text-light: 0;
+		--tertiary-text-light: 0;
+		--accent-text-light: 0;
+		--action-text-light: 1;
+		--base-text-light: 1;
+		--neutral-text-light: 0;
+	}
+}

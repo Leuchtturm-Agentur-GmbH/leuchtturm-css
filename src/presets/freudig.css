@@ -1,6 +1,6 @@
 /*
 	Preset «freudig»: grosse und kräftige Schrift, satte Farben, grosse Radien, weiche Schatten, grosszügige Abstände.
-	Vollständiger Satz von Grundwerten. Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+	Vollständiger Satz von Grundwerten ohne Farben (die kommen aus der Marke). Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
 */
 
 @layer grundwerte {
@@ -46,26 +46,5 @@
 		--content-max: 1240;
 		--gutter-min: 20;
 		--gutter-max: 72;
-
-		--primary: #f2542d;
-		--secondary: #ffb627;
-		--tertiary: #17a398;
-		--accent: #7b4dff;
-		--action: #e0401c;
-		--base: #2a1b3d;
-		--neutral: #7a6f80;
-		--bg-light: #fff1e2;
-		--bg-dark: #2a1b3d;
-		--text-light: #fffaf3;
-		--text-dark: #2a1b3d;
-
-		/* Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es aus dem Kontrast. */
-		--primary-text-light: 0;
-		--secondary-text-light: 0;
-		--tertiary-text-light: 0;
-		--accent-text-light: 1;
-		--action-text-light: 1;
-		--base-text-light: 1;
-		--neutral-text-light: 1;
 	}
 }

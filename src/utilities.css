@@ -13,8 +13,8 @@
 		--body-color: var(--text-dark);
 		--heading-color: var(--text-dark);
 		--body-color-muted: var(--text-dark-muted);
-		--link-color: var(--action);
-		--link-color-hover: var(--action-hover);
+		--link-color: var(--_link-color-light);
+		--link-color-hover: var(--_link-color-light-hover);
 		--border: var(--border-size) var(--border-style) var(--border-color-dark);
 		--border-strong: var(--border-size-strong) var(--border-style) var(--text-dark);
 		color: var(--body-color);

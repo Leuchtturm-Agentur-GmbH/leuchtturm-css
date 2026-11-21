@@ -1,0 +1,11 @@
+/*
+	Beispielmarke für die Testseite: Gelb und Schwarz. Grau für Linien und helle Sections leitet das CSS aus Schwarz ab.
+*/
+
+@layer grundwerte {
+	:root {
+		--primary: #ffa500;
+		--base: #000000;
+		--primary-text-light: 0;
+	}
+}

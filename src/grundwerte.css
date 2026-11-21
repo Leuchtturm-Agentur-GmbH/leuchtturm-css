@@ -62,25 +62,33 @@
 		--gutter-min: 16;
 		--gutter-max: 64;
 
-		/* Farben nach den Rollen von ACSS (Hub: FARBROLLEN) */
+		/*
+			Farben nach den Rollen von ACSS (Hub: FARBROLLEN). Pflicht ist nur --primary.
+			Fehlt eine Rolle, gilt die Kette hier: sie leitet sich aus den gesetzten Rollen ab, nie aus einer fremden Farbe.
+			So bleibt eine Marke mit nur Gelb und Weiss stimmig: Gelb für Flächen und Knöpfe, sonst Grau und fast Schwarz.
+		*/
 		--primary: #2f5aa8;
-		--secondary: #5b6b82;
-		--tertiary: #3f7f7a;
-		--accent: #c2553a;
-		--action: #2f5aa8;
-		--base: #1c2430;
-		--neutral: #767b84;
-		--bg-light: #f2f4f7;
-		--bg-dark: #1c2430;
-		--text-light: #f7f8fa;
-		--text-dark: #1c2430;
+		--secondary: var(--primary);
+		--tertiary: var(--secondary);
+		--accent: var(--primary);
+		--action: var(--primary);
+		--base: #1d1f22;
+		--neutral: color-mix(in oklab, var(--base) 60%, #fff);
+		--bg-light: color-mix(in oklab, var(--neutral) 10%, #fff);
+		--bg-dark: var(--base);
+		--text-light: #fff;
+		--text-dark: var(--base);
 
-		/* Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es aus dem Kontrast. */
+		/*
+			Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es für jede Rolle, die er setzt,
+			aus dem Kontrast. Abgeleitete Rollen übernehmen den Wert ihrer Quelle.
+			0 heisst auch: die Farbe ist zu hell für Text auf hellem Grund. Links und Outline-Buttons nehmen dann --text-dark.
+		*/
 		--primary-text-light: 1;
-		--secondary-text-light: 1;
-		--tertiary-text-light: 1;
-		--accent-text-light: 1;
-		--action-text-light: 1;
+		--secondary-text-light: var(--primary-text-light);
+		--tertiary-text-light: var(--secondary-text-light);
+		--accent-text-light: var(--primary-text-light);
+		--action-text-light: var(--primary-text-light);
 		--base-text-light: 1;
 		--neutral-text-light: 1;
 	}

@@ -1,0 +1,29 @@
+/*
+	Beispielmarke für die Testseite: Koralle, Sonnengelb, Türkis, Violett (früher im Preset «freudig»).
+	So sieht der Block aus, den der Hub für eine Marke mit allen Rollen ausgibt.
+*/
+
+@layer grundwerte {
+	:root {
+		--primary: #f2542d;
+		--secondary: #ffb627;
+		--tertiary: #17a398;
+		--accent: #7b4dff;
+		--action: #e0401c;
+		--base: #2a1b3d;
+		--neutral: #7a6f80;
+		--bg-light: #fff1e2;
+		--bg-dark: #2a1b3d;
+		--text-light: #fffaf3;
+		--text-dark: #2a1b3d;
+
+		/* Text auf der Farbe, aus dem Kontrast gerechnet */
+		--primary-text-light: 0;
+		--secondary-text-light: 0;
+		--tertiary-text-light: 0;
+		--accent-text-light: 1;
+		--action-text-light: 1;
+		--base-text-light: 1;
+		--neutral-text-light: 1;
+	}
+}

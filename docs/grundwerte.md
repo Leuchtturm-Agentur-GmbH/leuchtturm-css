@@ -1,11 +1,11 @@
 # Grundwerte
 
-Eine Site setzt nur diese Werte (Layer `grundwerte`). Alles andere rechnet `src/tokens.css` daraus. Die KI ändert nie die Tokens, nur die Grundwerte. Standardwerte: `src/grundwerte.css`. Presets: `src/presets/`.
+Eine Site setzt nur diese Werte (Layer `grundwerte`). Alles andere rechnet `src/tokens.css` daraus. Die KI ändert nie die Tokens, nur die Grundwerte. Standardwerte: `src/grundwerte.css`. Presets: `src/presets/` (Charakter, ohne Farben). Die Farben kommen aus der Marke.
 
 ## So bestimmt die KI die Werte
 
 1. Quelle lesen: Ralfs Anweisung oder Marke, Brand Voice und Briefing im Hub (MCP `agenturhub`).
-2. Das nächste Preset wählen (`technisch`, `freudig`, `ruhig`) und alle Werte davon übernehmen.
+2. Das nächste Preset wählen (`technisch`, `freudig`, `ruhig`) und alle Werte davon übernehmen. Farben nur aus der Marke, fehlende Rollen leer lassen.
 3. Nur abweichen, wo die Quelle es verlangt. Jede Abweichung in einem Satz begründen.
 4. Jeden Wert im erlaubten Bereich halten. Paare (`-min` und `-max`) so setzen, dass `min ≤ max`.
 
@@ -119,31 +119,35 @@ Im Konzept heisst dieser Wert noch `--content-width`. Den Namen trägt hier das 
 
 ### Farben
 
-Hex `#rrggbb`, Rollen wie im Hub (`agenturhub/src/lib/server/marke.ts`, `FARBROLLEN`). Die Farben kommen aus der Marke, die KI erfindet sie nicht.
+Hex `#rrggbb`, Rollen wie im Hub (`agenturhub/src/lib/server/marke.ts`, `FARBROLLEN`). Die Farben kommen aus der Marke, die KI erfindet sie nicht. Die Presets enthalten keine Farben.
 
-| Grundwert | Rolle |
-|---|---|
-| `--primary` | Hauptfarbe |
-| `--secondary` | Zweitfarbe |
-| `--tertiary` | Drittfarbe |
-| `--accent` | Akzent, sparsam |
-| `--action` | Aktion: Knöpfe, Links |
-| `--base` | Basis: Text, dunkle Flächen |
-| `--neutral` | Neutral: Linien, Grautöne |
-| `--bg-light` | Hintergrund hell |
-| `--bg-dark` | Hintergrund dunkel |
-| `--text-light` | Text auf dunkel |
-| `--text-dark` | Text auf hell |
+**Pflicht ist nur `--primary`.** Viele Marken haben nur eine Farbe und Weiss (z. B. Gelb). Der Hub gibt nur die Rollen aus, die die Marke hat. Fehlt eine Rolle, leitet das CSS sie aus den gesetzten ab, nie aus einer fremden Farbe:
 
-Fehlt eine Rolle in der Marke, bleibt der Standardwert. Besser: die Rolle im Hub auf eine bestehende Farbe setzen (z. B. `action` = `primary`).
+| Grundwert | Rolle | fehlt sie, gilt |
+|---|---|---|
+| `--primary` | Hauptfarbe | Pflicht (Standard nur für die Testseite: Blau) |
+| `--secondary` | Zweitfarbe | `--primary` |
+| `--tertiary` | Drittfarbe | `--secondary` |
+| `--accent` | Akzent, sparsam | `--primary` |
+| `--action` | Aktion: Knöpfe, Links | `--primary` |
+| `--base` | Basis: Text, dunkle Flächen | fast Schwarz `#1d1f22` |
+| `--neutral` | Neutral: Linien, Grautöne | 60% `--base` mit Weiss (Grau) |
+| `--bg-light` | Hintergrund hell | 10% `--neutral` mit Weiss (helles Grau für Sections im Wechsel) |
+| `--bg-dark` | Hintergrund dunkel | `--base` |
+| `--text-light` | Text auf dunkel | Weiss |
+| `--text-dark` | Text auf hell | `--base` |
+
+Ergebnis bei nur Gelb: Seite fast weiss, Sections `bg--light` hellgrau, dunkle Flächen und Text fast schwarz, Knöpfe gelb mit dunklem Text, Links und Outline-Buttons dunkel. Mit Gelb und Schwarz (`--base`) wird das Grau aus Schwarz gemischt, also neutral.
 
 Pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` dazu:
 
-| Grundwert | Wirkung | Bereich |
-|---|---|---|
-| `--{rolle}-text-light` | Textfarbe auf der Rolle, z. B. in `btn--primary`: 1 heisst `--text-light`, 0 heisst `--text-dark` | 0 oder 1 |
+| Grundwert | Wirkung | Bereich | fehlt er, gilt |
+|---|---|---|---|
+| `--{rolle}-text-light` | Textfarbe auf der Rolle, z. B. in `btn--primary`: 1 heisst `--text-light`, 0 heisst `--text-dark`. 0 heisst auch: die Farbe ist zu hell für Text auf hellem Grund, darum nehmen Links (bei `action`) und Outline-Buttons dann `--text-dark` | 0 oder 1 | der Wert der Rolle, aus der sie abgeleitet ist. `base` und `neutral`: 1 |
 
-Die KI wählt diesen Wert nicht nach Geschmack. Der Hub rechnet ihn aus dem Kontrast nach WCAG: die Seite mit dem höheren Kontrast gewinnt. Das CSS kann das erst mit `oklch(from …)` selbst.
+Die KI wählt diesen Wert nicht nach Geschmack. Der Hub rechnet ihn für jede Rolle, die er ausgibt, aus dem Kontrast nach WCAG: die Seite mit dem höheren Kontrast gewinnt. Das CSS kann das erst mit `oklch(from …)` selbst.
+
+Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz trüb (Gelb wird Oliv, z. B. `btn--primary-dark`). Bei solchen Marken die dunklen Stufen nicht verwenden.
 
 ## Was daraus gerechnet wird
 
@@ -175,4 +179,4 @@ Nicht in ACSS, hier zusätzlich: `--border-size-strong`, `--border-strong` und `
 python3 -m http.server 4340
 ```
 
-Dann `http://localhost:4340/test/` öffnen und oben das Preset wechseln (oder `?preset=freudig`). Die Seite zeigt Skalen mit den Werten in px, Radien, Linien, Schatten, alle Farbstufen und die Kontext-Farben.
+Dann `http://localhost:4340/test/` öffnen und oben Preset und Marke wechseln (oder `?preset=freudig&marke=gelb`). Die Beispielmarken liegen in `test/marken/`, darunter «nur Primary», «Gelb» und «Gelb, Schwarz» mit fehlenden Rollen. Die Seite zeigt Skalen mit den Werten in px, Radien, Linien, Schatten, alle Farbstufen und die Kontext-Farben.

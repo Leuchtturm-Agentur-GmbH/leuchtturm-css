@@ -82,7 +82,7 @@
 		--btn-text-color-hover: var(--primary-text);
 		--btn-border-color: var(--primary);
 		--btn-border-color-hover: var(--primary-hover);
-		--btn-outline-color: var(--primary);
+		--btn-outline-color: color-mix(in oklab, var(--primary) calc(var(--primary-text-light) * 100%), var(--text-dark));
 	}
 	.btn--primary-light {
 		--btn-background: var(--primary-light);
@@ -110,7 +110,11 @@
 		--btn-text-color-hover: var(--secondary-text);
 		--btn-border-color: var(--secondary);
 		--btn-border-color-hover: var(--secondary-hover);
-		--btn-outline-color: var(--secondary);
+		--btn-outline-color: color-mix(
+			in oklab,
+			var(--secondary) calc(var(--secondary-text-light) * 100%),
+			var(--text-dark)
+		);
 	}
 	.btn--secondary-light {
 		--btn-background: var(--secondary-light);
@@ -138,7 +142,7 @@
 		--btn-text-color-hover: var(--tertiary-text);
 		--btn-border-color: var(--tertiary);
 		--btn-border-color-hover: var(--tertiary-hover);
-		--btn-outline-color: var(--tertiary);
+		--btn-outline-color: color-mix(in oklab, var(--tertiary) calc(var(--tertiary-text-light) * 100%), var(--text-dark));
 	}
 	.btn--tertiary-light {
 		--btn-background: var(--tertiary-light);
@@ -166,7 +170,7 @@
 		--btn-text-color-hover: var(--accent-text);
 		--btn-border-color: var(--accent);
 		--btn-border-color-hover: var(--accent-hover);
-		--btn-outline-color: var(--accent);
+		--btn-outline-color: color-mix(in oklab, var(--accent) calc(var(--accent-text-light) * 100%), var(--text-dark));
 	}
 	.btn--accent-light {
 		--btn-background: var(--accent-light);
@@ -194,7 +198,7 @@
 		--btn-text-color-hover: var(--action-text);
 		--btn-border-color: var(--action);
 		--btn-border-color-hover: var(--action-hover);
-		--btn-outline-color: var(--action);
+		--btn-outline-color: color-mix(in oklab, var(--action) calc(var(--action-text-light) * 100%), var(--text-dark));
 	}
 	.btn--action-light {
 		--btn-background: var(--action-light);
@@ -222,7 +226,7 @@
 		--btn-text-color-hover: var(--base-text);
 		--btn-border-color: var(--base);
 		--btn-border-color-hover: var(--base-hover);
-		--btn-outline-color: var(--base);
+		--btn-outline-color: color-mix(in oklab, var(--base) calc(var(--base-text-light) * 100%), var(--text-dark));
 	}
 	.btn--base-light {
 		--btn-background: var(--base-light);
@@ -250,7 +254,7 @@
 		--btn-text-color-hover: var(--neutral-text);
 		--btn-border-color: var(--neutral);
 		--btn-border-color-hover: var(--neutral-hover);
-		--btn-outline-color: var(--neutral);
+		--btn-outline-color: color-mix(in oklab, var(--neutral) calc(var(--neutral-text-light) * 100%), var(--text-dark));
 	}
 	.btn--neutral-light {
 		--btn-background: var(--neutral-light);
@@ -271,10 +275,12 @@
 		--btn-outline-color: var(--neutral-dark);
 	}
 
-	/* Outline: durchsichtig mit Rahmen und Text in der Farbe, beim Hover gefüllt. Steht nach den Farben, damit es gewinnt. */
+	/* Outline: durchsichtig mit Rahmen und Text in der Farbe, beim Hover gefüllt. Steht nach den Farben, damit es gewinnt.
+	   Ist die Farbe zu hell für Text (--{farbe}-text-light 0, z. B. Gelb), sind Rahmen und Text --text-dark. */
 	.btn--outline {
 		--btn-background: transparent;
 		--btn-text-color: var(--btn-outline-color);
+		--btn-border-color: var(--btn-outline-color);
 	}
 
 	/* Grössen: nur die Schrift, die Abstände wachsen in em mit */

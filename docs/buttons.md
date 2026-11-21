@@ -20,6 +20,8 @@ Wie in ACSS: Ein Link oder `<button>` wird mit einer Klasse zum Button. Kein eig
 
 Farben: `primary`, `secondary`, `tertiary`, `accent`, `base`, `neutral` wie in ACSS, dazu `action` (Rolle im Hub für Knöpfe und Links, in den ACSS-Docs nicht als Button aufgeführt).
 
+Ist die Farbe zu hell für Text (`--{farbe}-text-light` 0, z. B. Gelb), sind Rahmen und Text von `btn--{farbe} btn--outline` in `--text-dark`. Die dunklen Stufen heller Farben werden trüb (Gelb wird Oliv), `btn--{farbe}-dark` dann nicht verwenden.
+
 Auf hellen Flächen passen `btn--{farbe}` und `-dark`, auf dunklen `btn--{farbe}` und `-light`. Outline nur mit einer Farbe, die sich vom Hintergrund abhebt: `btn--primary-light btn--outline` ist auf hellem Grund kaum sichtbar, `btn--base` auf `bg--dark` gar nicht.
 
 Fokus: Rahmen in `--heading-color`, darum passt er auf jeder Fläche (`bg--*`).

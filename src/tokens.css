@@ -356,7 +356,14 @@
 		--heading-color: var(--text-dark);
 		/* nicht in ACSS: gedämpfter Text, passend zur Fläche */
 		--body-color-muted: var(--text-dark-muted);
-		--link-color: var(--action);
-		--link-color-hover: var(--action-hover);
+		--link-color: var(--_link-color-light);
+		--link-color-hover: var(--_link-color-light-hover);
+		/* Links auf hellen Flächen: --action oder, wenn sie zu hell für Text ist (--action-text-light 0), --text-dark */
+		--_link-color-light: color-mix(in oklab, var(--action) calc(var(--action-text-light) * 100%), var(--text-dark));
+		--_link-color-light-hover: color-mix(
+			in oklab,
+			var(--action-hover) calc(var(--action-text-light) * 100%),
+			var(--text-dark)
+		);
 	}
 }

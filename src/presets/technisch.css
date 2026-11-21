@@ -1,6 +1,6 @@
 /*
 	Preset «technisch»: präzise Schrift, dünne Linien, kleine Radien, keine Schatten, viel Weissraum, gedämpfte Farbstufen.
-	Vollständiger Satz von Grundwerten. Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+	Vollständiger Satz von Grundwerten ohne Farben (die kommen aus der Marke). Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
 */
 
 @layer grundwerte {
@@ -46,26 +46,5 @@
 		--content-max: 1200;
 		--gutter-min: 16;
 		--gutter-max: 64;
-
-		--primary: #1f56c3;
-		--secondary: #0f6f6a;
-		--tertiary: #5a6678;
-		--accent: #e0531f;
-		--action: #1f56c3;
-		--base: #0f1722;
-		--neutral: #6b7280;
-		--bg-light: #f3f5f8;
-		--bg-dark: #0f1722;
-		--text-light: #f8fafc;
-		--text-dark: #0f1722;
-
-		/* Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es aus dem Kontrast. */
-		--primary-text-light: 1;
-		--secondary-text-light: 1;
-		--tertiary-text-light: 1;
-		--accent-text-light: 0;
-		--action-text-light: 1;
-		--base-text-light: 1;
-		--neutral-text-light: 1;
 	}
 }

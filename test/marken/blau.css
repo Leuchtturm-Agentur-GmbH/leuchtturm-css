@@ -1,0 +1,29 @@
+/*
+	Beispielmarke für die Testseite: Blau, Petrol, Orange (früher im Preset «technisch»).
+	So sieht der Block aus, den der Hub für eine Marke mit allen Rollen ausgibt.
+*/
+
+@layer grundwerte {
+	:root {
+		--primary: #1f56c3;
+		--secondary: #0f6f6a;
+		--tertiary: #5a6678;
+		--accent: #e0531f;
+		--action: #1f56c3;
+		--base: #0f1722;
+		--neutral: #6b7280;
+		--bg-light: #f3f5f8;
+		--bg-dark: #0f1722;
+		--text-light: #f8fafc;
+		--text-dark: #0f1722;
+
+		/* Text auf der Farbe, aus dem Kontrast gerechnet */
+		--primary-text-light: 1;
+		--secondary-text-light: 1;
+		--tertiary-text-light: 1;
+		--accent-text-light: 0;
+		--action-text-light: 1;
+		--base-text-light: 1;
+		--neutral-text-light: 1;
+	}
+}

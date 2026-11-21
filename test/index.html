@@ -6,13 +6,20 @@
 		<title>leuchtturm-css: Testseite</title>
 		<link rel="stylesheet" href="../src/leuchtturm.css" />
 		<link rel="stylesheet" id="preset" href="../src/presets/technisch.css" />
+		<link rel="stylesheet" id="marke" href="marken/blau.css" />
 		<script>
-			// Preset aus der Adresse schon vor dem ersten Zeichnen setzen
+			// Preset und Marke aus der Adresse schon vor dem ersten Zeichnen setzen
 			{
-				const p = new URLSearchParams(location.search).get('preset') ?? 'technisch';
-				const l = document.getElementById('preset');
-				if (p) l.href = `../src/presets/${p}.css`;
-				else l.disabled = true;
+				const q = new URLSearchParams(location.search);
+				for (const [id, standard, pfad] of [
+					['preset', 'technisch', '../src/presets/'],
+					['marke', 'blau', 'marken/']
+				]) {
+					const wert = q.get(id) ?? standard;
+					const l = document.getElementById(id);
+					if (wert) l.href = `${pfad}${wert}.css`;
+					else l.disabled = true;
+				}
 			}
 		</script>
 		<style>
@@ -85,6 +92,7 @@
 				.leiste button[aria-pressed='true'] {
 					background: var(--action);
 					border-color: var(--action);
+					color: var(--action-text);
 				}
 				.leiste output {
 					margin-inline-start: auto;
@@ -93,7 +101,7 @@
 
 				/* Muster */
 				.eyebrow {
-					color: var(--primary);
+					color: var(--link-color);
 					font-size: var(--text-s);
 					font-weight: 600;
 					letter-spacing: 0.08em;
@@ -214,6 +222,13 @@
 			<button type="button" data-preset="technisch">technisch</button>
 			<button type="button" data-preset="freudig">freudig</button>
 			<button type="button" data-preset="ruhig">ruhig</button>
+			<strong>Marke</strong>
+			<button type="button" data-marke="">nur Primary</button>
+			<button type="button" data-marke="gelb">Gelb</button>
+			<button type="button" data-marke="gelb-schwarz">Gelb, Schwarz</button>
+			<button type="button" data-marke="blau">Blau</button>
+			<button type="button" data-marke="koralle">Koralle</button>
+			<button type="button" data-marke="salbei">Salbei</button>
 			<output id="ansicht"></output>
 		</nav>
 
@@ -429,24 +444,31 @@
 				document.getElementById('ansicht').textContent = `Ansicht ${window.innerWidth}px`;
 			}
 
-			// Presets wechseln, Wahl in der Adresse (?preset=freudig)
-			const link = document.getElementById('preset');
-			function setzen(preset) {
-				const href = `../src/presets/${preset}.css`;
-				if (preset) {
+			// Preset und Marke wechseln, Wahl in der Adresse (?preset=freudig&marke=gelb)
+			const arten = { preset: '../src/presets/', marke: 'marken/' };
+			const wahl = new URLSearchParams(location.search);
+			wahl.set('preset', wahl.get('preset') ?? 'technisch');
+			wahl.set('marke', wahl.get('marke') ?? 'blau');
+			function setzen(art, wert) {
+				const link = document.getElementById(art);
+				const href = `${arten[art]}${wert}.css`;
+				if (wert) {
 					if (link.getAttribute('href') !== href) link.href = href;
 					link.disabled = false;
 				} else link.disabled = true;
-				for (const b of document.querySelectorAll('[data-preset]'))
-					b.setAttribute('aria-pressed', String(b.dataset.preset === preset));
-				history.replaceState(null, '', `?preset=${preset}`);
+				for (const b of document.querySelectorAll(`[data-${art}]`))
+					b.setAttribute('aria-pressed', String(b.dataset[art] === wert));
+				wahl.set(art, wert);
+				history.replaceState(null, '', `?${wahl}`);
 				link.addEventListener('load', messen, { once: true });
 				requestAnimationFrame(messen);
 			}
-			for (const b of document.querySelectorAll('[data-preset]'))
-				b.addEventListener('click', () => setzen(b.dataset.preset));
+			for (const art of Object.keys(arten)) {
+				for (const b of document.querySelectorAll(`[data-${art}]`))
+					b.addEventListener('click', () => setzen(art, b.dataset[art]));
+				setzen(art, wahl.get(art));
+			}
 			addEventListener('resize', messen);
-			setzen(new URLSearchParams(location.search).get('preset') ?? 'technisch');
 		</script>
 	</body>
 </html>

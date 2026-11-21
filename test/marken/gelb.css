@@ -1,0 +1,11 @@
+/*
+	Beispielmarke für die Testseite: nur Gelb (und Weiss). Alle anderen Rollen leitet das CSS ab.
+	So sieht der Block aus, den der Hub für eine Marke mit nur einer Farbe ausgibt.
+*/
+
+@layer grundwerte {
+	:root {
+		--primary: #ffd200;
+		--primary-text-light: 0;
+	}
+}
