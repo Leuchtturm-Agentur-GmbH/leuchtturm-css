@@ -6,6 +6,15 @@
 		<title>leuchtturm-css: Testseite</title>
 		<link rel="stylesheet" href="../src/leuchtturm.css" />
 		<link rel="stylesheet" id="preset" href="../src/presets/technisch.css" />
+		<script>
+			// Preset aus der Adresse schon vor dem ersten Zeichnen setzen
+			{
+				const p = new URLSearchParams(location.search).get('preset') ?? 'technisch';
+				const l = document.getElementById('preset');
+				if (p) l.href = `../src/presets/${p}.css`;
+				else l.disabled = true;
+			}
+		</script>
 		<style>
 			/* Nur für die Testseite, nur mit Tokens. Farben und Schrift kommen aus base.css und den Klassen bg--*. */
 			@layer site {
@@ -94,18 +103,11 @@
 					color: var(--body-color-muted);
 					font-size: var(--text-l);
 				}
-				.knopf {
-					display: inline-block;
-					justify-self: start;
-					padding: var(--space-xs) var(--space-m);
-					border-radius: var(--radius);
-					background: var(--action);
-					color: var(--white);
-					font-weight: 600;
-					text-decoration: none;
-				}
-				.knopf:hover {
-					background: var(--action-hover);
+				.knoepfe {
+					display: flex;
+					flex-wrap: wrap;
+					gap: var(--space-s);
+					align-items: center;
 				}
 				.karte {
 					display: grid;
@@ -224,7 +226,10 @@
 						<p class="lead">
 							Ein Beispiel, wie Überschrift, Text, Abstände, Farben und Formen aus den Grundwerten zusammenspielen.
 						</p>
-						<a class="knopf" href="#skalen">Skalen ansehen</a>
+						<div class="knoepfe">
+							<a class="btn--action" href="#skalen">Skalen ansehen</a>
+							<a class="btn--action btn--outline" href="#buttons">Buttons</a>
+						</div>
 					</div>
 					<div class="grid-3">
 						<article class="karte bg--ultra-light">
@@ -294,6 +299,35 @@
 					</div>
 				</div>
 			</section>
+			<section id="buttons">
+				<div>
+					<div class="stack">
+						<h2>Buttons</h2>
+						<p>Pro Farbe: btn--{farbe}, -light, -dark, dann dasselbe mit btn--outline.</p>
+						<div class="stack" data-buttons></div>
+					</div>
+					<div class="stack">
+						<h3>Grössen</h3>
+						<div class="knoepfe">
+							<button class="btn--primary btn--xs">xs</button>
+							<button class="btn--primary btn--s">s</button>
+							<button class="btn--primary">Standard</button>
+							<button class="btn--primary btn--l">l</button>
+							<button class="btn--primary btn--xl">xl</button>
+							<button class="btn--primary btn--xxl">xxl</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="bg--dark">
+				<div>
+					<div class="stack">
+						<h3>Buttons auf bg--dark</h3>
+						<div class="stack" data-buttons></div>
+					</div>
+				</div>
+			</section>
+
 			<section id="flaechen">
 				<div>
 					<div class="stack">
@@ -368,6 +402,20 @@
 				farben.append(zeile);
 			}
 
+			// Buttons pro Farbe
+			for (const el of document.querySelectorAll('[data-buttons]')) {
+				for (const r of rollen) {
+					const zeile = document.createElement('div');
+					zeile.className = 'knoepfe';
+					zeile.innerHTML = ['', ' btn--outline']
+						.flatMap((o) =>
+							['', '-light', '-dark'].map((v) => `<a href="#buttons" class="btn--${r}${v}${o}">${r}${v}</a>`)
+						)
+						.join('');
+					el.append(zeile);
+				}
+			}
+
 			// Werte in px anzeigen: ein Messelement pro Token
 			const mess = document.createElement('div');
 			mess.style.cssText = 'position: absolute; visibility: hidden; block-size: 0';
@@ -384,8 +432,9 @@
 			// Presets wechseln, Wahl in der Adresse (?preset=freudig)
 			const link = document.getElementById('preset');
 			function setzen(preset) {
+				const href = `../src/presets/${preset}.css`;
 				if (preset) {
-					link.href = `../src/presets/${preset}.css`;
+					if (link.getAttribute('href') !== href) link.href = href;
 					link.disabled = false;
 				} else link.disabled = true;
 				for (const b of document.querySelectorAll('[data-preset]'))

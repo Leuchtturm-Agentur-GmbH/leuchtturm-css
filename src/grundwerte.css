@@ -46,6 +46,10 @@
 		--shadow-blur: 16;
 		--shadow-opacity: 0.1;
 
+		/* Buttons */
+		--btn-radius-base: 6;
+		--btn-weight: 600;
+
 		/* Farbstufen: Anteil Weiss (hell) bzw. Schwarz (dunkel), dazu die Sättigung der Stufen */
 		--shade-ultra-light: 0.92;
 		--shade-light: 0.7;
@@ -70,5 +74,14 @@
 		--bg-dark: #1c2430;
 		--text-light: #f7f8fa;
 		--text-dark: #1c2430;
+
+		/* Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es aus dem Kontrast. */
+		--primary-text-light: 1;
+		--secondary-text-light: 1;
+		--tertiary-text-light: 1;
+		--accent-text-light: 1;
+		--action-text-light: 1;
+		--base-text-light: 1;
+		--neutral-text-light: 1;
 	}
 }

@@ -33,6 +33,10 @@
 		--shadow-blur: 0;
 		--shadow-opacity: 0;
 
+		/* Buttons */
+		--btn-radius-base: 2;
+		--btn-weight: 500;
+
 		--shade-ultra-light: 0.94;
 		--shade-light: 0.8;
 		--shade-dark: 0.4;
@@ -54,5 +58,14 @@
 		--bg-dark: #0f1722;
 		--text-light: #f8fafc;
 		--text-dark: #0f1722;
+
+		/* Text auf der Farbe: 1 heisst --text-light, 0 heisst --text-dark. Der Hub rechnet es aus dem Kontrast. */
+		--primary-text-light: 1;
+		--secondary-text-light: 1;
+		--tertiary-text-light: 1;
+		--accent-text-light: 0;
+		--action-text-light: 1;
+		--base-text-light: 1;
+		--neutral-text-light: 1;
 	}
 }

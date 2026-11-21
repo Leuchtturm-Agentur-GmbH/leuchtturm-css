@@ -10,14 +10,15 @@ Konzept und Entscheid: `frischknecht-brain/agentur/leuchtturm-css.md`, Entscheid
 
 ## Stand
 
-Erste Fassung der Grundwerte und Tokens (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu Flächen (`bg--dark` usw.), auf denen sich Text, Überschriften, Links und Linien anpassen, mit den nötigen Grundstilen. Noch nicht: Reset, übrige Grundstile, Buttons, Zusatzdatei für Tailwind, Prüfskript.
+Erste Fassung der Grundwerte und Tokens (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu Flächen (`bg--dark` usw.), auf denen sich Text, Überschriften, Links und Linien anpassen, mit den nötigen Grundstilen, und Buttons wie in ACSS. Noch nicht: Reset, übrige Grundstile, Zusatzdatei für Tailwind, Prüfskript.
 
 ## Aufbau
 
 - `src/leuchtturm.css`: Einstieg, Reihenfolge der Layer, bindet die Teile ein.
-- `src/grundwerte.css`: Layer `grundwerte`, rund 30 Grundwerte und 11 Farben mit neutralen Standardwerten. Nur diese setzt eine Site.
+- `src/grundwerte.css`: Layer `grundwerte`, 31 Grundwerte, 11 Farben und pro Farbrolle die Textfarbe darauf, mit neutralen Standardwerten. Nur diese setzt eine Site.
 - `src/tokens.css`: Layer `tokens`, daraus gerechnet (Schrift, Abstände, Radien, Rahmen, Schatten, Farbstufen, Kontext-Farben, Breiten).
 - `src/base.css`: Layer `base`, Grundstile für Seite, Überschriften und Links, nur mit Kontext-Tokens.
+- `src/buttons.css`: Layer `components`, Buttons `btn--{farbe}`, `-light`, `-dark`, `btn--outline`, Grössen. Doku: `docs/buttons.md`.
 - `src/utilities.css`: Layer `utilities`, Flächen `bg--ultra-light`, `bg--light`, `bg--dark`, `bg--ultra-dark`. Doku: `docs/flaechen.md`.
 - `src/presets/`: vollständige Sätze von Grundwerten, `technisch`, `freudig`, `ruhig`. Nach `leuchtturm.css` einbinden.
 - `docs/grundwerte.md`: pro Grundwert Wirkung, Bereich und Begriffe. Grundlage für die KI und das spätere Prüfskript.

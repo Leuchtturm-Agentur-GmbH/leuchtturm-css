@@ -82,6 +82,15 @@ Stufen: `--space-*` = Grundschritt × `--space-ratio` hoch −2 (xs) bis 3 (xxl)
 | `--shadow-blur` | Weichheit des Schattens, px | 16 | 0–48 | ↑ weich, freudig, ruhig · ↓ hart, grafisch |
 | `--shadow-opacity` | Deckkraft des Schattens | 0.1 | 0–0.25 | 0 keine Schatten (technisch, flach) · ↑ greifbar, freudig. Über 0.2 wirkt schnell billig |
 
+### Buttons
+
+| Grundwert | Wirkung | Standard | Bereich | Begriffe |
+|---|---|---|---|---|
+| `--btn-radius-base` | Radius der Buttons `--btn-radius`, px. 999 heisst Pille | 6 | 0–32 oder 999 | 999 freudig, weich, nahbar, ruhig · klein präzise, technisch, seriös. Meist gleich `--radius-base` oder Pille |
+| `--btn-weight` | Schriftgewicht der Buttons | 600 | 400–800 | ↑ kräftig, freudig, laut · ↓ ruhig, edel. Nur Schnitte, die die Schrift hat |
+
+Doku zu den Klassen: [buttons.md](buttons.md).
+
 ### Farbstufen
 
 Die Stufen jeder Rolle (`--primary-ultra-light` bis `--primary-ultra-dark`) entstehen, indem Weiss oder Schwarz zur Rolle gemischt wird. Die Rolle selbst (`--primary`) bleibt genau die Farbe aus der Marke.
@@ -128,6 +137,14 @@ Hex `#rrggbb`, Rollen wie im Hub (`agenturhub/src/lib/server/marke.ts`, `FARBROL
 
 Fehlt eine Rolle in der Marke, bleibt der Standardwert. Besser: die Rolle im Hub auf eine bestehende Farbe setzen (z. B. `action` = `primary`).
 
+Pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` dazu:
+
+| Grundwert | Wirkung | Bereich |
+|---|---|---|
+| `--{rolle}-text-light` | Textfarbe auf der Rolle, z. B. in `btn--primary`: 1 heisst `--text-light`, 0 heisst `--text-dark` | 0 oder 1 |
+
+Die KI wählt diesen Wert nicht nach Geschmack. Der Hub rechnet ihn aus dem Kontrast nach WCAG: die Seite mit dem höheren Kontrast gewinnt. Das CSS kann das erst mit `oklch(from …)` selbst.
+
 ## Was daraus gerechnet wird
 
 `src/tokens.css`, Namen wie in ACSS:
@@ -137,10 +154,11 @@ Fehlt eine Rolle in der Marke, bleibt der Standardwert. Besser: die Rolle im Hub
 - Breiten: `--content-width`, `--gutter`, `--content-gap` (`--space-m`), `--container-gap` (`--space-xl`), `--grid-gap` (`--space-m`).
 - Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
+- Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
 - Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
 - Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 
-Nicht in ACSS, hier zusätzlich: `--border-size-strong`, `--border-strong` und `--body-color-muted`. Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
+Nicht in ACSS, hier zusätzlich: `--border-size-strong`, `--border-strong` und `--body-color-muted` und `--{rolle}-text` (Textfarbe auf der Rolle). Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
 
 ## Offen
 

@@ -242,6 +242,23 @@
 		--box-shadow-2: 0 calc(var(--shadow-y) * 1px) calc(var(--shadow-blur) * 1px) var(--_shadow-color);
 		--box-shadow-3: 0 calc(var(--shadow-y) * 2px) calc(var(--shadow-blur) * 2px) var(--_shadow-color);
 
+		/* Buttons: Werte für alle Varianten. Abstände in em, damit die Grössen btn--xs … btn--xxl nur die Schrift ändern. */
+		--btn-padding-block: 0.75em;
+		--btn-padding-inline: 1.5em;
+		--btn-min-width: 0;
+		--btn-line-height: 1.2;
+		--btn-font-size: var(--text-m);
+		--btn-font-weight: var(--btn-weight);
+		--btn-font-family: var(--text-font-family);
+		--btn-letter-spacing: normal;
+		--btn-text-transform: none;
+		--btn-text-decoration: none;
+		--btn-text-decoration-hover: none;
+		--btn-border-width: var(--border-size-strong);
+		--btn-border-style: solid;
+		--btn-radius: calc(var(--btn-radius-base) * var(--_rem));
+		--btn-border-radius: var(--btn-radius);
+
 		/* Feste Farben */
 		--white: #fff;
 		--black: #000;
@@ -314,6 +331,15 @@
 		--neutral-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-dark) * 100%));
 		--neutral-ultra-dark: color-mix(in oklab, var(--_neutral), var(--black) calc(var(--shade-ultra-dark) * 100%));
 		--neutral-hover: color-mix(in oklab, var(--neutral), var(--black) 15%);
+
+		/* Text auf der Rolle, aus --{rolle}-text-light (1 hell, 0 dunkel). Nicht in ACSS. */
+		--primary-text: color-mix(in oklab, var(--text-light) calc(var(--primary-text-light) * 100%), var(--text-dark));
+		--secondary-text: color-mix(in oklab, var(--text-light) calc(var(--secondary-text-light) * 100%), var(--text-dark));
+		--tertiary-text: color-mix(in oklab, var(--text-light) calc(var(--tertiary-text-light) * 100%), var(--text-dark));
+		--accent-text: color-mix(in oklab, var(--text-light) calc(var(--accent-text-light) * 100%), var(--text-dark));
+		--action-text: color-mix(in oklab, var(--text-light) calc(var(--action-text-light) * 100%), var(--text-dark));
+		--base-text: color-mix(in oklab, var(--text-light) calc(var(--base-text-light) * 100%), var(--text-dark));
+		--neutral-text: color-mix(in oklab, var(--text-light) calc(var(--neutral-text-light) * 100%), var(--text-dark));
 
 		/* Kontext: --bg-light, --bg-dark, --text-light und --text-dark sind Grundwerte (Rollen im Hub) */
 		--bg-ultra-light: color-mix(in oklab, var(--bg-light), var(--white) 60%);

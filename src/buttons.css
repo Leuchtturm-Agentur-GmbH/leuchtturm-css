@@ -1,0 +1,296 @@
+/*
+	Buttons wie in ACSS: .btn--{farbe}, .btn--{farbe}-light, .btn--{farbe}-dark, dazu .btn--outline und die Grössen
+	.btn--xs, .btn--s, .btn--l, .btn--xl, .btn--xxl. Farben: primary, secondary, tertiary, accent, action, base, neutral.
+	Doku: docs/buttons.md
+
+	Jede Farbklasse setzt nur die Variablen --btn-background, --btn-text-color, --btn-border-color (je mit -hover).
+	Die gemeinsame Regel hat keine Spezifität (:where), damit der Layer site alles überschreibt.
+*/
+
+@layer components {
+	:where(
+		.btn--primary,
+		.btn--primary-light,
+		.btn--primary-dark,
+		.btn--secondary,
+		.btn--secondary-light,
+		.btn--secondary-dark,
+		.btn--tertiary,
+		.btn--tertiary-light,
+		.btn--tertiary-dark,
+		.btn--accent,
+		.btn--accent-light,
+		.btn--accent-dark,
+		.btn--action,
+		.btn--action-light,
+		.btn--action-dark,
+		.btn--base,
+		.btn--base-light,
+		.btn--base-dark,
+		.btn--neutral,
+		.btn--neutral-light,
+		.btn--neutral-dark
+	) {
+		display: inline-flex;
+		gap: 0.5em;
+		align-items: center;
+		justify-content: center;
+		min-inline-size: var(--btn-min-width);
+		padding-block: var(--btn-padding-block);
+		padding-inline: var(--btn-padding-inline);
+		border: var(--btn-border-width) var(--btn-border-style) var(--btn-border-color);
+		border-radius: var(--btn-radius);
+		background-color: var(--btn-background);
+		color: var(--btn-text-color);
+		font-family: var(--btn-font-family);
+		font-size: var(--btn-font-size);
+		font-weight: var(--btn-font-weight);
+		letter-spacing: var(--btn-letter-spacing);
+		line-height: var(--btn-line-height);
+		text-align: center;
+		text-decoration: var(--btn-text-decoration);
+		text-transform: var(--btn-text-transform);
+		cursor: pointer;
+		transition:
+			background-color 0.15s,
+			color 0.15s,
+			border-color 0.15s;
+
+		&:hover {
+			border-color: var(--btn-border-color-hover);
+			background-color: var(--btn-background-hover);
+			color: var(--btn-text-color-hover);
+			text-decoration: var(--btn-text-decoration-hover);
+		}
+
+		&:focus-visible {
+			outline: var(--border-size-strong) solid var(--heading-color);
+			outline-offset: 0.2em;
+		}
+
+		&:disabled,
+		&[aria-disabled='true'] {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+
+	.btn--primary {
+		--btn-background: var(--primary);
+		--btn-background-hover: var(--primary-hover);
+		--btn-text-color: var(--primary-text);
+		--btn-text-color-hover: var(--primary-text);
+		--btn-border-color: var(--primary);
+		--btn-border-color-hover: var(--primary-hover);
+		--btn-outline-color: var(--primary);
+	}
+	.btn--primary-light {
+		--btn-background: var(--primary-light);
+		--btn-background-hover: var(--primary-semi-light);
+		--btn-text-color: var(--primary-ultra-dark);
+		--btn-text-color-hover: var(--primary-ultra-dark);
+		--btn-border-color: var(--primary-light);
+		--btn-border-color-hover: var(--primary-semi-light);
+		--btn-outline-color: var(--primary-light);
+	}
+	.btn--primary-dark {
+		--btn-background: var(--primary-dark);
+		--btn-background-hover: var(--primary-ultra-dark);
+		--btn-text-color: var(--primary-ultra-light);
+		--btn-text-color-hover: var(--primary-ultra-light);
+		--btn-border-color: var(--primary-dark);
+		--btn-border-color-hover: var(--primary-ultra-dark);
+		--btn-outline-color: var(--primary-dark);
+	}
+
+	.btn--secondary {
+		--btn-background: var(--secondary);
+		--btn-background-hover: var(--secondary-hover);
+		--btn-text-color: var(--secondary-text);
+		--btn-text-color-hover: var(--secondary-text);
+		--btn-border-color: var(--secondary);
+		--btn-border-color-hover: var(--secondary-hover);
+		--btn-outline-color: var(--secondary);
+	}
+	.btn--secondary-light {
+		--btn-background: var(--secondary-light);
+		--btn-background-hover: var(--secondary-semi-light);
+		--btn-text-color: var(--secondary-ultra-dark);
+		--btn-text-color-hover: var(--secondary-ultra-dark);
+		--btn-border-color: var(--secondary-light);
+		--btn-border-color-hover: var(--secondary-semi-light);
+		--btn-outline-color: var(--secondary-light);
+	}
+	.btn--secondary-dark {
+		--btn-background: var(--secondary-dark);
+		--btn-background-hover: var(--secondary-ultra-dark);
+		--btn-text-color: var(--secondary-ultra-light);
+		--btn-text-color-hover: var(--secondary-ultra-light);
+		--btn-border-color: var(--secondary-dark);
+		--btn-border-color-hover: var(--secondary-ultra-dark);
+		--btn-outline-color: var(--secondary-dark);
+	}
+
+	.btn--tertiary {
+		--btn-background: var(--tertiary);
+		--btn-background-hover: var(--tertiary-hover);
+		--btn-text-color: var(--tertiary-text);
+		--btn-text-color-hover: var(--tertiary-text);
+		--btn-border-color: var(--tertiary);
+		--btn-border-color-hover: var(--tertiary-hover);
+		--btn-outline-color: var(--tertiary);
+	}
+	.btn--tertiary-light {
+		--btn-background: var(--tertiary-light);
+		--btn-background-hover: var(--tertiary-semi-light);
+		--btn-text-color: var(--tertiary-ultra-dark);
+		--btn-text-color-hover: var(--tertiary-ultra-dark);
+		--btn-border-color: var(--tertiary-light);
+		--btn-border-color-hover: var(--tertiary-semi-light);
+		--btn-outline-color: var(--tertiary-light);
+	}
+	.btn--tertiary-dark {
+		--btn-background: var(--tertiary-dark);
+		--btn-background-hover: var(--tertiary-ultra-dark);
+		--btn-text-color: var(--tertiary-ultra-light);
+		--btn-text-color-hover: var(--tertiary-ultra-light);
+		--btn-border-color: var(--tertiary-dark);
+		--btn-border-color-hover: var(--tertiary-ultra-dark);
+		--btn-outline-color: var(--tertiary-dark);
+	}
+
+	.btn--accent {
+		--btn-background: var(--accent);
+		--btn-background-hover: var(--accent-hover);
+		--btn-text-color: var(--accent-text);
+		--btn-text-color-hover: var(--accent-text);
+		--btn-border-color: var(--accent);
+		--btn-border-color-hover: var(--accent-hover);
+		--btn-outline-color: var(--accent);
+	}
+	.btn--accent-light {
+		--btn-background: var(--accent-light);
+		--btn-background-hover: var(--accent-semi-light);
+		--btn-text-color: var(--accent-ultra-dark);
+		--btn-text-color-hover: var(--accent-ultra-dark);
+		--btn-border-color: var(--accent-light);
+		--btn-border-color-hover: var(--accent-semi-light);
+		--btn-outline-color: var(--accent-light);
+	}
+	.btn--accent-dark {
+		--btn-background: var(--accent-dark);
+		--btn-background-hover: var(--accent-ultra-dark);
+		--btn-text-color: var(--accent-ultra-light);
+		--btn-text-color-hover: var(--accent-ultra-light);
+		--btn-border-color: var(--accent-dark);
+		--btn-border-color-hover: var(--accent-ultra-dark);
+		--btn-outline-color: var(--accent-dark);
+	}
+
+	.btn--action {
+		--btn-background: var(--action);
+		--btn-background-hover: var(--action-hover);
+		--btn-text-color: var(--action-text);
+		--btn-text-color-hover: var(--action-text);
+		--btn-border-color: var(--action);
+		--btn-border-color-hover: var(--action-hover);
+		--btn-outline-color: var(--action);
+	}
+	.btn--action-light {
+		--btn-background: var(--action-light);
+		--btn-background-hover: var(--action-semi-light);
+		--btn-text-color: var(--action-ultra-dark);
+		--btn-text-color-hover: var(--action-ultra-dark);
+		--btn-border-color: var(--action-light);
+		--btn-border-color-hover: var(--action-semi-light);
+		--btn-outline-color: var(--action-light);
+	}
+	.btn--action-dark {
+		--btn-background: var(--action-dark);
+		--btn-background-hover: var(--action-ultra-dark);
+		--btn-text-color: var(--action-ultra-light);
+		--btn-text-color-hover: var(--action-ultra-light);
+		--btn-border-color: var(--action-dark);
+		--btn-border-color-hover: var(--action-ultra-dark);
+		--btn-outline-color: var(--action-dark);
+	}
+
+	.btn--base {
+		--btn-background: var(--base);
+		--btn-background-hover: var(--base-hover);
+		--btn-text-color: var(--base-text);
+		--btn-text-color-hover: var(--base-text);
+		--btn-border-color: var(--base);
+		--btn-border-color-hover: var(--base-hover);
+		--btn-outline-color: var(--base);
+	}
+	.btn--base-light {
+		--btn-background: var(--base-light);
+		--btn-background-hover: var(--base-semi-light);
+		--btn-text-color: var(--base-ultra-dark);
+		--btn-text-color-hover: var(--base-ultra-dark);
+		--btn-border-color: var(--base-light);
+		--btn-border-color-hover: var(--base-semi-light);
+		--btn-outline-color: var(--base-light);
+	}
+	.btn--base-dark {
+		--btn-background: var(--base-dark);
+		--btn-background-hover: var(--base-ultra-dark);
+		--btn-text-color: var(--base-ultra-light);
+		--btn-text-color-hover: var(--base-ultra-light);
+		--btn-border-color: var(--base-dark);
+		--btn-border-color-hover: var(--base-ultra-dark);
+		--btn-outline-color: var(--base-dark);
+	}
+
+	.btn--neutral {
+		--btn-background: var(--neutral);
+		--btn-background-hover: var(--neutral-hover);
+		--btn-text-color: var(--neutral-text);
+		--btn-text-color-hover: var(--neutral-text);
+		--btn-border-color: var(--neutral);
+		--btn-border-color-hover: var(--neutral-hover);
+		--btn-outline-color: var(--neutral);
+	}
+	.btn--neutral-light {
+		--btn-background: var(--neutral-light);
+		--btn-background-hover: var(--neutral-semi-light);
+		--btn-text-color: var(--neutral-ultra-dark);
+		--btn-text-color-hover: var(--neutral-ultra-dark);
+		--btn-border-color: var(--neutral-light);
+		--btn-border-color-hover: var(--neutral-semi-light);
+		--btn-outline-color: var(--neutral-light);
+	}
+	.btn--neutral-dark {
+		--btn-background: var(--neutral-dark);
+		--btn-background-hover: var(--neutral-ultra-dark);
+		--btn-text-color: var(--neutral-ultra-light);
+		--btn-text-color-hover: var(--neutral-ultra-light);
+		--btn-border-color: var(--neutral-dark);
+		--btn-border-color-hover: var(--neutral-ultra-dark);
+		--btn-outline-color: var(--neutral-dark);
+	}
+
+	/* Outline: durchsichtig mit Rahmen und Text in der Farbe, beim Hover gefüllt. Steht nach den Farben, damit es gewinnt. */
+	.btn--outline {
+		--btn-background: transparent;
+		--btn-text-color: var(--btn-outline-color);
+	}
+
+	/* Grössen: nur die Schrift, die Abstände wachsen in em mit */
+	.btn--xs {
+		--btn-font-size: var(--text-xs);
+	}
+	.btn--s {
+		--btn-font-size: var(--text-s);
+	}
+	.btn--l {
+		--btn-font-size: var(--text-l);
+	}
+	.btn--xl {
+		--btn-font-size: var(--text-xl);
+	}
+	.btn--xxl {
+		--btn-font-size: var(--text-xxl);
+	}
+}
