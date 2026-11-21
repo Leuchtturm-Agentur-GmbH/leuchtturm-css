@@ -164,7 +164,8 @@ Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz tr
 
 - Schrift: `--text-xs … --text-xxl`, `--h1 … --h6`, `--heading-font-weight`, `--heading-letter-spacing`, `--heading-line-height`, `--text-line-height`.
 - Abstände: `--space-xs … --space-xxl`, `--section-space-xs … --section-space-xxl`.
-- Breiten: `--content-width`, `--gutter`, `--content-gap` (`--space-m`), `--container-gap` (`--space-xl`), `--grid-gap` (`--space-m`).
+- Breiten: `--content-width`, `--gutter`, `--content-gap` (`--space-m`), `--container-gap` (`--space-xl`), `--grid-gap` (`--space-m`), `--width-10 … --width-90`.
+- Raster: `--grid-1 … --grid-12`, `--grid-1-2`, `--grid-1-3`, `--grid-2-1`, `--grid-2-3`, `--grid-3-1`, `--grid-3-2`, `--grid-auto-min`, siehe [raster.md](raster.md).
 - Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
@@ -172,14 +173,13 @@ Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz tr
 - Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
 - Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 
-Nicht in ACSS, hier zusätzlich: `--border-size-strong`, `--border-strong` und `--body-color-muted` und `--{rolle}-text` (Textfarbe auf der Rolle). Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
+Nicht in ACSS, hier zusätzlich: `--grid-auto-min`, `--border-size-strong`, `--border-strong` und `--body-color-muted` und `--{rolle}-text` (Textfarbe auf der Rolle). Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
 
 ## Offen
 
 - [Offen] Welche Rolle aus dem Hub ist der Seitenhintergrund? Heute: `--body-bg-color` = `--bg-ultra-light`, das aus `--bg-light` mit 60% Weiss gerechnet wird. Soll die Seite genau `--bg-light` zeigen, `--body-bg-color: var(--bg-light)` setzen oder eine eigene Rolle im Hub einführen.
 - [Offen] Semantische Farben von ACSS (`success`, `danger`, `warning`, `info`) fehlen noch, nötig mit den Formularen.
 - [Offen] Sprünge wie `--h1-to-h4` und `--space-xxl-to-m` aus ACSS fehlen noch. Erst bauen, wenn eine Site sie braucht.
-- [Offen] `--width-10 … --width-90` und `--grid-*` aus ACSS gehören zum Layer `layout`, später.
 - [Offen] Prüfskript: jeder Grundwert im Bereich dieser Tabellen, `min ≤ max` bei Paaren, Kontraste nach WCAG AA für `--text-dark` auf `--bg-light` und `--body-bg-color`, `--text-light` auf `--bg-dark`, Weiss auf `--action`. Die Bereiche in dieser Datei sind die Vorlage dafür.
 - [Offen] Preset «edel» aus dem Konzept.
 

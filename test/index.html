@@ -187,6 +187,18 @@
 					align-self: center;
 				}
 
+				/* Raster */
+				.zelle {
+					padding: var(--space-s);
+					border-radius: var(--radius);
+					background: var(--primary-ultra-light);
+					color: var(--primary-ultra-dark);
+					font-size: var(--text-s);
+				}
+				.breite {
+					margin-block-start: var(--space-xs);
+				}
+
 				/* Container */
 				.container-demo {
 					display: grid;
@@ -486,6 +498,53 @@
 				</div>
 			</section>
 
+			<section id="raster">
+				<div class="smart-spacing">
+					<h2>Raster</h2>
+					<p>Fest: .grid--4, unter 768px zwei Spalten (.grid--s-2), unter 478px eine (.grid--xs-1).</p>
+					<div class="grid--4 grid--s-2 grid--xs-1">
+						<div class="zelle">1</div>
+						<div class="zelle">2</div>
+						<div class="zelle">3</div>
+						<div class="zelle">4</div>
+					</div>
+					<p>Verhältnis: .grid--1-2 und .grid--3-2, unter 992px gestapelt (.grid--m-1).</p>
+					<div class="grid--1-2 grid--m-1">
+						<div class="zelle">1</div>
+						<div class="zelle">2</div>
+					</div>
+					<div class="grid--3-2 grid--m-1">
+						<div class="zelle">3</div>
+						<div class="zelle">2</div>
+					</div>
+					<p>
+						Automatisch: .grid--auto-3, höchstens drei Spalten, stapelt, sobald eine Zelle schmaler als --grid-auto-min
+						(288px) würde. Links in einer schmalen Spalte, rechts in der vollen Breite.
+					</p>
+					<div class="grid--1-2 grid--m-1">
+						<div class="grid--auto-3">
+							<div class="zelle">Karte 1</div>
+							<div class="zelle">Karte 2</div>
+							<div class="zelle">Karte 3</div>
+						</div>
+						<div class="grid--auto-3">
+							<div class="zelle">Karte 1</div>
+							<div class="zelle">Karte 2</div>
+							<div class="zelle">Karte 3</div>
+						</div>
+					</div>
+					<p class="wert" id="raster-wert"></p>
+					<h3>Breiten</h3>
+					<p>.width--30 bis .width--90: Anteil von --content-width, nie breiter als der Platz.</p>
+					<div>
+						<div class="zelle breite width--30">width--30</div>
+						<div class="zelle breite width--50">width--50</div>
+						<div class="zelle breite width--70">width--70</div>
+						<div class="zelle breite width--90">width--90</div>
+					</div>
+				</div>
+			</section>
+
 			<section id="container">
 				<div>
 					<div class="stack">
@@ -609,6 +668,15 @@
 					mess.style.inlineSize = `var(--${el.dataset.wert})`;
 					const px = parseFloat(getComputedStyle(mess).inlineSize);
 					el.textContent = (el.dataset.wert === 'content-width' ? 'content-width ' : '') + `${Math.round(px)}px`;
+				}
+				{
+					const autos = document.querySelectorAll('#raster .grid--auto-3');
+					document.getElementById('raster-wert').textContent = [...autos]
+						.map(
+							(g) =>
+								`${getComputedStyle(g).gridTemplateColumns.split(' ').length} Spalten bei ${Math.round(g.clientWidth)}px`
+						)
+						.join(' · ');
 				}
 				for (const el of document.querySelectorAll('[data-container]')) {
 					const h = el.parentElement.querySelector(el.dataset.container);

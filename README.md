@@ -10,18 +10,19 @@ Konzept und Entscheid: `frischknecht-brain/agentur/leuchtturm-css.md`, Entscheid
 
 ## Stand
 
-Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*` und Buttons stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Noch nicht: Raster (`--grid-*`), Breiten (`--width-*`), semantische Farben, Zusatzdatei für Tailwind, Prüfskript.
+Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Noch nicht: semantische Farben, Zusatzdatei für Tailwind, Prüfskript.
 
 ## Aufbau
 
 - `src/leuchtturm.css`: Einstieg, Reihenfolge der Layer, bindet die Teile ein.
 - `src/grundwerte.css`: Layer `grundwerte`, 31 Grundwerte, 11 Farben und pro Farbrolle die Textfarbe darauf, mit neutralen Standardwerten. Nur diese setzt eine Site.
-- `src/tokens.css`: Layer `tokens`, daraus gerechnet (Schrift, Abstände, Radien, Rahmen, Schatten, Farbstufen, Kontext-Farben, Breiten).
+- `src/tokens.css`: Layer `tokens`, daraus gerechnet (Schrift, Abstände, Radien, Rahmen, Schatten, Farbstufen, Kontext-Farben, Breiten, Raster).
 - `src/reset.css`: Layer `reset`, kleiner Reset.
 - `src/base.css`: Layer `base`, Grundstile für Seite, Überschriften, Text, Links, Listen, Zitate, Bilder, Formulare und Fokus, nur mit Tokens. Doku: `docs/grundstile.md`.
 - `src/layout.css`: Layer `layout`, Abstand und Breite der Sections wie in ACSS.
 - `src/buttons.css`: Layer `components`, Buttons `btn--{farbe}`, `-light`, `-dark`, `btn--outline`, Grössen. Doku: `docs/buttons.md`.
 - `src/utilities.css`: Layer `utilities`, Flächen `bg--ultra-light`, `bg--light`, `bg--dark`, `bg--ultra-dark` (Doku: `docs/flaechen.md`) und `.smart-spacing`.
+- `src/raster.css`: Layer `utilities`, Raster `grid--*` und Breiten `width--*` wie in ACSS. Doku: `docs/raster.md`.
 - `src/presets/`: vollständige Sätze von Grundwerten ohne Farben, `technisch`, `freudig`, `ruhig`. Nach `leuchtturm.css` einbinden. Die Farben kommen aus der Marke, Pflicht ist nur `--primary`, fehlende Rollen leitet das CSS ab.
 - `docs/hub-vertrag.md`: Vertrag mit dem Hub. Wie die Marke als `marke.css` in die Site kommt, welche Werte der Hub rechnet und prüft.
 - `docs/grundwerte.md`: pro Grundwert Wirkung, Bereich und Begriffe. Grundlage für die KI und das spätere Prüfskript.

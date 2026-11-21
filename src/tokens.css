@@ -224,6 +224,42 @@
 		--container-gap: var(--space-xl);
 		--grid-gap: var(--space-m);
 
+		/*
+			Raster wie in ACSS: --grid-3 für drei gleiche Spalten, --grid-1-2 für ein Drittel und zwei Drittel.
+			minmax(0, …) statt 1fr, damit lange Wörter oder Bilder eine Spalte nicht breiter machen.
+		*/
+		--grid-1: repeat(1, minmax(0, 1fr));
+		--grid-2: repeat(2, minmax(0, 1fr));
+		--grid-3: repeat(3, minmax(0, 1fr));
+		--grid-4: repeat(4, minmax(0, 1fr));
+		--grid-5: repeat(5, minmax(0, 1fr));
+		--grid-6: repeat(6, minmax(0, 1fr));
+		--grid-7: repeat(7, minmax(0, 1fr));
+		--grid-8: repeat(8, minmax(0, 1fr));
+		--grid-9: repeat(9, minmax(0, 1fr));
+		--grid-10: repeat(10, minmax(0, 1fr));
+		--grid-11: repeat(11, minmax(0, 1fr));
+		--grid-12: repeat(12, minmax(0, 1fr));
+		--grid-1-2: minmax(0, 1fr) minmax(0, 2fr);
+		--grid-1-3: minmax(0, 1fr) minmax(0, 3fr);
+		--grid-2-1: minmax(0, 2fr) minmax(0, 1fr);
+		--grid-2-3: minmax(0, 2fr) minmax(0, 3fr);
+		--grid-3-1: minmax(0, 3fr) minmax(0, 1fr);
+		--grid-3-2: minmax(0, 3fr) minmax(0, 2fr);
+		/* Mindestbreite einer Zelle in .grid--auto-*, darunter stapeln die Zellen (ACSS ohne Namen, dort --min) */
+		--grid-auto-min: calc(288 * var(--_rem));
+
+		/* Breiten wie in ACSS: Anteile von --content-width, für max-inline-size */
+		--width-10: calc(var(--content-width) * 0.1);
+		--width-20: calc(var(--content-width) * 0.2);
+		--width-30: calc(var(--content-width) * 0.3);
+		--width-40: calc(var(--content-width) * 0.4);
+		--width-50: calc(var(--content-width) * 0.5);
+		--width-60: calc(var(--content-width) * 0.6);
+		--width-70: calc(var(--content-width) * 0.7);
+		--width-80: calc(var(--content-width) * 0.8);
+		--width-90: calc(var(--content-width) * 0.9);
+
 		/* Radien: --radius ist der Grundradius, die Stufen sind Vielfache davon */
 		--radius: calc(var(--radius-base) * var(--_rem));
 		--radius-s: calc(var(--radius) * 0.5);
