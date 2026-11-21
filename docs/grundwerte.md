@@ -28,6 +28,13 @@ Ohne Einheit, weil CSS heute noch nicht Länge durch Länge teilen kann (fluide 
 
 Unterhalb von `--vw-min` gilt der Wert `…-min`, oberhalb von `--vw-max` der Wert `…-max`, dazwischen wächst er gleichmässig (`clamp()`). Das gilt für Schrift, Abstände, Sections und `--gutter`. Breakpoints braucht es dafür nicht.
 
+Gemessen wird die Breite des nächsten Containers (`100cqi`), ohne Container die des Fensters. Bekommt ein Element `container-type: inline-size`, richten sich Überschriften, Abstände und Buttons darin nach seiner Breite: Eine `h3` in einer schmalen Karte ist kleiner als in einer breiten Section. Dabei gilt:
+
+- Fliesstext erbt die Grösse vom `body` und bleibt gleich, nur was selbst `font-size: var(--…)` setzt, passt sich an (Überschriften, Buttons, `--text-*`).
+- Ein Container ist schmaler als das Fenster (Gutter, `--content-width`). In einem Container erreichen die Werte `…-max` erst, wenn er selbst `--vw-max` breit ist, in einer Spalte von 800px also nie ganz.
+- In Bedingungen von `@container` und `@media` gehen keine Variablen. Komponenten schreiben ihre Grenzen in `rem`.
+- [Offen] Ob `section` und Raster in den Grundstilen (Layer `layout`) Container werden, entscheidet sich mit dem Layout. Bis dahin setzt eine Komponente `container-type` selbst.
+
 ## Die Werte
 
 Begriffe: was die Quelle sagt und in welche Richtung es den Wert schiebt. ↑ heisst grösser, ↓ kleiner.
@@ -36,8 +43,8 @@ Begriffe: was die Quelle sagt und in welche Richtung es den Wert schiebt. ↑ he
 
 | Grundwert | Wirkung | Standard | Bereich | Begriffe |
 |---|---|---|---|---|
-| `--vw-min` | Breite der Ansicht in px, ab der die Werte zu wachsen beginnen | 360 | 320–400 | selten ändern |
-| `--vw-max` | Breite in px, ab der die Werte ihr Maximum haben | 1440 | 1200–1920 | selten ändern. Grösser, wenn die Site sehr breit wirken soll |
+| `--vw-min` | Breite in px (Container oder Fenster), ab der die Werte zu wachsen beginnen | 360 | 320–400 | selten ändern |
+| `--vw-max` | Breite in px (Container oder Fenster), ab der die Werte ihr Maximum haben | 1440 | 1200–1920 | selten ändern. Grösser, wenn die Site sehr breit wirken soll |
 
 ### Schrift
 

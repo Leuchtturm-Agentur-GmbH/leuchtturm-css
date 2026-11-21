@@ -6,9 +6,14 @@
 
 @layer tokens {
 	:root {
-		/* Umrechnung: 1px als rem, und wie weit die Ansicht zwischen --vw-min und --vw-max steht (als Länge von 0 bis 1px) */
+		/*
+			Umrechnung: 1px als rem, und wie weit die Breite zwischen --vw-min und --vw-max steht (als Länge von 0 bis 1px).
+			Breite ist die des nächsten Containers (100cqi), ohne Container die des Fensters. Die Tokens tragen «cqi»
+			unausgewertet weiter, ausgewertet wird dort, wo sie verwendet werden: Eine --h3 in einer schmalen Karte mit
+			container-type ist kleiner als in einer breiten Section.
+		*/
 		--_rem: 0.0625rem;
-		--_fluid: calc((100vw - var(--vw-min) * 1px) / (var(--vw-max) - var(--vw-min)));
+		--_fluid: calc((100cqi - var(--vw-min) * 1px) / (var(--vw-max) - var(--vw-min)));
 
 		/* Schrift: Stufe n ist Grundgrösse × Verhältnis hoch n, klein mit --type-*-min, gross mit --type-*-max */
 		--text-xs-min: calc(var(--type-min) * pow(var(--type-ratio-min), -1));

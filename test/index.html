@@ -193,6 +193,23 @@
 					align-self: center;
 				}
 
+				/* Container */
+				.container-demo {
+					display: grid;
+					gap: var(--grid-gap);
+					grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
+				}
+				.container-demo > div {
+					container-type: inline-size;
+					display: grid;
+					gap: var(--space-s);
+					align-content: start;
+					justify-items: start;
+					padding: var(--space-m);
+					border: var(--border);
+					border-radius: var(--radius);
+				}
+
 				/* Flächen */
 				.muted {
 					color: var(--body-color-muted);
@@ -343,6 +360,32 @@
 				</div>
 			</section>
 
+			<section id="container">
+				<div>
+					<div class="stack">
+						<h2>Container</h2>
+						<p>
+							Beide Spalten haben container-type: inline-size. Überschriften, Abstände und Buttons richten sich nach der
+							Breite der Spalte, nicht des Fensters. Der Fliesstext erbt seine Grösse vom body und bleibt gleich.
+						</p>
+					</div>
+					<div class="container-demo">
+						<div>
+							<h2>Schmal</h2>
+							<p class="wert" data-container="h2">h2</p>
+							<p>Seitenleiste oder Karte.</p>
+							<a class="btn--primary" href="#container">Knopf</a>
+						</div>
+						<div>
+							<h2>Breit</h2>
+							<p class="wert" data-container="h2">h2</p>
+							<p>Hauptspalte. Dieselben Tokens, andere Grösse.</p>
+							<a class="btn--primary" href="#container">Knopf</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<section id="flaechen">
 				<div>
 					<div class="stack">
@@ -440,6 +483,10 @@
 					mess.style.inlineSize = `var(--${el.dataset.wert})`;
 					const px = parseFloat(getComputedStyle(mess).inlineSize);
 					el.textContent = (el.dataset.wert === 'content-width' ? 'content-width ' : '') + `${Math.round(px)}px`;
+				}
+				for (const el of document.querySelectorAll('[data-container]')) {
+					const h = el.parentElement.querySelector(el.dataset.container);
+					el.textContent = `${el.dataset.container} ${Math.round(parseFloat(getComputedStyle(h).fontSize))}px, Spalte ${Math.round(el.parentElement.clientWidth)}px`;
 				}
 				document.getElementById('ansicht').textContent = `Ansicht ${window.innerWidth}px`;
 			}
