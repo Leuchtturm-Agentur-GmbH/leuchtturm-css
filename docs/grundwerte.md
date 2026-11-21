@@ -70,6 +70,8 @@ Begriffe: was die Quelle sagt und in welche Richtung es den Wert schiebt. ↑ he
 
 Stufen: `--text-xs` = Grundgrösse × Verhältnis hoch −1, `--text-s` hoch −0.5, `--text-m` hoch 0, `--text-l` 1, `--text-xl` 2, `--text-xxl` 3. Überschriften: `--h6` hoch 0 bis `--h1` hoch 5. Beispiel: 18px und 1.25 ergeben `--h1` 55px.
 
+Gewichte: `--heading-weight` gilt für alle Überschriften. Eine Marke mit kräftigeren grossen Titeln (z. B. `h1` und `h2` in 800) setzt in der Site die Tokens `--h1-font-weight` … `--h6-font-weight`, kein Grundwert. Fliesstext hat `--text-font-weight` (400). Gewichte für hervorgehobenen Text (500, 600) bleiben in der Komponente, wo ein Label wie ein Button wirken soll, `--btn-font-weight`.
+
 ### Abstände
 
 | Grundwert | Wirkung | Standard | Bereich | Begriffe |
@@ -182,7 +184,7 @@ Stufen, `-hover`, `-text` und Buttons wie bei den Rollen. `--color-saturation` g
 
 `src/tokens.css`, Namen wie in ACSS:
 
-- Schrift: `--text-xs … --text-xxl`, `--h1 … --h6`, `--heading-font-weight`, `--heading-letter-spacing`, `--heading-line-height`, `--text-line-height`.
+- Schrift: `--text-xs … --text-xxl`, `--h1 … --h6`, `--heading-font-weight`, `--h1-font-weight` … `--h6-font-weight` (Standard `--heading-font-weight`), `--text-font-weight` (400), `--heading-letter-spacing`, `--heading-line-height`, `--text-line-height`.
 - Abstände: `--space-xs … --space-xxl`, `--section-space-xs … --section-space-xxl`.
 - Breiten: `--content-width`, `--gutter`, `--content-gap` (`--space-m`), `--container-gap` (`--space-xl`), `--grid-gap` (`--space-m`), `--width-10 … --width-90`.
 - Raster: `--grid-1 … --grid-12`, `--grid-1-2`, `--grid-1-3`, `--grid-2-1`, `--grid-2-3`, `--grid-3-1`, `--grid-3-2`, `--grid-auto-min`, siehe [raster.md](raster.md).

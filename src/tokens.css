@@ -103,6 +103,17 @@
 		);
 
 		--heading-font-weight: var(--heading-weight);
+		/*
+			Gewicht pro Stufe und für Text, Namen wie in ACSS. Keine Grundwerte: Die Stufen nehmen --heading-font-weight,
+			eine Site mit kräftigeren grossen Titeln setzt z. B. --h1-font-weight: 800 im Layer site.
+		*/
+		--h1-font-weight: var(--heading-font-weight);
+		--h2-font-weight: var(--heading-font-weight);
+		--h3-font-weight: var(--heading-font-weight);
+		--h4-font-weight: var(--heading-font-weight);
+		--h5-font-weight: var(--heading-font-weight);
+		--h6-font-weight: var(--heading-font-weight);
+		--text-font-weight: 400;
 		--heading-letter-spacing: calc(var(--heading-tracking) * 1em);
 		--heading-line-height: var(--heading-leading);
 		--text-line-height: var(--text-leading);

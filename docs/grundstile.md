@@ -19,8 +19,8 @@ Alle Regeln ohne Spezifität (`:where()`), in eigenen Layern. Komponenten (`comp
 
 | Element | Was | Tokens |
 |---|---|---|
-| `body` | Hintergrund, Text, Schrift, Grösse, Zeilenabstand, Farbe von Checkboxen | `--body-bg-color`, `--body-color`, `--text-*`, `--action` |
-| `h1` … `h6` | Farbe, Schrift, Gewicht, Laufweite, Zeilenabstand, Grösse, ausgeglichene Zeilen, Silbentrennung (braucht `lang` auf `<html>`) | `--heading-*`, `--h1` … `--h6` |
+| `body` | Hintergrund, Text, Schrift, Gewicht (`--text-font-weight`), Grösse, Zeilenabstand, Farbe von Checkboxen | `--body-bg-color`, `--body-color`, `--text-*`, `--action` |
+| `h1` … `h6` | Farbe, Schrift, Gewicht (pro Stufe `--h1-font-weight` …), Laufweite, Zeilenabstand, Grösse, ausgeglichene Zeilen, Silbentrennung (braucht `lang` auf `<html>`) | `--heading-*`, `--h1` … `--h6` |
 | `p`, `li`, `figcaption`, `blockquote` | schöner Umbruch (`text-wrap: pretty`, wo der Browser es kann) | |
 | `a` | Farbe, Unterstreichung mit Abstand, Hover | `--link-*` |
 | `ul`, `ol` | Einzug, Abstand zwischen Punkten, Punkte gedämpft. Listen mit `role="list"` (Layout) ohne Einzug und ohne Abstand zwischen den Punkten | `--list-indent-spacing`, `--list-item-spacing` |
