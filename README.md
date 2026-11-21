@@ -2,7 +2,7 @@
 
 CSS-Framework der Leuchtturm Agentur für die Astro-Sites, angelehnt an Automatic.css (ACSS). In Etch bleibt ACSS.
 
-- Reines CSS, kein Tailwind im Kern. Für Sites mit Tailwind kommt später eine kleine Zusatzdatei mit `@theme inline`.
+- Reines CSS, kein Tailwind. Es gibt keine Zusatzdatei für Tailwind: Frischknecht Umzüge, heute mit Tailwind, wird bei Gelegenheit schrittweise umgebaut (Entscheid im Konzept).
 - Dieselben Namen der Tokens wie ACSS (`--primary`, `--bg-light`, `--space-m`, `--h2`, `--content-gap`, `btn--primary` …), damit die Regeln aus Etch auch für Astro gelten. Übernommen werden nur Namen und Ideen, kein CSS von ACSS.
 - Der Charakter einer Site steckt in rund 25 Grundwerten (Schrift, Abstände, Radius, Linien, Schatten, Farbstufen). Alles andere rechnet das CSS daraus. Die Grundwerte und die Farben kommen aus dem Hub (Marke).
 
@@ -10,7 +10,7 @@ Konzept und Entscheid: `frischknecht-brain/agentur/leuchtturm-css.md`, Entscheid
 
 ## Stand
 
-Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu die semantischen Farben `success`, `danger`, `warning`, `info`. Das Prüfskript `npm run pruefen` prüft Grundwerte und Kontraste. Noch nicht: Zusatzdatei für Tailwind.
+Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu die semantischen Farben `success`, `danger`, `warning`, `info`. Das Prüfskript `npm run pruefen` prüft Grundwerte und Kontraste.
 
 ## Aufbau
 
