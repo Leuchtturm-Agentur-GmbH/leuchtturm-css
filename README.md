@@ -12,6 +12,8 @@ Konzept und Entscheid: `frischknecht-brain/agentur/leuchtturm-css.md`, Entscheid
 
 Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flächen `bg--*`, Buttons, Raster und Breiten stehen (21.11.2026). Gebaut wird zuerst, was die Site des Atelier für Yoga braucht. Bei der zweiten Site wird geprüft, was gemeinsam ist. Dazu die semantischen Farben `success`, `danger`, `warning`, `info`. Das Prüfskript `npm run pruefen` prüft Grundwerte und Kontraste.
 
+Version 0.2.0 (21.11.2026) übernimmt, was die Site von Frischknecht Umzüge beim Umbau selbst bauen musste: Reset für `button`, `.hidden-accessible`, `btn--white`, Abstand zwischen Listenpunkten nur in Aufzählungen, Fokus auf dunklen Flächen in `--action`, wenn sie hell ist, `--focus-offset`, `--radius-circle`, `--radius-50`, Gewichte pro Stufe (`--h1-font-weight` …, `--text-font-weight`). Keine neuen Grundwerte, der Vertrag mit dem Hub bleibt gleich.
+
 ## Aufbau
 
 - `src/leuchtturm.css`: Einstieg, Reihenfolge der Layer, bindet die Teile ein.
@@ -32,7 +34,7 @@ Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flä
 
 ## Einbinden
 
-Als Abhängigkeit über Git mit Tag, z. B. `"leuchtturm-css": "github:Leuchtturm-Agentur-GmbH/leuchtturm-css#v0.1.0"`, dann in der Site:
+Als Abhängigkeit über Git mit Tag, z. B. `"leuchtturm-css": "github:Leuchtturm-Agentur-GmbH/leuchtturm-css#v0.2.0"`, dann in der Site:
 
 ```css
 @import 'leuchtturm-css';
