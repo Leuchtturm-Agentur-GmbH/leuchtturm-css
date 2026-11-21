@@ -23,40 +23,34 @@
 			}
 		</script>
 		<style>
-			/* Nur für die Testseite, nur mit Tokens. Farben und Schrift kommen aus base.css und den Klassen bg--*. */
+			/* Nur für die Testseite, nur mit Tokens. Alles Übrige kommt aus leuchtturm-css. */
 			@layer site {
-				*,
-				*::before,
-				*::after {
-					box-sizing: border-box;
-				}
-				body {
-					margin: 0;
-				}
+				/* Reset, Grundstile und Sections kommen aus leuchtturm-css, hier nur, was die Testseite braucht */
 				h1,
 				h2,
 				h3,
 				h4,
 				h5,
 				h6 {
-					margin: 0;
 					hyphens: auto;
-					overflow-wrap: break-word;
 				}
 				p {
-					margin: 0;
 					max-inline-size: 65ch;
-					text-wrap: pretty;
-				}
-				section {
-					padding-block: var(--section-space-m);
-					padding-inline: var(--gutter);
 				}
 				section > div {
 					display: grid;
 					gap: var(--container-gap);
-					max-inline-size: var(--content-width);
-					margin-inline: auto;
+				}
+				.formular {
+					display: grid;
+					gap: var(--space-s);
+					max-inline-size: 32rem;
+				}
+				.formular .zeile {
+					display: flex;
+					gap: var(--space-xs);
+					align-items: center;
+					font-weight: normal;
 				}
 				.stack {
 					display: grid;
@@ -357,6 +351,138 @@
 						<h3>Buttons auf bg--dark</h3>
 						<div class="stack" data-buttons></div>
 					</div>
+				</div>
+			</section>
+
+			<section id="grundstile">
+				<div>
+					<div class="smart-spacing">
+						<h2>Grundstile</h2>
+						<p>
+							Dieser Block hat die Klasse <code>.smart-spacing</code>. Absätze, Überschriften, Listen, Zitate und Bilder
+							bekommen ihre Abstände ohne eigene Regel. Ein <a href="#grundstile">Link im Text</a> ist unterstrichen.
+						</p>
+						<h3>Überschrift im Text</h3>
+						<p>Nach einer Überschrift wenig Abstand, davor mehr. <small>Kleingedrucktes in text-s.</small></p>
+						<ul>
+							<li>Erster Punkt einer Liste</li>
+							<li>
+								Zweiter Punkt mit Unterliste
+								<ul>
+									<li>Unterpunkt</li>
+									<li>Noch einer</li>
+								</ul>
+							</li>
+							<li>Dritter Punkt</li>
+						</ul>
+						<ol>
+							<li>Anmelden</li>
+							<li>Probestunde besuchen</li>
+						</ol>
+						<figure>
+							<blockquote>
+								<p>Ein Zitat in der Schrift der Überschriften, mit Linie in primary.</p>
+							</blockquote>
+							<figcaption>Name, <cite>Quelle</cite></figcaption>
+						</figure>
+						<figure>
+							<img
+								src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23c9c3b8'/%3E%3Ccircle cx='11' cy='3' r='1.6' fill='%23f3efe7'/%3E%3Cpath d='M0 9 5 4l4 4 2-2 5 3z' fill='%238a8478'/%3E%3C/svg%3E"
+								alt="Platzhalter: Landschaft"
+								width="1600"
+								height="900"
+							/>
+							<figcaption>Bild in einer figure: volle Breite, Radius --radius.</figcaption>
+						</figure>
+						<hr />
+						<p>Nach der Linie geht es weiter.</p>
+					</div>
+					<form class="formular" onsubmit="return false;">
+						<h3>Formular</h3>
+						<div>
+							<label for="name">Name</label>
+							<input id="name" type="text" placeholder="Vorname Nachname" />
+						</div>
+						<div>
+							<label for="kurs">Kurs</label>
+							<select id="kurs">
+								<option>Hatha</option>
+								<option>Yin</option>
+							</select>
+						</div>
+						<div>
+							<label for="nachricht">Nachricht</label>
+							<textarea id="nachricht"></textarea>
+						</div>
+						<label class="zeile"><input type="checkbox" checked /> Newsletter</label>
+						<button class="btn--action" type="submit">Senden</button>
+					</form>
+				</div>
+			</section>
+			<section class="bg--dark">
+				<div>
+					<div class="smart-spacing">
+						<h2>Grundstile auf bg--dark</h2>
+						<p>
+							Dieser Block hat die Klasse <code>.smart-spacing</code>. Absätze, Überschriften, Listen, Zitate und Bilder
+							bekommen ihre Abstände ohne eigene Regel. Ein <a href="#grundstile-dunkel">Link im Text</a> ist
+							unterstrichen.
+						</p>
+						<h3>Überschrift im Text</h3>
+						<p>Nach einer Überschrift wenig Abstand, davor mehr. <small>Kleingedrucktes in text-s.</small></p>
+						<ul>
+							<li>Erster Punkt einer Liste</li>
+							<li>
+								Zweiter Punkt mit Unterliste
+								<ul>
+									<li>Unterpunkt</li>
+									<li>Noch einer</li>
+								</ul>
+							</li>
+							<li>Dritter Punkt</li>
+						</ul>
+						<ol>
+							<li>Anmelden</li>
+							<li>Probestunde besuchen</li>
+						</ol>
+						<figure>
+							<blockquote>
+								<p>Ein Zitat in der Schrift der Überschriften, mit Linie in primary.</p>
+							</blockquote>
+							<figcaption>Name, <cite>Quelle</cite></figcaption>
+						</figure>
+						<figure>
+							<img
+								src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%23c9c3b8'/%3E%3Ccircle cx='11' cy='3' r='1.6' fill='%23f3efe7'/%3E%3Cpath d='M0 9 5 4l4 4 2-2 5 3z' fill='%238a8478'/%3E%3C/svg%3E"
+								alt="Platzhalter: Landschaft"
+								width="1600"
+								height="900"
+							/>
+							<figcaption>Bild in einer figure: volle Breite, Radius --radius.</figcaption>
+						</figure>
+						<hr />
+						<p>Nach der Linie geht es weiter.</p>
+					</div>
+					<form class="formular" onsubmit="return false;">
+						<h3>Formular</h3>
+						<div>
+							<label for="name2">Name</label>
+							<input id="name2" type="text" placeholder="Vorname Nachname" />
+						</div>
+						<div>
+							<label for="kurs2">Kurs</label>
+							<select id="kurs2">
+								<option>Hatha</option>
+								<option>Yin</option>
+							</select>
+						</div>
+						<div>
+							<label for="nachricht2">Nachricht</label>
+							<textarea id="nachricht2"></textarea>
+						</div>
+						<label class="zeile"><input type="checkbox" checked /> Newsletter</label>
+						<button class="btn--action" type="submit">Senden</button>
+					</form>
 				</div>
 			</section>
 

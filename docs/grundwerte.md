@@ -168,6 +168,7 @@ Grenze: Die dunklen Stufen heller Farben werden durch das Mischen mit Schwarz tr
 - Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
+- Grundstile: `--paragraph-spacing`, `--heading-spacing`, `--list-indent-spacing`, `--list-item-spacing`, `--section-padding-block`, `--section-padding-inline`, `--link-*`, `--focus-color`, `--focus-width`, `--blockquote-*`, siehe [grundstile.md](grundstile.md).
 - Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
 - Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 

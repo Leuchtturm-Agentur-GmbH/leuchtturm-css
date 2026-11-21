@@ -1,0 +1,20 @@
+/*
+	Layout wie in ACSS: Sections bekommen Abstand oben und unten, seitlich den Gutter, und ihre Kinder die Breite des
+	Inhalts. Zwischen den Kindern einer Section liegt --container-gap. Verschachtelte Sections bleiben unberührt.
+*/
+
+@layer layout {
+	:where(section:not(section section)) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--container-gap);
+		padding-block: var(--section-padding-block);
+		padding-inline: var(--section-padding-inline);
+	}
+
+	:where(section:not(section section) > *) {
+		inline-size: 100%;
+		max-inline-size: var(--content-width);
+		margin-inline: auto;
+	}
+}

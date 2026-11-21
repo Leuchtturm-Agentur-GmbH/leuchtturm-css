@@ -1,0 +1,92 @@
+/*
+	Reset: nur, was Browser heute noch unterschiedlich oder unpraktisch machen. Keine Farben, keine Abstände.
+	Danach haben Elemente keine Ränder (margin), Abstände kommen über gap, die Grundstile und .smart-spacing.
+*/
+
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	* {
+		margin: 0;
+	}
+
+	html {
+		/* iOS vergrössert sonst die Schrift im Querformat */
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+
+	body {
+		min-block-size: 100svh;
+	}
+
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-inline-size: 100%;
+	}
+
+	img,
+	video {
+		block-size: auto;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+		letter-spacing: inherit;
+		color: inherit;
+	}
+
+	textarea:not([rows]) {
+		min-block-size: 8em;
+	}
+
+	p,
+	li,
+	figcaption,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	/* Listen mit role="list" sind Layout, keine Aufzählung */
+	ul[role='list'],
+	ol[role='list'] {
+		list-style: none;
+		padding: 0;
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+
+	/* Sprungziel nicht unter einer festen Kopfzeile */
+	:target {
+		scroll-margin-block: 5ex;
+	}
+
+	/* display: block oben darf hidden nicht aufheben. !important im untersten Layer gewinnt über alle Layer. */
+	[hidden]:not([hidden='until-found']) {
+		display: none !important;
+	}
+}

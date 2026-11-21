@@ -1,9 +1,11 @@
 /*
+	Hilfsklassen: Flächen bg--* und .smart-spacing.
+
 	Flächen wie in ACSS: .bg--ultra-light, .bg--light, .bg--dark, .bg--ultra-dark.
 	Jede Klasse setzt den Hintergrund und stellt die Kontext-Tokens um. Alles darin passt sich an,
 	auch verschachtelt: eine helle Karte in einer dunklen Section bekommt selbst .bg--light.
 
-	--border und --border-strong werden hier neu gesetzt, weil ein Token auf :root seine Farbe dort festlegt
+	--border, --border-strong und --focus-color werden hier neu gesetzt, weil ein Token auf :root seine Farbe dort festlegt
 	und sie beim Erben nicht mehr ändert.
 */
 
@@ -17,6 +19,7 @@
 		--link-color-hover: var(--_link-color-light-hover);
 		--border: var(--border-size) var(--border-style) var(--border-color-dark);
 		--border-strong: var(--border-size-strong) var(--border-style) var(--text-dark);
+		--focus-color: var(--text-dark);
 		color: var(--body-color);
 		color-scheme: light;
 	}
@@ -30,6 +33,7 @@
 		--link-color-hover: var(--text-light);
 		--border: var(--border-size) var(--border-style) var(--border-color-light);
 		--border-strong: var(--border-size-strong) var(--border-style) var(--text-light);
+		--focus-color: var(--text-light);
 		color: var(--body-color);
 		color-scheme: dark;
 	}
@@ -45,5 +49,19 @@
 	}
 	.bg--ultra-dark {
 		background-color: var(--bg-ultra-dark);
+	}
+
+	/*
+		Rich Content wie in ACSS: Abstände zwischen Absätzen, Überschriften, Listen und Bildern ohne eigene Regeln.
+		Vor Überschriften mehr Luft, nach Überschriften wenig, damit die Überschrift zum folgenden Text gehört.
+	*/
+	.smart-spacing > * + * {
+		margin-block-start: var(--paragraph-spacing);
+	}
+	.smart-spacing > * + :is(h1, h2, h3, h4, h5, h6) {
+		margin-block-start: var(--heading-spacing);
+	}
+	.smart-spacing > :is(h1, h2, h3, h4, h5, h6) + * {
+		margin-block-start: var(--space-xs);
 	}
 }

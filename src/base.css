@@ -1,18 +1,32 @@
 /*
-	Grundstile: nur Farbe und Schrift von Seite, Überschriften und Links, ohne Spezifität (:where).
-	Farben nur über die Kontext-Tokens (--body-color, --heading-color, --link-color …),
-	damit die Klassen bg--* alles darin umstellen. Reset und Abstände kommen später.
+	Grundstile wie in ACSS: Seite, Überschriften, Text, Links, Listen, Zitate, Medien, Formulare, Fokus.
+	Ohne Spezifität (:where), damit Komponenten und der Layer site immer gewinnen.
+	Farben nur über die Kontext-Tokens (--body-color, --heading-color, --link-color, --focus-color …),
+	damit die Klassen bg--* alles darin umstellen. Keine Ränder: Abstände kommen über gap oder .smart-spacing.
 */
 
 @layer base {
+	/* Seite */
 	:where(body) {
 		background-color: var(--body-bg-color);
 		color: var(--body-color);
 		font-family: var(--text-font-family);
 		font-size: var(--text-m);
 		line-height: var(--text-line-height);
+		accent-color: var(--action);
 	}
 
+	:where(::selection) {
+		background-color: var(--primary-light);
+		color: var(--text-dark);
+	}
+
+	:where(:focus-visible) {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: 0.2em;
+	}
+
+	/* Überschriften */
 	:where(h1, h2, h3, h4, h5, h6) {
 		color: var(--heading-color);
 		font-family: var(--heading-font-family);
@@ -41,10 +55,156 @@
 		font-size: var(--h6);
 	}
 
+	/* Text. text-wrap: pretty ist noch nicht überall, ohne bricht der Text wie bisher um. */
+	:where(p, li, figcaption, blockquote) {
+		text-wrap: pretty;
+	}
+
+	:where(small) {
+		font-size: var(--text-s);
+	}
+
+	:where(code, kbd, pre, samp) {
+		font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+		font-size: 0.9em;
+	}
+
+	:where(pre) {
+		overflow-x: auto;
+	}
+
+	:where(hr) {
+		border: none;
+		border-block-start: var(--border);
+	}
+
+	/* Links */
 	:where(a) {
 		color: var(--link-color);
+		font-weight: var(--link-weight);
+		text-decoration-line: var(--link-decoration);
+		text-underline-offset: var(--link-underline-offset);
+		transition: var(--link-transition);
 	}
+
 	:where(a:hover) {
 		color: var(--link-color-hover);
+		text-decoration-line: var(--link-decoration-hover);
+	}
+
+	/* Listen (role="list" setzt der Reset zurück, die bleiben ohne Einzug) */
+	:where(ul:not([role='list']), ol:not([role='list'])) {
+		padding-inline-start: var(--list-indent-spacing);
+	}
+
+	:where(li + li, li > ul, li > ol) {
+		margin-block-start: var(--list-item-spacing);
+	}
+
+	:where(li)::marker {
+		color: var(--body-color-muted);
+	}
+
+	/* Zitate: <figure><blockquote><p>…</p></blockquote><figcaption>…</figcaption></figure> */
+	:where(blockquote) {
+		display: grid;
+		gap: var(--paragraph-spacing);
+		padding: var(--blockquote-padding);
+		border-width: var(--blockquote-border-width);
+		border-style: var(--blockquote-border-style);
+		border-color: var(--blockquote-border-color);
+		border-radius: var(--blockquote-border-radius);
+		background: var(--blockquote-background);
+		color: var(--blockquote-text-color, var(--heading-color));
+		font-family: var(--blockquote-text-font-family);
+		font-size: var(--blockquote-text-font-size);
+		font-style: var(--blockquote-text-font-style);
+		line-height: var(--blockquote-text-line-height);
+	}
+
+	:where(figure:has(> blockquote)) {
+		gap: var(--blockquote-gap);
+	}
+
+	:where(figure:has(> blockquote) > figcaption) {
+		padding-inline-start: var(--space-m);
+		color: var(--blockquote-footer-color, var(--body-color-muted));
+		font-size: var(--blockquote-footer-font-size);
+	}
+
+	:where(cite) {
+		font-style: normal;
+	}
+
+	/* Medien */
+	:where(figure) {
+		display: grid;
+		gap: var(--space-xs);
+	}
+
+	:where(figure > img, figure > picture img, figure > video) {
+		inline-size: 100%;
+		border-radius: var(--radius);
+	}
+
+	:where(figcaption) {
+		color: var(--body-color-muted);
+		font-size: var(--text-s);
+	}
+
+	/* Formulare: Felder immer hell mit dunklem Text, auch auf dunklen Flächen */
+	:where(
+		input:not(
+			[type='checkbox'],
+			[type='radio'],
+			[type='range'],
+			[type='color'],
+			[type='file'],
+			[type='submit'],
+			[type='button'],
+			[type='reset'],
+			[type='image']
+		),
+		select,
+		textarea
+	) {
+		inline-size: 100%;
+		padding: var(--space-xs) var(--space-s);
+		border: var(--border-size) var(--border-style) var(--neutral);
+		border-radius: var(--radius);
+		background-color: var(--white);
+		color: var(--text-dark);
+		color-scheme: light;
+	}
+
+	:where(input, textarea)::placeholder {
+		color: var(--text-dark-muted);
+		opacity: 1;
+	}
+
+	:where(label, legend) {
+		font-weight: var(--btn-font-weight);
+	}
+
+	:where(label) {
+		display: block;
+	}
+
+	:where(label + :is(input, select, textarea)) {
+		margin-block-start: calc(var(--space-xs) * 0.5);
+	}
+
+	:where(fieldset) {
+		padding: 0;
+		border: none;
+	}
+
+	:where(legend) {
+		padding: 0;
+	}
+
+	:where(input[type='checkbox'], input[type='radio']) {
+		inline-size: 1.1em;
+		block-size: 1.1em;
 	}
 }

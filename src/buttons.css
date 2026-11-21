@@ -63,11 +63,6 @@
 			text-decoration: var(--btn-text-decoration-hover);
 		}
 
-		&:focus-visible {
-			outline: var(--border-size-strong) solid var(--heading-color);
-			outline-offset: 0.2em;
-		}
-
 		&:disabled,
 		&[aria-disabled='true'] {
 			opacity: 0.5;

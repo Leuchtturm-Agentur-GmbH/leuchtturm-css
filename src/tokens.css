@@ -264,6 +264,42 @@
 		--btn-radius: calc(var(--btn-radius-base) * var(--_rem));
 		--btn-border-radius: var(--btn-radius);
 
+		/* Text und Rhythmus (Grundstile, .smart-spacing) */
+		--paragraph-spacing: var(--space-s);
+		--heading-spacing: var(--space-l);
+		--list-indent-spacing: 1.5em;
+		--list-item-spacing: var(--space-xs);
+		--section-padding-block: var(--section-space-m);
+		--section-padding-inline: var(--gutter);
+
+		/* Links */
+		--link-decoration: underline;
+		--link-decoration-hover: underline;
+		--link-underline-offset: 0.15em;
+		--link-weight: inherit;
+		--link-transition: color 0.15s;
+
+		/* Fokus: Farbe hängt von der Fläche ab (bg--*), Breite mindestens 2px. --focus-width ist nicht in ACSS. */
+		--focus-color: var(--text-dark);
+		--focus-width: max(2px, var(--border-size-strong));
+
+		/*
+			Zitate. Farben, die von der Fläche abhängen (Text, Fussnote), haben kein Token auf :root:
+			die Regel nimmt dann --body-color bzw. --body-color-muted der Fläche.
+		*/
+		--blockquote-padding: var(--space-xs) 0 var(--space-xs) var(--space-m);
+		--blockquote-gap: var(--space-s);
+		--blockquote-border-width: 0 0 0 calc(var(--line-width-strong) * 2px);
+		--blockquote-border-style: solid;
+		--blockquote-border-color: var(--primary);
+		--blockquote-border-radius: 0;
+		--blockquote-background: transparent;
+		--blockquote-text-font-family: var(--heading-font-family);
+		--blockquote-text-font-size: var(--text-l);
+		--blockquote-text-font-style: normal;
+		--blockquote-text-line-height: var(--heading-line-height);
+		--blockquote-footer-font-size: var(--text-s);
+
 		/* Feste Farben */
 		--white: #fff;
 		--black: #000;
