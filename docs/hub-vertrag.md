@@ -77,6 +77,8 @@ Ersatz am Ende: `system-ui, sans-serif`. [Offen] Für Schriften mit Serifen oder
 
 Die Schriftdateien lädt die Site (Fontsource, eigene Datei), nicht `marke.css`.
 
+[Offen] **Name der Schrift:** Der Hub schreibt den Namen der Marke (`'Outfit'`), Fontsource meldet variable Schriften aber als `'Outfit Variable'` an. Heute meldet die Site dieselben Dateien zusätzlich unter dem Namen der Marke an (`@font-face` in ihrem CSS, Frischknecht Umzüge seit 21.11.2026). Zu klären: Bleibt das Sache der Site, oder gibt der Hub beide Namen aus (`'Outfit', 'Outfit Variable', system-ui, sans-serif`)?
+
 ### Farben
 
 | Grundwert | Aus dem Hub |

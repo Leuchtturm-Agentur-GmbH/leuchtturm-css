@@ -79,6 +79,8 @@ Darin keine eigenen Abstände setzen.
 
 ## Offen
 
+- [Offen] **Hilfsklassen für Text aus MDX** wie in ACSS (`text--s`, `text--l`, `margin-top--*`, `aspect--*`, `align-items--*`, `radius--m`, dazu eine Karte): heute nur in der Site von Frischknecht Umzüge. Regel «Klein bleiben»: erst übernehmen, wenn die Site des Atelier für Yoga dieselben braucht, dann mit den Namen aus ACSS (ACSS hat `text--dark-muted` und `text--light-muted`, kein `text--muted`).
+
 - [Offen] Sections als Container (`container-type`), siehe [grundwerte.md](grundwerte.md), «Fluide Werte».
 - [Offen] Radius für Bilder ausserhalb von `figure` (ACSS: «auto radius»).
 - [Offen] Formulare von cform bringen ihr eigenes CSS mit, prüfen, ob sie sich mit diesen Grundstilen vertragen.

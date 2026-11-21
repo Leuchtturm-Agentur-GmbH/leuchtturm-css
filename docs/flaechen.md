@@ -44,5 +44,8 @@ Die Grundstile (`src/base.css`, Layer `base`, ohne Spezifität) nehmen für Text
 
 ## Offen
 
+- [Offen] **Linkfarbe unabhängig von `--action`:** Links nehmen `--action`, ausser sie ist zu hell für Text (`--action-text-light` 0), dann `--text-dark`. Eine Marke mit heller Aktionsfarbe (Gold) und Links in einer anderen Farbe (Navy) geht heute nur, wenn die Site `--link-color` in `.bg--light`, `.bg--ultra-light` und auf `:root` im Layer `site` setzt. Ob es dafür eine Rolle im Hub braucht (`link`), zeigt die zweite Site.
+- [Offen] **Gedämpfte Stufe für Verzierungen auf Dunkel** (Trennzeichen, Weiss mit 40%): kein Token. Gedämpfter Text muss 4.5 erreichen, darum `--text-light-muted` mit 75%. Für Linien gibt es `--border-color-light`. Was dazwischen liegt, setzt die Site selbst, bis eine zweite Site es auch braucht.
+
 - [Offen] Buttons pro Fläche (ACSS: `bg-dark-button`), sobald die Buttons gebaut werden.
 - Kontrast der Links auf `bg--light` und `bg--dark` prüft `npm run pruefen`, den Fokus (mindestens 3) als Hinweis.
