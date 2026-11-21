@@ -56,6 +56,12 @@ Eine Spalte wird nie schmaler als `--grid-auto-min` (288px). Wird sie es, stapel
 
 `grid--auto-3` zeigt nur drei Spalten, wenn drei Zellen mit `--grid-auto-min` hineinpassen (bei 288px und Abstand 24px ab 912px). Sonst zwei oder eine.
 
+Abstand ändern: `--grid-gap` setzen, nicht `gap`. `grid--auto-*` rechnet die Spalten mit `--grid-gap`. Wer nur `gap` grösser macht, bekommt eine Spalte weniger, als Platz wäre: Die Zellen passen mit dem grösseren Abstand nicht mehr in eine Zeile.
+
+```html
+<ul class="grid--auto-4" role="list" style="--grid-gap: var(--space-l)">…</ul>
+```
+
 ## Breiten
 
 `--width-*` ist ein Anteil von `--content-width`, nicht vom Platz: `width--50` ist bei `--content-max: 1280` immer höchstens 640px breit, auch in einer schmalen Spalte (dort volle Breite). Für Text, der nicht über die ganze Breite laufen soll, z. B. ein Lead mit `width--60`. Als Kind einer Section bleibt es mittig, sonst links.
