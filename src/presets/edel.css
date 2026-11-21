@@ -38,7 +38,8 @@
 		--btn-radius-base: 0;
 		--btn-weight: 400;
 
-		--shade-ultra-light: 0.95;
+		/* Weniger Weiss als die anderen Presets: bei der geringen Sättigung verschwinden die Flächen sonst im Seitenhintergrund */
+		--shade-ultra-light: 0.88;
 		--shade-light: 0.8;
 		--shade-dark: 0.4;
 		--shade-ultra-dark: 0.8;

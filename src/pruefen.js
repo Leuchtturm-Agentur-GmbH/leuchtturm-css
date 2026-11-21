@@ -470,6 +470,12 @@ export function pruefen({ grundwerte, basis, site }) {
 			['--text-dark-muted', '--body-bg-color', 'Gedämpfter Text auf der Seite'],
 			['--text-light-muted', '--bg-dark', 'Gedämpfter Text auf bg--dark'],
 			['--danger', '--white', 'Rahmen ungültiger Felder', 3],
+			[
+				'--primary-ultra-light',
+				'--body-bg-color',
+				'Fläche --primary-ultra-light hebt sich kaum von der Seite ab',
+				1.04
+			],
 			...varianten
 		],
 		'hinweis'

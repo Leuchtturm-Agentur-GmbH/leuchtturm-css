@@ -113,7 +113,7 @@ Die Stufen jeder Rolle (`--primary-ultra-light` bis `--primary-ultra-dark`) ents
 
 | Grundwert | Wirkung | Standard | Bereich | Begriffe |
 |---|---|---|---|---|
-| `--shade-ultra-light` | Anteil Weiss in `*-ultra-light` (Flächen) | 0.92 | 0.85–0.97 | ↑ zarter, ruhig, technisch · ↓ farbiger, freudig |
+| `--shade-ultra-light` | Anteil Weiss in `*-ultra-light` (Flächen) | 0.92 | 0.85–0.97 | ↑ zarter, ruhig, technisch · ↓ farbiger, freudig. Bei tiefer `--color-saturation` eher ↓, sonst verschwinden die Flächen im Seitenhintergrund |
 | `--shade-light` | Anteil Weiss in `*-light`. `*-semi-light` hat die Hälfte davon | 0.7 | 0.5–0.85 | wie `--shade-ultra-light` |
 | `--shade-dark` | Anteil Schwarz in `*-dark`. `*-semi-dark` hat die Hälfte davon | 0.35 | 0.2–0.5 | ↑ schwerer, ernster · ↓ heller, freundlicher |
 | `--shade-ultra-dark` | Anteil Schwarz in `*-ultra-dark` | 0.7 | 0.5–0.85 | wie `--shade-dark` |
@@ -226,7 +226,7 @@ npm run pruefen -- src/presets/ruhig.css pfad/zu/marke.css
 - `--{rolle}-text-light` nicht die Seite mit dem höheren Kontrast. Bei einer abgeleiteten Rolle steht der Fehler bei der Quelle.
 - Kontrast unter 4.5 (WCAG AA): `--text-dark` auf Seite, `bg--light` und `bg--ultra-light`, `--text-light` auf `bg--dark` und `bg--ultra-dark`, Links auf Seite, `bg--light` und `bg--dark`, Text auf `btn--action`.
 
-**Hinweise** (Varianten, die eine Site wählt): Text auf `btn--{farbe}`, `-light` und `-dark` für jede Farbe unter 4.5, gedämpfter Text unter 4.5, Rahmen ungültiger Felder (`--danger` auf Weiss) unter 3.
+**Hinweise** (Varianten, die eine Site wählt): Text auf `btn--{farbe}`, `-light` und `-dark` für jede Farbe unter 4.5, gedämpfter Text unter 4.5, Rahmen ungültiger Felder (`--danger` auf Weiss) unter 3, `--primary-ultra-light` auf der Seite unter 1.04 (Fläche kaum sichtbar; bei hellen Marken wie Gelb nicht zu ändern).
 
 Die Farben rechnet das Skript wie der Browser aus den Formeln in `src/tokens.css` (`var()`, `calc()`, `color-mix()` in oklab und oklch), auch die abgeleiteten Rollen. Geprüft am Browser: dieselben Hex-Werte.
 
