@@ -7,9 +7,16 @@ Eine Site setzt nur diese Werte (Layer `grundwerte`). Alles andere rechnet `src/
 Wie die Werte gespeichert, geprüft und an die Site gegeben werden: [hub-vertrag.md](hub-vertrag.md).
 
 1. Quelle lesen: Ralfs Anweisung oder Marke, Brand Voice und Briefing im Hub (MCP `agenturhub`).
-2. Das nächste Preset wählen (`technisch`, `freudig`, `ruhig`) und alle Werte davon übernehmen. Farben nur aus der Marke, fehlende Rollen leer lassen.
+2. Das nächste Preset wählen (`technisch`, `freudig`, `ruhig`, `edel`, Tabelle unten) und alle Werte davon übernehmen. Farben nur aus der Marke, fehlende Rollen leer lassen.
 3. Nur abweichen, wo die Quelle es verlangt. Jede Abweichung in einem Satz begründen.
 4. Jeden Wert im erlaubten Bereich halten. Paare (`-min` und `-max`) so setzen, dass `min ≤ max`.
+
+| Preset | Charakter | passt zu |
+|---|---|---|
+| `technisch` | präzise Systemschrift, dünne Linien, kleine Radien, keine Schatten, gedämpfte Stufen | Technik, Handwerk mit System, Beratung, Software |
+| `freudig` | kräftige Überschriften, grosse Sprünge, Pillen, weiche Schatten, satte Farben | Kinder, Freizeit, Gastronomie, Kampagnen |
+| `ruhig` | leichte Serife, viel Zeilenabstand, sehr grosse Sections, Pillen, gedeckte Farben | Yoga, Gesundheit, Therapie, Natur |
+| `edel` | grosse, leichte Serife mit hohem Kontrast, sehr viel Weissraum, schmaler Inhalt, eckig, feine Linien, stark gedämpfte Stufen | Mode, Schmuck, Hotel, Architektur, Immobilien |
 
 ## Einheiten
 
@@ -192,7 +199,6 @@ Nicht in ACSS, hier zusätzlich: `--grid-auto-min`, `--border-size-strong`, `--b
 
 - [Offen] Welche Rolle aus dem Hub ist der Seitenhintergrund? Heute: `--body-bg-color` = `--bg-ultra-light`, das aus `--bg-light` mit 60% Weiss gerechnet wird. Soll die Seite genau `--bg-light` zeigen, `--body-bg-color: var(--bg-light)` setzen oder eine eigene Rolle im Hub einführen.
 - [Offen] Sprünge wie `--h1-to-h4` und `--space-xxl-to-m` aus ACSS fehlen noch. Erst bauen, wenn eine Site sie braucht.
-- [Offen] Preset «edel» aus dem Konzept.
 
 ## Prüfen
 

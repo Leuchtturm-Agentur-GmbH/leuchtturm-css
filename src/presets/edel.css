@@ -1,0 +1,51 @@
+/*
+	Preset «edel»: grosse, leichte Überschriften mit kontrastreicher Serife, sehr viel Weissraum, schmaler Inhalt, eckige
+	Formen, feine Linien, kaum sichtbare Schatten, stark gedämpfte Farbstufen. Wie Mode, Schmuck, Hotel, Architektur.
+	Vollständiger Satz von Grundwerten ohne Farben (die kommen aus der Marke). Nach leuchtturm.css einbinden. Doku: docs/grundwerte.md
+*/
+
+@layer grundwerte {
+	:root {
+		--vw-min: 360;
+		--vw-max: 1440;
+
+		--type-min: 16;
+		--type-max: 19;
+		--type-ratio-min: 1.2;
+		--type-ratio-max: 1.333;
+		--heading-weight: 400;
+		--heading-tracking: 0.01;
+		--heading-leading: 1.1;
+		--text-leading: 1.7;
+		--heading-font-family: Didot, 'Bodoni 72', 'Bodoni Moda', 'Playfair Display', 'Times New Roman', serif;
+		--text-font-family: Optima, Candara, 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+
+		--space-min: 20;
+		--space-max: 32;
+		--space-ratio: 1.6;
+		--section-min: 96;
+		--section-max: 208;
+
+		--radius-base: 0;
+		--line-width: 1;
+		--line-width-strong: 1;
+
+		--shadow-y: 6;
+		--shadow-blur: 32;
+		--shadow-opacity: 0.05;
+
+		/* Buttons */
+		--btn-radius-base: 0;
+		--btn-weight: 400;
+
+		--shade-ultra-light: 0.95;
+		--shade-light: 0.8;
+		--shade-dark: 0.4;
+		--shade-ultra-dark: 0.8;
+		--color-saturation: 0.5;
+
+		--content-max: 1120;
+		--gutter-min: 24;
+		--gutter-max: 112;
+	}
+}
