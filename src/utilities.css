@@ -1,5 +1,5 @@
 /*
-	Hilfsklassen: Flächen bg--* und .smart-spacing.
+	Hilfsklassen: Flächen bg--*, .hidden-accessible und .smart-spacing.
 
 	Flächen wie in ACSS: .bg--ultra-light, .bg--light, .bg--dark, .bg--ultra-dark.
 	Jede Klasse setzt den Hintergrund und stellt die Kontext-Tokens um. Alles darin passt sich an,
@@ -49,6 +49,22 @@
 	}
 	.bg--ultra-dark {
 		background-color: var(--bg-ultra-dark);
+	}
+
+	/*
+		Nur für Screenreader, Name wie in ACSS: unsichtbar, aber vorgelesen (Beschriftung von Icons, Überschrift einer
+		Navigation). Mit Fokus wieder sichtbar, damit ein Link «Zum Inhalt» beim Tabben erscheint.
+	*/
+	.hidden-accessible:not(:focus, :focus-within) {
+		position: absolute;
+		inline-size: 1px;
+		block-size: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip-path: inset(50%);
+		border: 0;
+		white-space: nowrap;
 	}
 
 	/*

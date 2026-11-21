@@ -21,7 +21,7 @@ Grundwerte, Tokens, Presets, Reset, Grundstile, Sections, `.smart-spacing`, Flä
 - `src/base.css`: Layer `base`, Grundstile für Seite, Überschriften, Text, Links, Listen, Zitate, Bilder, Formulare und Fokus, nur mit Tokens. Doku: `docs/grundstile.md`.
 - `src/layout.css`: Layer `layout`, Abstand und Breite der Sections wie in ACSS.
 - `src/buttons.css`: Layer `components`, Buttons `btn--{farbe}`, `-light`, `-dark`, `btn--outline`, Grössen. Doku: `docs/buttons.md`.
-- `src/utilities.css`: Layer `utilities`, Flächen `bg--ultra-light`, `bg--light`, `bg--dark`, `bg--ultra-dark` (Doku: `docs/flaechen.md`) und `.smart-spacing`.
+- `src/utilities.css`: Layer `utilities`, Flächen `bg--ultra-light`, `bg--light`, `bg--dark`, `bg--ultra-dark` (Doku: `docs/flaechen.md`), `.hidden-accessible` und `.smart-spacing`.
 - `src/raster.css`: Layer `utilities`, Raster `grid--*` und Breiten `width--*` wie in ACSS. Doku: `docs/raster.md`.
 - `src/presets/`: vollständige Sätze von Grundwerten ohne Farben, `technisch`, `freudig`, `ruhig`, `edel`. Nach `leuchtturm.css` einbinden. Die Farben kommen aus der Marke, Pflicht ist nur `--primary`, fehlende Rollen leitet das CSS ab.
 - `docs/hub-vertrag.md`: Vertrag mit dem Hub. Wie die Marke als `marke.css` in die Site kommt, welche Werte der Hub rechnet und prüft.

@@ -53,6 +53,16 @@ Wie in ACSS bekommt jede `section` (nicht verschachtelt) automatisch:
 
 Darum nie `padding` auf eine Section schreiben. Eine Section mit anderem Abstand setzt `--section-padding-block: var(--section-space-l)` o. ä.
 
+## Nur für Screenreader: `.hidden-accessible` (`src/utilities.css`)
+
+Name wie in ACSS. Unsichtbar, aber vorgelesen: Beschriftung eines Icons, Überschrift einer Navigation, `caption` einer Tabelle. Bekommt das Element oder etwas darin den Fokus, ist es wieder sichtbar, darum geht es auch für einen Link «Zum Inhalt».
+
+```html
+<button class="menu"><svg aria-hidden="true">…</svg><span class="hidden-accessible">Menü</span></button>
+```
+
+Nicht für Inhalt, der für alle versteckt sein soll: dafür `hidden`.
+
 ## Rich Content: `.smart-spacing` (`src/utilities.css`)
 
 Für Text aus einem Editor, Blogartikel, rechtliche Seiten. Die Klasse auf den umgebenden Block:
