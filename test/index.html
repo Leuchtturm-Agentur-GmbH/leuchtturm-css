@@ -673,6 +673,11 @@
 						.join('');
 					el.append(zeile);
 				}
+				const weiss = document.createElement('div');
+				weiss.className = 'knoepfe';
+				weiss.innerHTML =
+					'<a href="#buttons" class="btn--white">white</a><a href="#buttons" class="btn--white btn--outline">white outline</a>';
+				el.append(weiss);
 			}
 
 			// Werte in px anzeigen: ein Messelement pro Token

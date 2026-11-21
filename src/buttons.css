@@ -1,7 +1,7 @@
 /*
 	Buttons wie in ACSS: .btn--{farbe}, .btn--{farbe}-light, .btn--{farbe}-dark, dazu .btn--outline und die Grössen
 	.btn--xs, .btn--s, .btn--l, .btn--xl, .btn--xxl. Farben: primary, secondary, tertiary, accent, action, base, neutral,
-	dazu die semantischen success, danger, warning, info.
+	dazu die semantischen success, danger, warning, info, und white für dunkle Flächen.
 	Doku: docs/buttons.md
 
 	Jede Farbklasse setzt nur die Variablen --btn-background, --btn-text-color, --btn-border-color (je mit -hover).
@@ -42,7 +42,8 @@
 		.btn--warning-dark,
 		.btn--info,
 		.btn--info-light,
-		.btn--info-dark
+		.btn--info-dark,
+		.btn--white
 	) {
 		display: inline-flex;
 		gap: 0.5em;
@@ -389,6 +390,20 @@
 		--btn-border-color: var(--info-dark);
 		--btn-border-color-hover: var(--info-ultra-dark);
 		--btn-outline-color: var(--info-dark);
+	}
+
+	/*
+		Weiss wie in ACSS, für dunkle Flächen und Bilder. Mit btn--outline: Rahmen und Text weiss, beim Hover gefüllt.
+		Weiss ist fest (--white), darum auch der Text darauf (--text-dark), unabhängig von der Fläche.
+	*/
+	.btn--white {
+		--btn-background: var(--white);
+		--btn-background-hover: var(--neutral-ultra-light);
+		--btn-text-color: var(--text-dark);
+		--btn-text-color-hover: var(--text-dark);
+		--btn-border-color: var(--white);
+		--btn-border-color-hover: var(--neutral-ultra-light);
+		--btn-outline-color: var(--white);
 	}
 
 	/* Outline: durchsichtig mit Rahmen und Text in der Farbe, beim Hover gefüllt. Steht nach den Farben, damit es gewinnt.

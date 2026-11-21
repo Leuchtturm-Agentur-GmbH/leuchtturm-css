@@ -465,6 +465,7 @@ export function pruefen({ grundwerte, basis, site }) {
 		varianten.push([`--${rolle}-ultra-dark`, `--${rolle}-light`, `btn--${rolle}-light`]);
 		varianten.push([`--${rolle}-ultra-light`, `--${rolle}-dark`, `btn--${rolle}-dark`]);
 	}
+	varianten.push(['--text-dark', '--white', 'btn--white']);
 	paarePruefen(
 		[
 			['--text-dark-muted', '--body-bg-color', 'Gedämpfter Text auf der Seite'],
