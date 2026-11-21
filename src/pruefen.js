@@ -466,6 +466,9 @@ export function pruefen({ grundwerte, basis, site }) {
 		varianten.push([`--${rolle}-ultra-light`, `--${rolle}-dark`, `btn--${rolle}-dark`]);
 	}
 	varianten.push(['--text-dark', '--white', 'btn--white']);
+	varianten.push(['--focus-color', '--body-bg-color', 'Fokus auf der Seite', 3]);
+	varianten.push(['--_focus-color-dark', '--bg-dark', 'Fokus auf bg--dark', 3]);
+	varianten.push(['--_focus-color-dark', '--bg-ultra-dark', 'Fokus auf bg--ultra-dark', 3]);
 	paarePruefen(
 		[
 			['--text-dark-muted', '--body-bg-color', 'Gedämpfter Text auf der Seite'],

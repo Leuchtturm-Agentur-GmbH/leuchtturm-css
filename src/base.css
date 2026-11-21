@@ -23,7 +23,7 @@
 
 	:where(:focus-visible) {
 		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: 0.2em;
+		outline-offset: var(--focus-offset);
 	}
 
 	/* Überschriften */

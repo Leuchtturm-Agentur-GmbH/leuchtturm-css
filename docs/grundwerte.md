@@ -189,7 +189,7 @@ Stufen, `-hover`, `-text` und Buttons wie bei den Rollen. `--color-saturation` g
 - Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--radius-circle` (Pille, 50vw), `--radius-50` (Kreis, 50%), `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Buttons: `--btn-*`, siehe [buttons.md](buttons.md).
-- Grundstile: `--paragraph-spacing`, `--heading-spacing`, `--list-indent-spacing`, `--list-item-spacing`, `--section-padding-block`, `--section-padding-inline`, `--link-*`, `--focus-color`, `--focus-width`, `--blockquote-*`, siehe [grundstile.md](grundstile.md).
+- Grundstile: `--paragraph-spacing`, `--heading-spacing`, `--list-indent-spacing`, `--list-item-spacing`, `--section-padding-block`, `--section-padding-inline`, `--link-*`, `--focus-color`, `--focus-width`, `--focus-offset`, `--blockquote-*`, siehe [grundstile.md](grundstile.md).
 - Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` und für `success`, `danger`, `warning`, `info` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
 - Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 
@@ -226,7 +226,7 @@ npm run pruefen -- src/presets/ruhig.css pfad/zu/marke.css
 - `--{rolle}-text-light` nicht die Seite mit dem höheren Kontrast. Bei einer abgeleiteten Rolle steht der Fehler bei der Quelle.
 - Kontrast unter 4.5 (WCAG AA): `--text-dark` auf Seite, `bg--light` und `bg--ultra-light`, `--text-light` auf `bg--dark` und `bg--ultra-dark`, Links auf Seite, `bg--light` und `bg--dark`, Text auf `btn--action`.
 
-**Hinweise** (Varianten, die eine Site wählt): Text auf `btn--{farbe}`, `-light` und `-dark` für jede Farbe unter 4.5, gedämpfter Text unter 4.5, Rahmen ungültiger Felder (`--danger` auf Weiss) unter 3, `--primary-ultra-light` auf der Seite unter 1.04 (Fläche kaum sichtbar; bei hellen Marken wie Gelb nicht zu ändern).
+**Hinweise** (Varianten, die eine Site wählt): Text auf `btn--{farbe}`, `-light` und `-dark` für jede Farbe und auf `btn--white` unter 4.5, gedämpfter Text unter 4.5, Fokus auf der Seite, `bg--dark` und `bg--ultra-dark` unter 3, Rahmen ungültiger Felder (`--danger` auf Weiss) unter 3, `--primary-ultra-light` auf der Seite unter 1.04 (Fläche kaum sichtbar; bei hellen Marken wie Gelb nicht zu ändern).
 
 Die Farben rechnet das Skript wie der Browser aus den Formeln in `src/tokens.css` (`var()`, `calc()`, `color-mix()` in oklab und oklch), auch die abgeleiteten Rollen. Geprüft am Browser: dieselben Hex-Werte.
 

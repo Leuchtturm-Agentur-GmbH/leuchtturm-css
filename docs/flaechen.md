@@ -10,12 +10,14 @@ Wie in ACSS: Eine Klasse auf der Section (oder Karte, Leiste …) setzt den Hint
 </section>
 ```
 
-| Klasse | Hintergrund | Text, Überschriften | gedämpft | Links | Linien |
-|---|---|---|---|---|---|
-| `bg--ultra-light` | `--bg-ultra-light` | `--text-dark` | `--text-dark-muted` | `--action`, Hover `--action-hover` | `--border-color-dark` |
-| `bg--light` | `--bg-light` | `--text-dark` | `--text-dark-muted` | `--action`, Hover `--action-hover` | `--border-color-dark` |
-| `bg--dark` | `--bg-dark` | `--text-light` | `--text-light-muted` | `--action-light`, Hover `--text-light` | `--border-color-light` |
-| `bg--ultra-dark` | `--bg-ultra-dark` | `--text-light` | `--text-light-muted` | `--action-light`, Hover `--text-light` | `--border-color-light` |
+| Klasse | Hintergrund | Text, Überschriften | gedämpft | Links | Linien | Fokus |
+|---|---|---|---|---|---|---|
+| `bg--ultra-light` | `--bg-ultra-light` | `--text-dark` | `--text-dark-muted` | `--action`, Hover `--action-hover` | `--border-color-dark` | `--text-dark` |
+| `bg--light` | `--bg-light` | `--text-dark` | `--text-dark-muted` | `--action`, Hover `--action-hover` | `--border-color-dark` | `--text-dark` |
+| `bg--dark` | `--bg-dark` | `--text-light` | `--text-light-muted` | `--action-light`, Hover `--text-light` | `--border-color-light` | `--action`, wenn hell, sonst `--text-light` |
+| `bg--ultra-dark` | `--bg-ultra-dark` | `--text-light` | `--text-light-muted` | `--action-light`, Hover `--text-light` | `--border-color-light` | wie `bg--dark` |
+
+Fokus auf dunklen Flächen: Ist `--action` hell (`--action-text-light` 0, z. B. Gold oder Gelb), hebt sie sich auf Dunkel ab und wird die Farbe des Fokus. Sonst `--text-light`. Ohne neuen Grundwert. Eine andere Farbe setzt die Site im Layer `site` mit `--focus-color` in `.bg--dark, .bg--ultra-dark`.
 
 Die Klassen setzen dazu `color-scheme`, damit Scrollbalken und Formularfelder des Browsers passen.
 
@@ -26,6 +28,7 @@ Die Klassen (`src/utilities.css`, Layer `utilities`) setzen nicht die Farbe jede
 - `--body-color`, `--heading-color`, `--link-color`, `--link-color-hover` (Namen wie in ACSS)
 - `--body-color-muted` (nicht in ACSS) für gedämpften Text
 - `--border` und `--border-strong`
+- `--focus-color` (Name wie in ACSS)
 
 Die Grundstile (`src/base.css`, Layer `base`, ohne Spezifität) nehmen für Text, Überschriften und Links nur diese Tokens. Darum gilt für Komponenten:
 
@@ -42,5 +45,4 @@ Die Grundstile (`src/base.css`, Layer `base`, ohne Spezifität) nehmen für Text
 ## Offen
 
 - [Offen] Buttons pro Fläche (ACSS: `bg-dark-button`), sobald die Buttons gebaut werden.
-- [Offen] Fokusfarbe pro Fläche.
-- Kontrast der Links auf `bg--light` und `bg--dark` prüft `npm run pruefen`.
+- Kontrast der Links auf `bg--light` und `bg--dark` prüft `npm run pruefen`, den Fokus (mindestens 3) als Hinweis.

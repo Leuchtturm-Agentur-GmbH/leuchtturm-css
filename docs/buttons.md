@@ -27,7 +27,7 @@ Ist die Farbe zu hell für Text (`--{farbe}-text-light` 0, z. B. Gelb), sind Rah
 
 Auf hellen Flächen passen `btn--{farbe}` und `-dark`, auf dunklen `btn--{farbe}` und `-light`. Outline nur mit einer Farbe, die sich vom Hintergrund abhebt: `btn--primary-light btn--outline` ist auf hellem Grund kaum sichtbar, `btn--base` auf `bg--dark` gar nicht.
 
-Fokus: Rahmen in `--heading-color`, darum passt er auf jeder Fläche (`bg--*`).
+Fokus: Rahmen in `--focus-color` der Fläche, darum passt er auf jeder Fläche (`bg--*`), siehe [flaechen.md](flaechen.md).
 
 ## Grundwerte
 

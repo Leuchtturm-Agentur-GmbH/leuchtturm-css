@@ -33,7 +33,7 @@
 		--link-color-hover: var(--text-light);
 		--border: var(--border-size) var(--border-style) var(--border-color-light);
 		--border-strong: var(--border-size-strong) var(--border-style) var(--text-light);
-		--focus-color: var(--text-light);
+		--focus-color: var(--_focus-color-dark);
 		color: var(--body-color);
 		color-scheme: dark;
 	}

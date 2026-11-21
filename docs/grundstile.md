@@ -28,7 +28,7 @@ Alle Regeln ohne Spezifität (`:where()`), in eigenen Layern. Komponenten (`comp
 | `figure` mit Bild | Bild volle Breite mit Radius, Legende klein und gedämpft | `--radius` |
 | `input`, `select`, `textarea` | volle Breite, Rahmen in `--neutral`, Radius, immer hell mit dunklem Text. Ungültig (`:user-invalid`, erst nach der Eingabe, oder `aria-invalid="true"`): Rahmen in `--danger` | `--danger` |
 | `label`, `legend` | Gewicht wie Buttons, Label als Block | `--btn-font-weight` |
-| `:focus-visible` | Rahmen in der Farbe der Fläche, mindestens 2px | `--focus-color`, `--focus-width` |
+| `:focus-visible` | Rahmen in der Farbe der Fläche, mindestens 2px, mit Abstand. Auf dunklen Flächen `--action`, wenn sie hell ist ([flaechen.md](flaechen.md)) | `--focus-color`, `--focus-width`, `--focus-offset` |
 | `::selection` | Markierung in `--primary-light` | |
 | `small`, `code`, `hr` | Grösse, Monospace, Linie | |
 

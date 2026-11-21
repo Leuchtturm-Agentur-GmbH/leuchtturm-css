@@ -318,9 +318,14 @@
 		--link-weight: inherit;
 		--link-transition: color 0.15s;
 
-		/* Fokus: Farbe hängt von der Fläche ab (bg--*), Breite mindestens 2px. --focus-width ist nicht in ACSS. */
+		/*
+			Fokus wie in ACSS: Farbe hängt von der Fläche ab (bg--*), Breite mindestens 2px.
+			Auf dunklen Flächen --action, wenn sie hell ist (--action-text-light 0, z. B. Gold), sonst --text-light.
+		*/
 		--focus-color: var(--text-dark);
 		--focus-width: max(2px, var(--border-size-strong));
+		--focus-offset: 0.2em;
+		--_focus-color-dark: color-mix(in oklab, var(--text-light) calc(var(--action-text-light) * 100%), var(--action));
 
 		/*
 			Zitate. Farben, die von der Fläche abhängen (Text, Fussnote), haben kein Token auf :root:
