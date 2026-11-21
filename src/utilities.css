@@ -1,0 +1,49 @@
+/*
+	Flächen wie in ACSS: .bg--ultra-light, .bg--light, .bg--dark, .bg--ultra-dark.
+	Jede Klasse setzt den Hintergrund und stellt die Kontext-Tokens um. Alles darin passt sich an,
+	auch verschachtelt: eine helle Karte in einer dunklen Section bekommt selbst .bg--light.
+
+	--border und --border-strong werden hier neu gesetzt, weil ein Token auf :root seine Farbe dort festlegt
+	und sie beim Erben nicht mehr ändert.
+*/
+
+@layer utilities {
+	.bg--ultra-light,
+	.bg--light {
+		--body-color: var(--text-dark);
+		--heading-color: var(--text-dark);
+		--body-color-muted: var(--text-dark-muted);
+		--link-color: var(--action);
+		--link-color-hover: var(--action-hover);
+		--border: var(--border-size) var(--border-style) var(--border-color-dark);
+		--border-strong: var(--border-size-strong) var(--border-style) var(--text-dark);
+		color: var(--body-color);
+		color-scheme: light;
+	}
+
+	.bg--dark,
+	.bg--ultra-dark {
+		--body-color: var(--text-light);
+		--heading-color: var(--text-light);
+		--body-color-muted: var(--text-light-muted);
+		--link-color: var(--action-light);
+		--link-color-hover: var(--text-light);
+		--border: var(--border-size) var(--border-style) var(--border-color-light);
+		--border-strong: var(--border-size-strong) var(--border-style) var(--text-light);
+		color: var(--body-color);
+		color-scheme: dark;
+	}
+
+	.bg--ultra-light {
+		background-color: var(--bg-ultra-light);
+	}
+	.bg--light {
+		background-color: var(--bg-light);
+	}
+	.bg--dark {
+		background-color: var(--bg-dark);
+	}
+	.bg--ultra-dark {
+		background-color: var(--bg-ultra-dark);
+	}
+}

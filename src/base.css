@@ -1,0 +1,50 @@
+/*
+	Grundstile: nur Farbe und Schrift von Seite, Überschriften und Links, ohne Spezifität (:where).
+	Farben nur über die Kontext-Tokens (--body-color, --heading-color, --link-color …),
+	damit die Klassen bg--* alles darin umstellen. Reset und Abstände kommen später.
+*/
+
+@layer base {
+	:where(body) {
+		background-color: var(--body-bg-color);
+		color: var(--body-color);
+		font-family: var(--text-font-family);
+		font-size: var(--text-m);
+		line-height: var(--text-line-height);
+	}
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		color: var(--heading-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-font-weight);
+		letter-spacing: var(--heading-letter-spacing);
+		line-height: var(--heading-line-height);
+		text-wrap: balance;
+	}
+
+	:where(h1) {
+		font-size: var(--h1);
+	}
+	:where(h2) {
+		font-size: var(--h2);
+	}
+	:where(h3) {
+		font-size: var(--h3);
+	}
+	:where(h4) {
+		font-size: var(--h4);
+	}
+	:where(h5) {
+		font-size: var(--h5);
+	}
+	:where(h6) {
+		font-size: var(--h6);
+	}
+
+	:where(a) {
+		color: var(--link-color);
+	}
+	:where(a:hover) {
+		color: var(--link-color-hover);
+	}
+}

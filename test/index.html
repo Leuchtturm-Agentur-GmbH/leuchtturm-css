@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../src/leuchtturm.css" />
 		<link rel="stylesheet" id="preset" href="../src/presets/technisch.css" />
 		<style>
-			/* Nur für die Testseite, nur mit Tokens. Reset und Grundstile kommen später. */
+			/* Nur für die Testseite, nur mit Tokens. Farben und Schrift kommen aus base.css und den Klassen bg--*. */
 			@layer site {
 				*,
 				*::before,
@@ -16,11 +16,6 @@
 				}
 				body {
 					margin: 0;
-					background: var(--body-bg-color);
-					color: var(--text-dark);
-					font-family: var(--text-font-family);
-					font-size: var(--text-m);
-					line-height: var(--text-line-height);
 				}
 				h1,
 				h2,
@@ -29,31 +24,8 @@
 				h5,
 				h6 {
 					margin: 0;
-					font-family: var(--heading-font-family);
-					font-weight: var(--heading-font-weight);
-					letter-spacing: var(--heading-letter-spacing);
-					line-height: var(--heading-line-height);
-					text-wrap: balance;
 					hyphens: auto;
 					overflow-wrap: break-word;
-				}
-				h1 {
-					font-size: var(--h1);
-				}
-				h2 {
-					font-size: var(--h2);
-				}
-				h3 {
-					font-size: var(--h3);
-				}
-				h4 {
-					font-size: var(--h4);
-				}
-				h5 {
-					font-size: var(--h5);
-				}
-				h6 {
-					font-size: var(--h6);
 				}
 				p {
 					margin: 0;
@@ -90,8 +62,6 @@
 					gap: var(--space-s);
 					align-items: center;
 					padding: var(--space-xs) var(--gutter);
-					background: var(--bg-dark);
-					color: var(--text-light);
 					font-size: var(--text-s);
 				}
 				.leiste button {
@@ -109,13 +79,10 @@
 				}
 				.leiste output {
 					margin-inline-start: auto;
-					color: var(--text-light-muted);
+					color: var(--body-color-muted);
 				}
 
 				/* Muster */
-				.hero {
-					background: var(--bg-light);
-				}
 				.eyebrow {
 					color: var(--primary);
 					font-size: var(--text-s);
@@ -124,7 +91,7 @@
 					text-transform: uppercase;
 				}
 				.lead {
-					color: var(--text-dark-muted);
+					color: var(--body-color-muted);
 					font-size: var(--text-l);
 				}
 				.knopf {
@@ -147,23 +114,14 @@
 					padding: var(--space-l);
 					border: var(--border);
 					border-radius: var(--radius-l);
-					background: var(--white);
 					box-shadow: var(--box-shadow-2);
 				}
 				.karte--primary {
 					border-color: transparent;
 					background: var(--primary-ultra-light);
 				}
-				.karte--dunkel {
-					border-color: var(--border-color-light);
-					background: var(--bg-dark);
-					color: var(--text-light);
-				}
-				.karte--dunkel p {
-					color: var(--text-light-muted);
-				}
 				.karte p {
-					color: var(--text-dark-muted);
+					color: var(--body-color-muted);
 				}
 
 				/* Skalen */
@@ -183,7 +141,7 @@
 				}
 				.skala code,
 				.wert {
-					color: var(--text-dark-muted);
+					color: var(--body-color-muted);
 					font-family: ui-monospace, Menlo, monospace;
 					font-size: var(--text-xs);
 				}
@@ -224,20 +182,31 @@
 				.farbe > code {
 					align-self: center;
 				}
-				.kontext {
-					display: grid;
-					gap: var(--grid-gap);
-					grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+
+				/* Flächen */
+				.muted {
+					color: var(--body-color-muted);
 				}
-				.kontext > div {
+				.rahmen {
 					padding: var(--space-m);
+					border: var(--border);
 					border-radius: var(--radius);
+				}
+				.flaechen {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+				}
+				.flaechen > div {
+					display: grid;
+					gap: var(--space-s);
+					align-content: start;
+					padding: var(--space-l) var(--gutter);
 				}
 			}
 		</style>
 	</head>
 	<body>
-		<nav class="leiste" aria-label="Presets">
+		<nav class="leiste bg--dark" aria-label="Presets">
 			<strong>Preset</strong>
 			<button type="button" data-preset="">Standard</button>
 			<button type="button" data-preset="technisch">technisch</button>
@@ -247,7 +216,7 @@
 		</nav>
 
 		<main>
-			<section class="hero">
+			<section class="hero bg--light">
 				<div>
 					<div class="stack">
 						<p class="eyebrow">Atelier für Yoga</p>
@@ -258,17 +227,17 @@
 						<a class="knopf" href="#skalen">Skalen ansehen</a>
 					</div>
 					<div class="grid-3">
-						<article class="karte">
+						<article class="karte bg--ultra-light">
 							<h3>Kurse</h3>
-							<p>Karte mit Rahmen, Radius l und Schatten 2. Der Text ist gedämpft (text-dark-muted).</p>
+							<p>bg--ultra-light, mit Rahmen, Radius l und Schatten 2. Der Text ist gedämpft (body-color-muted).</p>
 						</article>
 						<article class="karte karte--primary">
 							<h3>Einzelstunden</h3>
-							<p>Fläche in primary-ultra-light, ohne Rahmen.</p>
+							<p>Fläche in primary-ultra-light, ohne Klasse bg--*: Farben aus der Section.</p>
 						</article>
-						<article class="karte karte--dunkel">
+						<article class="karte bg--dark">
 							<h3>Retreats</h3>
-							<p>Dunkle Fläche bg-dark mit text-light und text-light-muted.</p>
+							<p>bg--dark in einer hellen Section: Überschrift, Text und Rahmen stellen sich selbst um.</p>
 						</article>
 					</div>
 				</div>
@@ -323,25 +292,54 @@
 						<p>Pro Rolle: Grundwert, dann ultra-light bis ultra-dark und hover.</p>
 						<div class="farben" id="farben"></div>
 					</div>
+				</div>
+			</section>
+			<section id="flaechen">
+				<div>
 					<div class="stack">
-						<h3>Kontext</h3>
-						<div class="kontext">
-							<div style="background: var(--bg-ultra-light); border: var(--border)">
-								bg-ultra-light <span style="color: var(--text-dark-muted)">text-dark-muted</span>
-							</div>
-							<div style="background: var(--bg-light)">
-								bg-light <span style="color: var(--text-dark-muted)">text-dark-muted</span>
-							</div>
-							<div style="background: var(--bg-dark); color: var(--text-light)">
-								bg-dark <span style="color: var(--text-light-muted)">text-light-muted</span>
-							</div>
-							<div style="background: var(--bg-ultra-dark); color: var(--text-light)">
-								bg-ultra-dark <span style="color: var(--text-light-muted)">text-light-muted</span>
-							</div>
-						</div>
+						<h2>Flächen</h2>
+						<p>Klassen bg--*: Text, Überschriften, Links und Linien passen sich an, auch verschachtelt.</p>
 					</div>
 				</div>
 			</section>
+			<div class="flaechen">
+				<div class="bg--ultra-light">
+					<h3>bg--ultra-light</h3>
+					<p>
+						Fliesstext in body-color, <span class="muted">gedämpft in body-color-muted</span>, mit
+						<a href="#flaechen">einem Link</a>.
+					</p>
+					<div class="rahmen">Kasten mit --border</div>
+					<div class="rahmen bg--dark">Verschachtelt: bg--dark, mit <a href="#flaechen">Link</a></div>
+				</div>
+				<div class="bg--light">
+					<h3>bg--light</h3>
+					<p>
+						Fliesstext in body-color, <span class="muted">gedämpft in body-color-muted</span>, mit
+						<a href="#flaechen">einem Link</a>.
+					</p>
+					<div class="rahmen">Kasten mit --border</div>
+					<div class="rahmen bg--dark">Verschachtelt: bg--dark, mit <a href="#flaechen">Link</a></div>
+				</div>
+				<div class="bg--dark">
+					<h3>bg--dark</h3>
+					<p>
+						Fliesstext in body-color, <span class="muted">gedämpft in body-color-muted</span>, mit
+						<a href="#flaechen">einem Link</a>.
+					</p>
+					<div class="rahmen">Kasten mit --border</div>
+					<div class="rahmen bg--light">Verschachtelt: bg--light, mit <a href="#flaechen">Link</a></div>
+				</div>
+				<div class="bg--ultra-dark">
+					<h3>bg--ultra-dark</h3>
+					<p>
+						Fliesstext in body-color, <span class="muted">gedämpft in body-color-muted</span>, mit
+						<a href="#flaechen">einem Link</a>.
+					</p>
+					<div class="rahmen">Kasten mit --border</div>
+					<div class="rahmen bg--light">Verschachtelt: bg--light, mit <a href="#flaechen">Link</a></div>
+				</div>
+			</div>
 		</main>
 
 		<script>

@@ -138,8 +138,9 @@ Fehlt eine Rolle in der Marke, bleibt der Standardwert. Besser: die Rolle im Hub
 - Form: `--radius`, `--radius-s`, `--radius-m`, `--radius-l`, `--radius-xl`, `--border-size`, `--border-style`, `--border-color-dark`, `--border-color-light`, `--border`.
 - Tiefe: `--box-shadow-1`, `--box-shadow-2`, `--box-shadow-3`.
 - Farben: pro Rolle `primary`, `secondary`, `tertiary`, `accent`, `action`, `base`, `neutral` die Stufen `-ultra-light`, `-light`, `-semi-light`, `-semi-dark`, `-dark`, `-ultra-dark`, `-hover`. Dazu `--white`, `--black`, `--bg-ultra-light`, `--bg-ultra-dark`, `--body-bg-color`, `--text-dark-muted`, `--text-light-muted`.
+- Farben, die von der Fläche abhängen: `--body-color`, `--heading-color`, `--body-color-muted`, `--link-color`, `--link-color-hover`. Die Klassen `bg--*` stellen sie um, siehe [flaechen.md](flaechen.md).
 
-Nicht in ACSS, hier zusätzlich: `--border-size-strong` und `--border-strong`. Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
+Nicht in ACSS, hier zusätzlich: `--border-size-strong`, `--border-strong` und `--body-color-muted`. Die Zwischenwerte `--text-l-min`, `--text-l-max` usw. sind unitless px. Was mit `_` beginnt (`--_rem`, `--_fluid`, `--_primary` …), ist intern.
 
 ## Offen
 

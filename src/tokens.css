@@ -321,5 +321,16 @@
 		--body-bg-color: var(--bg-ultra-light);
 		--text-dark-muted: color-mix(in oklab, var(--text-dark) 75%, transparent);
 		--text-light-muted: color-mix(in oklab, var(--text-light) 75%, transparent);
+
+		/*
+			Farben, die von der Fläche abhängen. Die Klassen bg--* (utilities.css) setzen sie neu,
+			darum verweisen Grundstile und Komponenten für Text, Überschriften, Links und Linien nur auf diese.
+		*/
+		--body-color: var(--text-dark);
+		--heading-color: var(--text-dark);
+		/* nicht in ACSS: gedämpfter Text, passend zur Fläche */
+		--body-color-muted: var(--text-dark-muted);
+		--link-color: var(--action);
+		--link-color-hover: var(--action-hover);
 	}
 }
